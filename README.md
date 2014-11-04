@@ -6,6 +6,7 @@ Embed Google's Rubik's Cube Doodle in an HTML5 div. All you need is to embed Jav
 How to Use
 ==================
 
-1. Put googlecubeembed.js in your head tag as the src attribute of the script.
-2. Make a div with class "googlecubeembed."
-3. Sit back and solve!
+1. Include jQuery 1.11.1+ if you haven't already.
+2. Put <script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script> in the head tag.
+3. Make a div: <div class="googlecubeembed"></div>
+4. Sit back and cube on!
