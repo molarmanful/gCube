@@ -327,6 +327,6 @@ $(document).ready(function(){
   window.cube = new Cube();
   cube.twistDuration = 100;
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/cube.css">');
+  $('cube').append(cube.domElement);
   $('div.sticker.white.stickerLogo').remove();
-  $('.googlecubeembed').append(cube.domElement);
 });
