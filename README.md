@@ -10,5 +10,5 @@ How to Use
 
 1. Include jQuery 1.11.1+ if you haven't already.
 2. Put ```<script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
-3. Make a div and style it however you want: ```<div class="googlecubeembed"></div>```.
+3. Make a "cube" tag and style it however you want: ```<cube></cube>```.
 4. Sit back and cube on!
