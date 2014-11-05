@@ -332,7 +332,7 @@ $(document).ready(function(){
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
   	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
-  		$(this).style({
+  		$(this).css({
   			'height': '200px',
   			'width': '200px'
   		});
