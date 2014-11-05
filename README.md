@@ -20,6 +20,7 @@ Example code:
 <cube speed="" initcontrols="true" scramble="" alg=""></cube>
 ```
 | Attribute | Description |
+|-----------|-------------|
 | _speed_ | Number. Milliseconds needed to perform a turn. Defaults to 1000. |
 | _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Required for _alg_ attribute. |
 | _scramble_ | String. Use Singmaster notation to scramble, and put spaces between moves. |
