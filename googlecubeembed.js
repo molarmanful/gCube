@@ -366,6 +366,5 @@ $(document).ready(function(){
   		});
   		
   	}
-  	x++;
   });
 });
