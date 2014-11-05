@@ -1,7 +1,7 @@
 googlecubeembed
 ==================
 
-Embed a Rubik's Cube in an HTML5 div. All you need is to embed Javascript code into the head tag of your HTML5 file.
+Have an online cubing tutorial page? Need an interactive, easy, 3D cube? Embed this Javascript Rubik's Cube in HTML5! All you need to do is to follow the steps below.
 
 Using Google Chrome Cube Lab Code.
 
