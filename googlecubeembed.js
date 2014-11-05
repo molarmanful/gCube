@@ -349,6 +349,9 @@ $(document).ready(function(){
   			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
   				i.replace(/'|`|i/gi, '').toLowerCase();
   			}
+  			if(i.match(/2/gi)){
+  				i.replace('2', '') += i;
+  			}
   		}).join();
   	}
   	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
