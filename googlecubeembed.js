@@ -345,7 +345,7 @@ $(document).ready(function(){
   		window[cubevarx].twistDuration(10).twist(scramble);
   	}
   	if($(this).is('[alg]')){
-  		alg = $(this).attr('alg').trim()..replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
+  		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
   			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
   				i.replace(/'|`|i/gi, '').toLowerCase();
   			}
