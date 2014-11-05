@@ -323,18 +323,17 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }())
-var speed, scramble, alg, initcontrols, x = 0, cubevarx;
+var speed, scramble, alg, initcontrols;
 $(document).ready(function(){
   console.log('<cube> elements initialized.');
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">');
   $('div.sticker.white.stickerLogo').remove();
   $('cube').each(function(e){
-  	cubevarx = 'cube' + x;
-  	window[cubevarx] = new ERNO.Cube();
-  	$(this).append(window[cubevarx].domElement);
+  	window.cube = new ERNO.Cube();
+  	$(this).append(cube.domElement);
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
-  		window[cubevarx].twistDuration(speed);
+  		cube.twistDuration(speed);
   	}
   	if($(this).is('[scramble]')){
   		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
@@ -342,7 +341,7 @@ $(document).ready(function(){
   				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
   			}
   		}).join();
-  		window[cubevarx].twistDuration(10).twist(scramble);
+  		cube.twistDuration(10).twist(scramble);
   	}
   	if($(this).is('[alg]')){
   		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
@@ -359,10 +358,10 @@ $(document).ready(function(){
   		$('.googlecubeembedbutton').click(function(){
   			if($('.googlecubeembedbutton span').text() == 'Play'){
   				$('.googlecubeembedbutton span').text('Revert');
-  				window[cubevarx].twist(alg);
+  				cube.twist(alg);
   			} else {
   				$('.googlecubeembedbutton span').text('Play');
-  				window[cubevarx].twistDuration(10).twist(alg.split('').reverse().join());
+  				cube.twistDuration(10).twist(alg.split('').reverse().join());
   			}
   		});
   		
