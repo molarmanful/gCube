@@ -323,13 +323,43 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }())
+var speed, scramble, alg, initcontrols;
 $(document).ready(function(){
+  console.log('<cube> elements initialized.');
   window.cube = new Cube();
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/cube.css">');
-  $('cube').append(cube.domElement);
   $('div.sticker.white.stickerLogo').remove();
   $('cube').each(function(e){
+  	$(this).append(cube.domElement);
+  	if($(this).is('[speed]')){
+  		speed = $(this).attr('speed');
+  	}
   	if($(this).is('[scramble]')){
+  		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
+  			if(i.match('\'') || i.match('`') || i.match('i')){
+  				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
+  			}
+  		}).join();
+  		cube.twistDuration(10).twist(scramble);
+  	}
+  	if($(this).is('[alg]')){
+  		alg = $(this).attr('alg').trim().split(' ').forEach(function(i){
+  			if(i.match('\'') || i.match('`') || i.match('i')){
+  				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
+  			}
+  		}).join();
+  	}
+  	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
+  		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
+  		$('.googlecubeembedbutton').click(function(){
+  			if($('.googlecubeembedbutton span').text() == 'Play'){
+  				$('.googlecubeembedbutton span').text('Replay');
+  				cube.twist(alg);
+  			} else {
+  				$('.googlecubeembedbutton span').text('Play');
+  				cube.twistDuration(10).twist(alg.split('').reverse().join());
+  			}
+  		});
   		
   	}
   });
