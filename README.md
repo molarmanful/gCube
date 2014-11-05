@@ -10,14 +10,14 @@ How to Use
 
 1. Include jQuery 1.11.1+ if you haven't already.
 2. Put ```<script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
-3. Make and apply CSS to ```<cube></cube>```. There are also optional attributes listed below.
+3. Make and apply CSS to ```<g-cube></g-cube>```. There are also optional attributes listed below.
 4. Sit back and cube on!
 
 <cube> Attributes
 ==================
 Example code:
 ```html
-<cube speed="" initcontrols="true" scramble="B2 F U Bi R D2 L` R` F D` R F` B` D B` Ri F' L` B2 Ri B R` Fi Ui B" alg="[R U R' U'] [R' F] [R2 U' R'] U' [R U R' F']"></cube>
+<g-cube speed="" initcontrols="true" scramble="B2 F U Bi R D2 L` R` F D` R F` B` D B` Ri F' L` B2 Ri B R` Fi Ui B" alg="[R U R' U'] [R' F] [R2 U' R'] U' [R U R' F']"></g-cube>
 ```
 | Attribute | Description |
 |-----------|-------------|
