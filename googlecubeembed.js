@@ -330,7 +330,7 @@ $(document).ready(function(){
   $('div.sticker.white.stickerLogo').remove();
   $('cube').each(function(e){
   	cubevarx = 'cube' + x;
-  	window[cubevarx] = new Cube();
+  	window[cubevarx] = new ERNO.Cube();
   	$(this).append(window[cubevarx].domElement);
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
