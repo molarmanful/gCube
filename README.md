@@ -17,7 +17,7 @@ How to Use
 ==================
 Example code:
 ```html
-<cube speed="" initcontrols="true" scramble="B2 F U B` R D2 L` R` F D` R F` B` D B` R` F` L` B2 R` B R` F` U` B" alg="[R U R' U'] [R' F] [R2 U' R'] U' [R U R' F']"></cube>
+<cube speed="" initcontrols="true" scramble="B2 F U Bi R D2 L` R` F D` R F` B` D B` Ri F' L` B2 Ri B R` Fi Ui B" alg="[R U R' U'] [R' F] [R2 U' R'] U' [R U R' F']"></cube>
 ```
 | Attribute | Description |
 |-----------|-------------|
