@@ -326,7 +326,7 @@
 var speed, scramble, alg, initcontrols, x = 0, cubevarx;
 $(document).ready(function(){
   console.log('<cube> elements initialized.');
-  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/cube.css">');
+  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">');
   $('div.sticker.white.stickerLogo').remove();
   $('cube').each(function(e){
   	cubevarx = 'cube' + x;
