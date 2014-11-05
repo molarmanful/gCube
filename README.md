@@ -9,8 +9,8 @@ How to Use
 ==================
 
 1. Include jQuery 1.11.1+ if you haven't already.
-2. Put ```html <script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
-3. Make and apply CSS to ```html <cube></cube>```. There are also optional attributes listed below.
+2. Put ```<script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
+3. Make and apply CSS to ```<cube></cube>```. There are also optional attributes listed below.
 4. Sit back and cube on!
 
 <cube> Attributes
