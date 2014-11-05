@@ -325,12 +325,18 @@
 }())
 var speed, scramble, alg, initcontrols;
 $(document).ready(function(){
-  console.log('<cube> elements initialized.');
+  console.log('<g-cube> elements initialized.');
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">');
   $('div.sticker.white.stickerLogo').remove();
-  $('cube').each(function(e){
+  $('g-cube').each(function(e){
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
+  	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
+  		$(this).style({
+  			'height': '200px',
+  			'width': '200px'
+  		});
+  	}
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
   		cube.twistDuration(speed);
