@@ -365,7 +365,7 @@ var speed, scramble, alg, initcontrols;
 		  	});
 		  	window.cube = new ERNO.Cube();
 		  	$(this).append(cube.domElement);
-		  	$('.stickerLogo').remove();
+		  	$('div.sticker.white.stickerLogo').remove();
 		  	if($(this).is('[speed]')){
 		  		speed = parseInt($(this).attr('speed'));
 		  		cube.twistDuration(speed);
