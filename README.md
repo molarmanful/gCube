@@ -30,7 +30,9 @@ Example code:
 CSS Defaults
 ==================
 ```Height``` and ```width``` attributes are both ```10%```.
+
 ```position``` is set to ```absolute```.
+
 ```display``` is set to ```block```.
 
 NOTE: Do not Change these parameters, but because ```<g-cube></g-cube>``` is absolute, set ```top```, ```left```, ```right```, and ```bottom``` CSS attributes.
