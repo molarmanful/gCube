@@ -360,8 +360,8 @@ var speed, scramble, alg, initcontrols;
 		  $('g-cube').each(function(e){
 		  	console.log('G-cube loaded.');
 	  		$(this).css({
-		  		'height': '10%', 
-		  		'width': '10%',
+		  		'height': '100%', 
+		  		'width': '100%',
 		  		'position': 'absolute',
 		  		'display': 'block'
 		  	});
