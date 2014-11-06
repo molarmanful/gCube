@@ -27,4 +27,8 @@ Example code:
 | _scramble_ | String. Use Singmaster notation to scramble, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
 | _alg_ | String. Use Singmaster notation to scramble, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
 
-```Height``` and ```width``` attributes are both ```10%``` by default.
+CSS Defaults
+==================
+```Height``` and ```width``` attributes are both ```10%```.
+```position``` is set to ```absolute```.
+```display``` is set to ```block```.
