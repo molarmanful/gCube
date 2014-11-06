@@ -332,11 +332,7 @@ $(document).ready(function(){
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
   	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
-  		$(this).css({
-  			'height': '10%',
-  			'width': '10%',
-  			'position': 'absolute'
-  		});
+  		$(this).height('10%').width('10%');
   	}
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
