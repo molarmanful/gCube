@@ -326,7 +326,7 @@
 var speed, scramble, alg, initcontrols;
 $(document).ready(function(){
   console.log('<g-cube> elements initialized.');
-  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">');
+  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css"><link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/googlecubeembed/googlecubeembed.css">');
   $('div.sticker.white.stickerLogo').remove();
   $('g-cube').each(function(e){
   	window.cube = new ERNO.Cube();
