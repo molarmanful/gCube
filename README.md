@@ -29,10 +29,10 @@ Example code:
 
 CSS Defaults
 ==================
-```Height``` and ```width``` attributes are both ```100%```.
+```Height``` and ```width``` attributes are both ```100%```. You can change this if you want.
 
-```position``` is set to ```absolute```.
+```position``` is set to ```absolute```. Do not change this; instead, make a parent element if you really need to.
 
-```display``` is set to ```block```.
+```display``` is set to ```block```. Do not change this.
 
-NOTE: Do not Change these parameters, but because ```<g-cube></g-cube>``` is absolute, set ```top```, ```left```, ```right```, and ```bottom``` CSS attributes. Maybe put ```<g-cube></g-cube>``` in a parent element.
+You may want to set ```top```, ```left```, ```right```, ```bottom``` CSS attributes.
