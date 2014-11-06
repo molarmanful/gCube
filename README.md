@@ -15,9 +15,6 @@ How to Use
 
 <cube> Attributes
 ==================
-Example cube:
-<g-cube><g-cube>
-
 Example code:
 ```html
 <g-cube speed="" initcontrols="true" scramble="B2 F U Bi R D2 L` R` F D` R F` B` D B` Ri F' L` B2 Ri B R` Fi Ui B" alg="[R U R' U'] [R' F] [R2 U' R'] U' [R U R' F']"></g-cube>
