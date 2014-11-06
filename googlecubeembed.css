@@ -1,1 +1,5 @@
-:host(g-cube){}
+:host(g-cube){
+  display: block;
+  height: 10%;
+  width: 10%;
+}
