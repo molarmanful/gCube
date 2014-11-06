@@ -35,4 +35,4 @@ CSS Defaults
 
 ```display``` is set to ```block```.
 
-NOTE: Do not Change these parameters, but because ```<g-cube></g-cube>``` is absolute, set ```top```, ```left```, ```right```, and ```bottom``` CSS attributes.
+NOTE: Do not Change these parameters, but because ```<g-cube></g-cube>``` is absolute, set ```top```, ```left```, ```right```, and ```bottom``` CSS attributes. Maybe put ```<g-cube></g-cube>``` in a parent element.
