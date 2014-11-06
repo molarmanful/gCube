@@ -359,7 +359,7 @@ var speed, scramble, alg, initcontrols;
 		  $('div.sticker.white.stickerLogo').remove();
 		  $('g-cube').each(function(e){
 		  	console.log('G-cube loaded.');
-		  	$(this).css({
+	  		$(this).css({
 		  		'height': '10%', 
 		  		'width': '10%',
 		  		'position': 'absolute',
