@@ -356,9 +356,7 @@ var speed, scramble, alg, initcontrols;
 		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">', function(){
 		  	console.log('G-cube stylesheets loaded.');
 		  });
-		  $('.stickerLogo').remove();
 		  $('g-cube').each(function(e){
-		  	console.log('G-cube loaded.');
 	  		$(this).css({
 		  		'height': '100%', 
 		  		'width': '100%',
@@ -367,6 +365,7 @@ var speed, scramble, alg, initcontrols;
 		  	});
 		  	window.cube = new ERNO.Cube();
 		  	$(this).append(cube.domElement);
+		  	$('.stickerLogo').remove();
 		  	if($(this).is('[speed]')){
 		  		speed = parseInt($(this).attr('speed'));
 		  		cube.twistDuration(speed);
@@ -402,6 +401,7 @@ var speed, scramble, alg, initcontrols;
 		  		});
 		  		
 		  	}
+		  	console.log('G-cube loaded.');
 		  });
 		});
  
