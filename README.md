@@ -29,7 +29,7 @@ Example code:
 
 CSS Defaults
 ==================
-```Height``` and ```width``` attributes are both ```10%```.
+```Height``` and ```width``` attributes are both ```100%```.
 
 ```position``` is set to ```absolute```.
 
