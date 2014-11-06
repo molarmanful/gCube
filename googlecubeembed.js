@@ -353,7 +353,7 @@ var speed, scramble, alg, initcontrols;
          //jQuery loaded
          console.log('jQuery loaded.');
          $(document).ready(function(){
-		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">', function(){
+		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
 		  	console.log('G-cube stylesheets loaded.');
 		  });
 		  $('g-cube').each(function(e){
