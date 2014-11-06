@@ -356,7 +356,7 @@ var speed, scramble, alg, initcontrols;
 		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css">', function(){
 		  	console.log('G-cube stylesheets loaded.');
 		  });
-		  $('div.sticker.white.stickerLogo').remove();
+		  $('.stickerLogo').remove();
 		  $('g-cube').each(function(e){
 		  	console.log('G-cube loaded.');
 	  		$(this).css({
