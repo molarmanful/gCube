@@ -331,9 +331,6 @@ $(document).ready(function(){
   $('g-cube').each(function(e){
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
-  	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
-  		$(this).height('10%').width('10%');
-  	}
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
   		cube.twistDuration(speed);
