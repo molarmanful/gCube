@@ -354,7 +354,7 @@ var speed, scramble, alg, initcontrols;
          console.log('jQuery loaded.');
          $(document).ready(function(){
 		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
-		  	console.log('G-cube stylesheets loaded.');
+		  	console.log('G-cube stylesheet loaded.');
 		  });
 		  $('g-cube').each(function(e){
 	  		$(this).css({
