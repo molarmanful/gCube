@@ -5,7 +5,6 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="googlecubeembed : Simple Rubik&#39;s Cube visualizer.">
-    <script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -49,10 +48,6 @@
 
 <h1>
 <a id="-attributes" class="anchor" href="#-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a> Attributes</h1>
-<p>Example cube:</p>
-<p style="position: relative; height: 200px; width: 300px">
-  <g-cube style="top: 0"></g-cube>
-</p>
 
 <p>Example code:</p>
 
@@ -85,7 +80,16 @@
 </tbody>
 </table>
 
-<p><code>Height</code> and <code>width</code> attributes are both <code>10%</code> by default.</p>
+<h1>
+<a id="css-defaults" class="anchor" href="#css-defaults" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS Defaults</h1>
+
+<p><code>Height</code> and <code>width</code> attributes are both <code>100%</code>.</p>
+
+<p><code>position</code> is set to <code>absolute</code>.</p>
+
+<p><code>display</code> is set to <code>block</code>.</p>
+
+<p>NOTE: Do not Change these parameters, but because <code>&lt;g-cube&gt;&lt;/g-cube&gt;</code> is absolute, set <code>top</code>, <code>left</code>, <code>right</code>, and <code>bottom</code> CSS attributes. Maybe put <code>&lt;g-cube&gt;&lt;/g-cube&gt;</code> in a parent element.</p>
       </section>
     </div>
 
