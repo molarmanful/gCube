@@ -333,8 +333,8 @@ $(document).ready(function(){
   	$(this).append(cube.domElement);
   	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
   		$(this).css({
-  			'height': '200px',
-  			'width': '200px'
+  			'height': '10%',
+  			'width': '10%'
   		});
   	}
   	if($(this).is('[speed]')){
