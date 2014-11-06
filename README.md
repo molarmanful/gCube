@@ -8,10 +8,11 @@ Using Google Chrome Cube Lab Code.
 How to Use
 ==================
 
-1. Include jQuery 1.11.1+ if you haven't already.
-2. Put ```<script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
-3. Make and apply CSS to ```<g-cube></g-cube>```. There are also optional attributes listed below.
-4. Sit back and cube on!
+1. Put ```<script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>``` in the head tag.
+2. Make and apply CSS to ```<g-cube></g-cube>```. There are also optional attributes listed below.
+3. Sit back and cube on!
+
+```googlecubeembed.js``` includes jQuery 1.11.1 if the page does not have jQuery.
 
 <cube> Attributes
 ==================
