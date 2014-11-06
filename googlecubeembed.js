@@ -334,7 +334,8 @@ $(document).ready(function(){
   	if(!($(this).is('[style]')) || $(this).attr('style') == ''){
   		$(this).css({
   			'height': '10%',
-  			'width': '10%'
+  			'width': '10%',
+  			'position': 'absolute'
   		});
   	}
   	if($(this).is('[speed]')){
