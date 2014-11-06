@@ -348,15 +348,17 @@ var speed, scramble, alg, initcontrols;
         document.getElementsByTagName("head")[0].appendChild(script);
     }
  
-    loadScript("https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function () {
+    loadScript("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", function () {
  
          //jQuery loaded
          console.log('jQuery loaded.');
          $(document).ready(function(){
-		  console.log('<g-cube> elements initialized.');
-		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css"><link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/googlecubeembed/googlecubeembed.css">');
+		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cube.css"><link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/googlecubeembed/googlecubeembed.css">', function(){
+		  	console.log('G-cube stylesheets loaded.');
+		  });
 		  $('div.sticker.white.stickerLogo').remove();
 		  $('g-cube').each(function(e){
+		  	console.log('G-cube loaded.');
 		  	window.cube = new ERNO.Cube();
 		  	$(this).append(cube.domElement);
 		  	if($(this).is('[speed]')){
