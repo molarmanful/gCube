@@ -2,17 +2,64 @@
 <html>
   <head>
     <script src="http://molarmanful.github.io/googlecubeembed/googlecubeembed.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <title>Googlecubeembed</title>
     <script>
-      $(document).ready(function){
+      $(document).ready(function(){
         
-      }
+      });
     </script>
     <style>
-      /*#CE0000red #C6CFD6lightgreyblue #E7E7EFlightgreyerblue #FFFFFFwhite #003031deepblue*/
+      /*colorscheme #CE0000red #C6CFD6lightgreyblue #E7E7EFlightgreyerblue #FFFFFFwhite #003031deepblue*/
+      /*
+      template {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: ;
+        color: ;
+        font-family: '';
+        font-size: ;
+      }
+      */
+      @font-face {
+        font-family: 'KubicsRube';
+        src: URL('https://dl.dropboxusercontent.com/s/fg68v7xbsnh4c7f/KubicsRube.ttf') format ('ttf');
+      }
+      html, noscript, wscript {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: ;
+        color: ;
+        font-family: 'Montserrat';
+        font-size: ;
+      }
+      h1 {
+        font-family: 'KubicsRube';
+      }
+      wscript {
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <g-cube></g-cube>
+    <noscript align="center">
+      <h1>NO JAVASCRIPT = NO CUBE!</h1>
+      <h2>Sorry about that. Googlecubeembed runs on JAVASCRIPT.</h2>
+    </noscript>
+    <div id="wscript" align="center">
+      <div id="header">
+        
+      </div>
+    </div>
   </body>
 </html>
