@@ -389,6 +389,8 @@ var speed, scramble, alg, initcontrols;
 		  	}
 		  	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
 		  		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
+		  		cube.keyboardControlsEnabled = false;
+		  		cube.mouseControlsEnabled = false;
 		  		$('.googlecubeembedbutton').click(function(){
 		  			if($('.googlecubeembedbutton span').text() == 'Play'){
 		  				$('.googlecubeembedbutton span').text('Revert');
