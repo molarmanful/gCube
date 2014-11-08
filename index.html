@@ -9,6 +9,11 @@
     <script>
       $(document).ready(function(){
         $('#wscript').fadeIn(1000);
+        $('div.faceLabel.fadeIn:contains("FRONT")').text('GOOGLECUBEEMBED').css({
+          'color': '#ce0000';
+        });
+        $('div.faceLabel.fadeIn:not(div.faceLabel.fadeIn:contains("FRONT"))').remove();
+        $('.faceLabel').fadeIn(500);
       });
     </script>
     <style>
@@ -44,15 +49,6 @@
       h1 {
         font-family: 'Rubik One';
       }
-      #gcubeh1 {
-        height: 10%;
-        width: 100%;
-        position: absolute;
-        top: 85%;
-        left: 0;
-        right: 0;
-        color: #CE0000;
-      }
       #wscript {
         display: none;
       }
@@ -65,8 +61,7 @@
     </noscript>
     <div id="wscript" align="center">
       <div id="header">
-        <g-cube height="90% !important"></g-cube>
-        <h1 id="gcubeh1">GOOGLECUBEEMBED</h1>
+        <g-cube></g-cube>
       </div>
     </div>
   </body>
