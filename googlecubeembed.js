@@ -324,89 +324,63 @@
 	window.THREE = window.THREE || THREE;
 }())
 var speed, scramble, alg, initcontrols;
-(function () {
- 
-    function loadScript(url, callback) {
- 
-        var script = document.createElement("script")
-        script.type = "text/javascript";
- 
-        if (script.readyState) { //IE
-            script.onreadystatechange = function () {
-                if (script.readyState == "loaded" || script.readyState == "complete") {
-                    script.onreadystatechange = null;
-                    callback();
-                }
-            };
-        } else { //Others
-            script.onload = function () {
-                callback();
-            };
-        }
- 
-        script.src = url;
-        document.getElementsByTagName("head")[0].appendChild(script);
-    }
- 
-    loadScript("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", function () {
- 
-         //jQuery loaded
-         console.log('jQuery loaded.');
-         $(document).ready(function(){
-		  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
-		  	console.log('G-cube stylesheet loaded.');
-		  });
-		  $('g-cube').each(function(e){
-	  		$(this).css({
-		  		'height': '100%', 
-		  		'width': '100%',
-		  		'position': 'absolute',
-		  		'display': 'block'
-		  	});
-		  	window.cube = new ERNO.Cube();
-		  	$(this).append(cube.domElement);
-		  	if($(this).is('[speed]')){
-		  		speed = parseInt($(this).attr('speed'));
-		  		cube.twistDuration(speed);
-		  	}
-		  	if($(this).is('[scramble]')){
-		  		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
-		  			if(i.match('\'') || i.match('`') || i.match('i')){
-		  				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
-		  			}
-		  		}).join();
-		  		cube.twistDuration(10).twist(scramble);
-		  	}
-		  	if($(this).is('[alg]')){
-		  		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
-		  			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
-		  				i.replace(/'|`|i/gi, '').toLowerCase();
-		  			}
-		  			if(i.match(/2/gi)){
-		  				i.replace('2', '') += i;
-		  			}
-		  		}).join();
-		  	}
-		  	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
-		  		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
-		  		cube.keyboardControlsEnabled = false;
-		  		cube.mouseControlsEnabled = false;
-		  		$('.googlecubeembedbutton').click(function(){
-		  			if($('.googlecubeembedbutton span').text() == 'Play'){
-		  				$('.googlecubeembedbutton span').text('Revert');
-		  				cube.twist(alg);
-		  			} else {
-		  				$('.googlecubeembedbutton span').text('Play');
-		  				cube.twistDuration(10).twist(alg.split('').reverse().join());
-		  			}
-		  		});
-		  		
-		  	}
-		  	console.log('G-cube loaded.');
-		  });
-		});
- 
-    });
- 
- 
-})();
+if(!window.jQuery) {
+    var script = document.createElement('script');
+    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    console.log('jQuery loaded.');
+}
+$(document).ready(function(){
+  console.log('jQuery loaded.');
+  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
+  	console.log('G-cube stylesheet loaded.');
+  });
+  $('g-cube').each(function(e){
+  	$(this).css({
+  		'height': '100%', 
+  		'width': '100%',
+  		'position': 'absolute',
+  		'display': 'block'
+  	});
+  	window.cube = new ERNO.Cube();
+  	$(this).append(cube.domElement);
+  	if($(this).is('[speed]')){
+  		speed = parseInt($(this).attr('speed'));
+  		cube.twistDuration(speed);
+  	}
+  	if($(this).is('[scramble]')){
+  		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
+  			if(i.match('\'') || i.match('`') || i.match('i')){
+  				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
+  			}
+  		}).join();
+  		cube.twistDuration(10).twist(scramble);
+  	}
+  	if($(this).is('[alg]')){
+  		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
+  			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
+  				i.replace(/'|`|i/gi, '').toLowerCase();
+  			}
+  			if(i.match(/2/gi)){
+  				i.replace('2', '') += i;
+  			}
+  		}).join();
+  	}
+  	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
+  		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
+  		cube.keyboardControlsEnabled = false;
+  		cube.mouseControlsEnabled = false;
+  		$('.googlecubeembedbutton').click(function(){
+  			if($('.googlecubeembedbutton span').text() == 'Play'){
+  				$('.googlecubeembedbutton span').text('Revert');
+  				cube.twist(alg);
+  			} else {
+  				$('.googlecubeembedbutton span').text('Play');
+  				cube.twistDuration(10).twist(alg.split('').reverse().join());
+  			}
+  		});
+  		
+  	}
+  	console.log('G-cube loaded.');
+  });
+});
