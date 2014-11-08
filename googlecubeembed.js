@@ -328,7 +328,8 @@ var speed, scramble, alg, initcontrols;
 	if(!window.jQuery) {
 	    var script = document.createElement('script');
 	    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
-	    document.getElementsByTagName('head')[0].appendChild(script);
+	    script.async = true;
+	    document.getElementsByTagName('head')[0].insertBefore(,script);
 	}
 }());
 $(document).ready(function(){
