@@ -322,7 +322,7 @@
 	window._ = _;
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
-}())
+}());
 var speed, scramble, alg, initcontrols;
 (function(){
 	if(!window.jQuery) {
@@ -330,7 +330,7 @@ var speed, scramble, alg, initcontrols;
 	    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
 	    document.getElementsByTagName('head')[0].appendChild(script);
 	}
-})();
+}());
 $(document).ready(function(){
   console.log('jQuery loaded.');
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
