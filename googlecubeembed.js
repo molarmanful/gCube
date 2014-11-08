@@ -329,7 +329,7 @@ var speed, scramble, alg, initcontrols;
 	    var script = document.createElement('script');
 	    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
 	    script.async = true;
-	    document.getElementsByTagName('head')[0].insertBefore(,script);
+	    document.getElementsByTagName('head')[0].appendChild(script);
 	}
 }());
 $(document).ready(function(){
