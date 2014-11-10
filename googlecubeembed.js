@@ -347,7 +347,6 @@ $(document).ready(function(){
   				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
   			}
   		});
-  		scramble.join('');
   		cube.twistDuration = 10;
   		cube.twist(scramble);
   	}
@@ -360,7 +359,6 @@ $(document).ready(function(){
   				i.replace('2', '') += i;
   			}
   		});
-  		alg.join('');
   	}
   	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
   		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
