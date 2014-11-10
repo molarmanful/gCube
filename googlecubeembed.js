@@ -329,7 +329,7 @@ $(document).ready(function(){
   	console.log('G-cube stylesheet loaded.');
   });
   $('g-cube').each(function(e){
-  	$(this).css({
+  	$(':host(g-cube)').css({
   		'height': '100%', 
   		'width': '100%',
   		'position': 'absolute',
