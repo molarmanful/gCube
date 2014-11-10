@@ -323,7 +323,7 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }());
-var speed, scramble, alg, initcontrols;
+var speed, scramble, alg, revert, initcontrols;
 $(document).ready(function(){
   $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
   	console.log('G-cube stylesheet loaded.');
@@ -349,6 +349,7 @@ $(document).ready(function(){
   		});
   		cube.twistDuration = 10;
   		cube.twist(scramble);
+  		console.log('Scramble: ' + scramble);
   	}
   	if($(this).is('[alg]')){
   		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
@@ -359,6 +360,7 @@ $(document).ready(function(){
   				i = i.replace('2', i);
   			}
   		});
+  		console.log('Algorithm: ' + alg);
   	}
   	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
   		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
@@ -366,12 +368,14 @@ $(document).ready(function(){
   		cube.mouseControlsEnabled = false;
   		$('.googlecubeembedbutton').click(function(){
   			if($('.googlecubeembedbutton span').text() == 'Play'){
-  				$('.googlecubeembedbutton span').text('Revert');
+  				$('.googlecubeembedbutton span').text('Play invert');
   				cube.twist(alg);
   			} else {
   				$('.googlecubeembedbutton span').text('Play');
+  				revert = alg.reverse();
   				cube.twistDuration = 10;
-  				cube.twist(alg.split('').reverse().join(''));
+  				cube.twist(revert);
+  				console.log('Algorithm Inverse: ' + revert);
   			}
   		});
   		
