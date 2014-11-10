@@ -346,7 +346,8 @@ $(document).ready(function(){
   			if(i.match('\'') || i.match('`') || i.match('i')){
   				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
   			}
-  		}).join();
+  		});
+  		scramble.join();
   		cube.twistDuration = 10;
   		cube.twist(scramble);
   	}
@@ -358,7 +359,8 @@ $(document).ready(function(){
   			if(i.match(/2/gi)){
   				i.replace('2', '') += i;
   			}
-  		}).join();
+  		});
+  		alg.join();
   	}
   	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
   		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
