@@ -323,20 +323,73 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }());
-var speed, scramble, alg, revert, initcontrols;
+(function( $ ) {
+	$.fn.gce = function(options, callback) {
+		var settings = $.extend({
+			speed: 1000,
+			scramble: null,
+			initcontrols: true,
+			algorithm: null
+		}, options);
+		this.filter('g-cube').each(function(e){
+			$(this).css({
+				'height': '100%',
+				'width': '100%',
+				'position': 'absolute',
+				'display': 'block'
+			});
+			window.cube = new ERNO.Cube();
+			if(settings.speed !== 1000 && typeof settings.speed == 'number'){
+				cube.twistDuration = settings.speed;
+			}
+			if(settings.scramble){
+				cube.twistDuration = 10;
+				cube.twist(settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+					if(i.match(/[i`']/gi)){
+						i.toLowercase();
+					}
+					if(i.match(/[2]/i)){
+						i += i;
+					}
+				})).twistDuration = settings.speed;
+			}
+			if(settings.initcontrols && settings.initcontrols === true && settings.algorithm){
+				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute;">Play Algorithm</button>');
+				$('g-cube #playalg').click(function(){
+					if($(this).text() == 'Play Algorithm'){
+						$(this).text('Revert to Previous State');
+						cube.twist(settings.algorithm.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+							if(i.match(/[i`']/gi)){
+								i.toLowercase();
+							}
+							if(i.match(/[2]/i)){
+								i += i;
+							}
+						}).join(''));
+					} else {
+						$(this).text('Play Algorithm');
+						cube.twist(settings.algorithm.reverse().replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+							if(i.match(/[i`']/gi)){
+								i.toLowercase();
+							}
+							if(i.match(/[2]/i)){
+								i += i;
+							}
+						}).join(''));
+					}
+				});
+			}
+			if(typeof callback == 'function'){
+				callback();
+			}
+			$(this).append(cube.domElement);
+			console.log('G-cube loaded.');
+			return this;
+		});
+	};
+}( jQuery ));
 $(document).ready(function(){
-  $('head').append('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
-  	console.log('G-cube stylesheet loaded.');
-  });
-  $('g-cube').each(function(e){
-  	$(this).css({
-  		'height': '100%',
-  		'width': '100%',
-  		'position': 'absolute',
-  		'display': 'block'
-  	});
-  	window.cube = new ERNO.Cube();
-  	$(this).append(cube.domElement);
-  	console.log('G-cube loaded.');
-  });
+	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
+		console.log('G-cube stylesheet loaded.');
+	});
 });
