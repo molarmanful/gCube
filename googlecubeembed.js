@@ -329,12 +329,7 @@ $(document).ready(function(){
   	console.log('G-cube stylesheet loaded.');
   });
   $('g-cube').each(function(e){
-  	$(':host(g-cube)').css({
-  		'height': '100%', 
-  		'width': '100%',
-  		'position': 'absolute',
-  		'display': 'block'
-  	});
+  	$('g-cube').before('<style>:host { height: 100%; width: 100%; position: absolute; }</style>');
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
   	if($(this).is('[speed]')){
