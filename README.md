@@ -28,7 +28,7 @@ Example code:
 
 CSS Defaults
 ==================
-```Height``` and ```width``` attributes are both ```100%```. You can change this if you want.
+```Height``` and ```width``` attributes are both ```100%```. You can change this if you want but use ```!important```.
 
 ```position``` is set to ```absolute```. Do not change this; instead, make a parent element if you really need to.
 
