@@ -353,10 +353,10 @@ $(document).ready(function(){
   	if($(this).is('[alg]')){
   		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
   			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
-  				i.replace(/'|`|i/gi, '').toLowerCase();
+  				i = i.replace(/'|`|i/gi, '').toLowerCase();
   			}
   			if(i.match(/2/gi)){
-  				i.replace('2', '') += i;
+  				i = i.replace('2', i);
   			}
   		});
   	}
