@@ -9,12 +9,6 @@
     <script>
       $(document).ready(function(){
         $('#wscript').fadeIn(1000);
-        $('div.faceLabel.fadeIn:contains("FRONT")').text('GOOGLECUBEEMBED').css({
-          'color': '#ce0000'
-        });
-        $('div.faceLabel.fadeIn:not(div.faceLabel.fadeIn:contains("FRONT"))').remove();
-        $('.faceLabel').fadeIn(500);
-      });
     </script>
     <style>
       /*colorscheme #CE0000red #C6CFD6lightgreyblue #E7E7EFlightgreyerblue #FFFFFFwhite #003031deepblue*/
@@ -52,6 +46,9 @@
       #wscript {
         display: none;
       }
+      #hh1 {
+        color: #ce0000;
+      }
     </style>
   </head>
   <body>
@@ -62,6 +59,7 @@
     <div id="wscript" align="center">
       <div id="header">
         <g-cube></g-cube>
+        <h1 id="hh1">GOOGLECUBEEMBED</h1>
       </div>
     </div>
   </body>
