@@ -337,49 +337,6 @@ $(document).ready(function(){
   	});
   	window.cube = new ERNO.Cube();
   	$(this).append(cube.domElement);
-  	if($(this).is('[speed]')){
-  		speed = parseInt($(this).attr('speed'));
-  		cube.twistDuration = speed;
-  	}
-  	if($(this).is('[scramble]')){
-  		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
-  			if(i.match('\'') || i.match('`') || i.match('i')){
-  				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
-  			}
-  		});
-  		cube.twistDuration = 10;
-  		cube.twist(scramble);
-  		console.log('Scramble: ' + scramble);
-  	}
-  	if($(this).is('[alg]')){
-  		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
-  			if(i.match(/i/gi) || i.match(/'/gi) || i.match(/`/gi)){
-  				i = i.replace(/'|`|i/gi, '').toLowerCase();
-  			}
-  			if(i.match(/2/gi)){
-  				i = i.replace('2', i);
-  			}
-  		});
-  		console.log('Algorithm: ' + alg);
-  	}
-  	if($(this).is('[initcontrols]') && $(this).attr('initcontrols') == 'true' && $(this).is('[alg]')){
-  		$(this).append('<button class="googlecubeembedbutton" style="position: absolute; bottom: 0; right: 0"><span>Play</span> algorithm</button>');
-  		cube.keyboardControlsEnabled = false;
-  		cube.mouseControlsEnabled = false;
-  		$('.googlecubeembedbutton').click(function(){
-  			if($('.googlecubeembedbutton span').text() == 'Play'){
-  				$('.googlecubeembedbutton span').text('Play invert');
-  				cube.twist(alg);
-  			} else {
-  				$('.googlecubeembedbutton span').text('Play');
-  				revert = alg.reverse();
-  				cube.twistDuration = 10;
-  				cube.twist(revert);
-  				console.log('Algorithm Inverse: ' + revert);
-  			}
-  		});
-  		
-  	}
   	console.log('G-cube loaded.');
   });
 });
