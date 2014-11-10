@@ -339,7 +339,7 @@ $(document).ready(function(){
   	$(this).append(cube.domElement);
   	if($(this).is('[speed]')){
   		speed = parseInt($(this).attr('speed'));
-  		cube.twistDuration(speed);
+  		cube.twistDuration = speed;
   	}
   	if($(this).is('[scramble]')){
   		scramble = $(this).attr('scramble').trim().split(' ').forEach(function(i){
@@ -347,7 +347,8 @@ $(document).ready(function(){
   				i.replace('\'', '').replace('`', '').replace('i', '').toLowerCase();
   			}
   		}).join();
-  		cube.twistDuration(10).twist(scramble);
+  		cube.twistDuration = 10;
+  		cube.twist(scramble);
   	}
   	if($(this).is('[alg]')){
   		alg = $(this).attr('alg').trim().replace(/[\])}[{(]/g,'').split(' ').forEach(function(i){
@@ -369,7 +370,8 @@ $(document).ready(function(){
   				cube.twist(alg);
   			} else {
   				$('.googlecubeembedbutton span').text('Play');
-  				cube.twistDuration(10).twist(alg.split('').reverse().join());
+  				cube.twistDuration = 10;
+  				cube.twist(alg.split('').reverse().join());
   			}
   		});
   		
