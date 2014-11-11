@@ -344,14 +344,15 @@
 			}
 			if(settings.scramble){
 				cube.twistDuration = 10;
-				cube.twist(settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+				var stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
 						i = i.toLowerCase();
 					}
 					if(i.match(/[2]/i)){
 						i += i;
 					}
-				}));
+				});
+				cube.twist(stn);
 				cube.twistDuration = settings.speed;
 			}
 			if(settings.initcontrols && settings.initcontrols === true && settings.algorithm){
@@ -359,24 +360,26 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						cube.twist(settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
+						var atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
 							if(i.match(/[2]/i)){
 								i += i;
 							}
-						}).join(''));
+						}).join('');
+						cube.twist(atn);
 					} else {
 						$(this).text('Play Algorithm');
-						cube.twist(settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
+						var rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
 							if(i.match(/[2]/i)){
 								i += i;
 							}
-						}).join(''));
+						}).join('');
+						cube.twist(rtn);
 					}
 				});
 			}
