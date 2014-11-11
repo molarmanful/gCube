@@ -346,7 +346,7 @@
 				cube.twistDuration = 10;
 				cube.twist(settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
-						i.toLowercase();
+						i = i.toLowercase();
 					}
 					if(i.match(/[2]/i)){
 						i += i;
@@ -360,7 +360,7 @@
 						$(this).text('Revert to Previous State');
 						cube.twist(settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
-								i.toLowercase();
+								i = i.toLowercase();
 							}
 							if(i.match(/[2]/i)){
 								i += i;
