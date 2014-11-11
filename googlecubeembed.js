@@ -358,7 +358,7 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						cube.twist(settings.algorithm.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+						cube.twist(settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i.toLowercase();
 							}
@@ -368,7 +368,7 @@
 						}).join(''));
 					} else {
 						$(this).text('Play Algorithm');
-						cube.twist(settings.algorithm.reverse().replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+						cube.twist(settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i.toLowercase();
 							}
