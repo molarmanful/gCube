@@ -351,7 +351,8 @@
 					if(i.match(/[2]/i)){
 						i += i;
 					}
-				})).twistDuration = settings.speed;
+				}));
+				cube.twistDuration = settings.speed;
 			}
 			if(settings.initcontrols && settings.initcontrols === true && settings.algorithm){
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute;">Play Algorithm</button>');
