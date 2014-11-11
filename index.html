@@ -9,6 +9,12 @@
     <script>
       $(document).ready(function(){
         $('#wscript').fadeIn(1000);
+        $('g-cube').gce({
+          speed: 1000,
+          scramble: "R U R' U' L",
+          initcontrols: true,
+          algorithm: "R U R' U' "
+        });
       });
     </script>
     <style>
