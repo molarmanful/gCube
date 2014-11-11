@@ -18,18 +18,19 @@ How to Use
 Example code:
 ```javascript
 $('g-cube').gce({
-  speed: 1000,
-	scramble: "R U R' U'",
+	speed: 1000,
+	scramble: "R U R' U' L",
 	initcontrols: true,
-	algorithm: "R U R' U'"
-});
+	algorithm: "R U R' U' "
+}, callback());
 ```
 | Attribute | Description |
 |-----------|-------------|
 | _speed_ | Number. Milliseconds needed to perform a turn. Defaults to 1000. |
 | _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Must be set to true to use _algorithm_ attribute. |
-| _scramble_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
-| _algorithm_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
+| _scramble_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. Rotations must be uppercase. |
+| _algorithm_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. Rotations must be uppercase. |
+| _callback_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
 
 CSS Defaults
 ==================
