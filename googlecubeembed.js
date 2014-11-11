@@ -346,7 +346,7 @@
 				cube.twistDuration = 10;
 				cube.twist(settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
-						i = i.toLowercase();
+						i = i.toLowerCase();
 					}
 					if(i.match(/[2]/i)){
 						i += i;
