@@ -19,18 +19,18 @@ Example code:
 ```javascript
 $('g-cube').gce({
 	speed: 1000,
-	scramble: "R U R' U' L",
+	scramble: "",
 	initcontrols: true,
-	algorithm: "R U R' U' "
+	algorithm: ""
 }, callback());
 ```
 | Attribute | Description |
 |-----------|-------------|
 | _speed_ | Number. Milliseconds needed to perform a turn. Defaults to 1000. |
-| _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Must be set to true to use _algorithm_ attribute. |
-| _scramble_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. Rotations must be uppercase. |
-| _algorithm_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. Rotations must be uppercase. |
-| _callback_ | String. Use Singmaster notation, and put spaces between moves. Brackets, curly brackets, and parentheses are allowed. |
+| _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Must be set to true to use _algorithm_ attribute. Defaults to false. |
+| _scramble_ | String. See _Notation_ for more info. Defaults to empty string. |
+| _algorithm_ | String. See _Notation_ for more info. Defaults to empty string. |
+| _callback_ | Function to be executed after options are initialized. |
 
 CSS Defaults
 ==================
@@ -41,3 +41,7 @@ CSS Defaults
 ```display``` is set to ```block```. Do not change this.
 
 You may want to set ```top```, ```left```, ```right```, ```bottom``` CSS attributes.
+
+Notation
+===================
+
