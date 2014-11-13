@@ -391,7 +391,6 @@
 			console.log('G-cube loaded.');
 			console.log('Scramble: ' + settings.scramble + ', ' + stn);
 			console.log('Algorithm: ' + settings.algorithm + ', ' + atn '/' + rtn);
-			console.log()
 			return this;
 		});
 	};
