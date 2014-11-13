@@ -19,9 +19,9 @@ Example code:
 ```javascript
 $('g-cube').gce({
 	speed: 1000,
-	scramble: "",
+	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
 	initcontrols: true,
-	algorithm: ""
+	algorithm: "RUruRUruRUru"
 }, callback());
 ```
 | Attribute | Description |
@@ -30,7 +30,7 @@ $('g-cube').gce({
 | _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Must be set to true to use _algorithm_ attribute. Defaults to false. |
 | _scramble_ | String. See _Notation_ for more info. Defaults to empty string. |
 | _algorithm_ | String. See _Notation_ for more info. Defaults to empty string. |
-| _callback_ | Function to be executed after options are initialized. |
+| _callback_ | Function to be called after options are initialized. |
 
 CSS Defaults
 ==================
@@ -44,4 +44,12 @@ You may want to set ```top```, ```left```, ```right```, ```bottom``` CSS attribu
 
 Notation
 ===================
+Googlecubeembed notation is based on Singmaster notation, but instead of i, `, or ' suffixes to denote counterclockwise turns, lowercase letters are used. Rotations are uppercase unless turning counterclockwise. 180-degree turns are denoted as 2 uppercase/lowercase letters.
 
+Examples:
+
+R = R
+
+Ri/R`/R' = r
+
+R2 = RR/rr
