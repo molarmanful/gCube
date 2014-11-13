@@ -344,7 +344,7 @@
 			}
 			if(settings.scramble){
 				cube.twistDuration = 10;
-				var stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+				window.stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
 						i = i.toLowerCase();
 					}
@@ -360,7 +360,7 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						var atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
+						window.atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
@@ -371,7 +371,7 @@
 						cube.twist(atn);
 					} else {
 						$(this).text('Play Algorithm');
-						var rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
+						window.rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
@@ -388,8 +388,9 @@
 			}
 			$(this).append(cube.domElement);
 			console.log('G-cube loaded.');
-			console.log('Scramble: ' + settings.scramble);
-			console.log('Algorithm: ' + settings.algorithm);
+			console.log('Scramble: ' + settings.scramble + ', ' + stn);
+			console.log('Algorithm: ' + settings.algorithm + ', ' + atn '/' + rtn);
+			console.log()
 			return this;
 		});
 	};
