@@ -324,6 +324,7 @@
 	window.THREE = window.THREE || THREE;
 }());
 (function( $ ) {
+	var stn = '', atn = '', rtn = '';
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
 			speed: 1000,
@@ -344,7 +345,7 @@
 			}
 			if(settings.scramble){
 				cube.twistDuration = 10;
-				window.stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+				stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
 						i = i.toLowerCase();
 					}
@@ -360,7 +361,7 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						window.atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
+						atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
@@ -371,7 +372,7 @@
 						cube.twist(atn);
 					} else {
 						$(this).text('Play Algorithm');
-						window.rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
+						rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
