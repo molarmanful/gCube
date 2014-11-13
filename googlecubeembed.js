@@ -350,9 +350,11 @@
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
+						cube.twistDuration = settings.speed;
 						$(this).text('Revert to Previous State');
 						cube.twist(settings.algorithm);
 					} else {
+						cube.twistDuration = 10;
 						$(this).text('Play Algorithm');
 						cube.twist(settings.algorithm.split('').forEach(function(i){
 							if(i == i.toUpperCase()){
