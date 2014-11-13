@@ -368,7 +368,7 @@
 							if(i.match(/[2]/i)){
 								i += i;
 							}
-						}).join('');
+						});
 						cube.twist(atn);
 					} else {
 						$(this).text('Play Algorithm');
@@ -379,7 +379,7 @@
 							if(i.match(/[2]/i)){
 								i += i;
 							}
-						}).join('');
+						});
 						cube.twist(rtn);
 					}
 				});
