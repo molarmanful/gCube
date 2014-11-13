@@ -328,9 +328,9 @@
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
 			speed: 1000,
-			scramble: null,
+			scramble: '',
 			initcontrols: false,
-			algorithm: null
+			algorithm: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -341,7 +341,7 @@
 			});
 			window.cube = new ERNO.Cube();
 			cube.twistDuration = settings.speed;
-			if(settings.scramble != null){
+			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
 					if(i.match(/[i`']/gi)){
@@ -354,7 +354,7 @@
 				cube.twist(stn);
 				cube.twistDuration = settings.speed;
 			}
-			if(settings.initcontrols === true && settings.algorithm){
+			if(settings.initcontrols === true && settings.algorithm != ''){
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
