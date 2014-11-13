@@ -10,7 +10,7 @@
       $(document).ready(function(){
         $('#wscript').fadeIn(1000);
         $('g-cube').gce({
-          speed: 1000,
+          speed: 500,
           initcontrols: true,
           algorithm: "RUruRUruRUru"
         });
@@ -19,7 +19,7 @@
     <style>
       /*colorscheme #CE0000red #C6CFD6lightgreyblue #E7E7EFlightgreyerblue #FFFFFFwhite #003031deepblue*/
       /*
-      template {
+      !*template*! {
         height: 100%;
         width: 100%;
         position: absolute;
@@ -45,9 +45,9 @@
         color: #003031;
         font-family: 'Montserrat';
         font-size: 30px;
+        overflow: auto;
       }
       h1 {
-        
         font-family: 'Rubik One';
       }
       #wscript {
@@ -56,12 +56,35 @@
       g-cube {
         height: 80% !important;
       }
-      #hh1 {
+      #1 {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+      }
+      #1h1 {
         height: 10%;
         width: 100%;
         position: absolute;
         top: 80%;
         color: #ce0000;
+      }
+      #2 {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        background-color: #ffffff;
+        color: #003031;
+      }
+      #2h1 {
+        
       }
     </style>
   </head>
@@ -71,9 +94,16 @@
       <h2>Sorry about that. Googlecubeembed runs on JAVASCRIPT.</h2>
     </noscript>
     <div id="wscript">
-      <div id="header" align="center">
+      <div id="1" align="center">
         <g-cube></g-cube>
-        <h1 id="hh1" align="center">GOOGLECUBEEMBED</h1>
+        <h1 id="1h1" align="center">GOOGLECUBEEMBED</h1>
+      </div>
+      <div id="2">
+        <h1 id="2h1" align="center">Experience the new Rubik's Cube visualizer.</h1>
+        <hr>
+        <ul>
+          
+        </ul>
       </div>
     </div>
   </body>
