@@ -324,7 +324,7 @@
 	window.THREE = window.THREE || THREE;
 }());
 (function( $ ) {
-	var stn = '', atn = '', rtn = '';
+	var stn = 'ERROR', atn = 'ERROR', rtn = 'ERROR';
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
 			speed: 1000,
