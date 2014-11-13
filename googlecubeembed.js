@@ -343,9 +343,10 @@
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				cube.twist(settings.scramble);
-				cube.twistDuration = settings.speed;
 			}
 			if(settings.initcontrols === true && settings.algorithm != ''){
+				cube.mouseControlsEnabled = false;
+				cube.keyboardControlsEnabled = false;
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
