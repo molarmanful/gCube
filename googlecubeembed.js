@@ -324,7 +324,6 @@
 	window.THREE = window.THREE || THREE;
 }());
 (function( $ ) {
-	var stn = 'ERROR', atn = 'ERROR', rtn = 'ERROR';
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
 			speed: 1000,
@@ -369,8 +368,8 @@
 			}
 			$(this).append(cube.domElement);
 			console.log('G-cube loaded.');
-			console.log('Scramble: ' + settings.scramble + ', ' + stn);
-			console.log('Algorithm: ' + settings.algorithm + ', ' + atn + '/' + rtn);
+			console.log('Scramble: ' + settings.scramble);
+			console.log('Algorithm: ' + settings.algorithm);
 			return this;
 		});
 	};
