@@ -343,7 +343,7 @@
 			cube.twistDuration = settings.speed;
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
-				stn = settings.scramble.replace(/[]()\[\]{}]/g, '').split(' ').forEach(function(i){
+				stn = settings.scramble.split(/[()[\]{}]/g).forEach(function(i){
 					if(i.match(/[i`']/gi)){
 						i = i.toLowerCase();
 					}
@@ -359,8 +359,8 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						atn = settings.algorithm.replace(/[]()\[\]{}]/g, '').trim().split(' ').forEach(function(i){
-							if(i.match(/[i`']/gi)){
+						atn = settings.algorithm.trim().split(/[()[\]{}]/g).forEach(function(i){
+							if(i.match(/[i`']/ig)){
 								i = i.toLowerCase();
 							}
 							if(i.match(/[2]/i)){
@@ -370,7 +370,7 @@
 						cube.twist(atn);
 					} else {
 						$(this).text('Play Algorithm');
-						rtn = settings.algorithm.reverse().replace(/[\[\](){}]/g, '').trim().split(' ').forEach(function(i){
+						rtn = settings.algorithm.reverse().trim().split(/[()[\]{}]/g).forEach(function(i){
 							if(i.match(/[i`']/gi)){
 								i = i.toLowerCase();
 							}
