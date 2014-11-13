@@ -360,7 +360,7 @@
 							} else {
 								i = i.toUpperCase();
 							}
-						}));
+						}).join());
 					}
 				});
 			}
