@@ -344,8 +344,16 @@
 				cube.twist(settings.scramble);
 			}
 			if(settings.algorithm != ''){
-				cube.mouseControlsEnabled = false;
-				cube.keyboardControlsEnabled = false;
+				if(settings.algorithm.match('/mouse')){
+					cube.mouseControlsEnabled = true;
+				} else {
+					cube.mouseControlsEnabled = false;
+				}
+				if(settings.algorithm.match('/keyboard')){
+					cube.keyboardControlsEnabled = true;
+				} else {
+					cube.keyboardControlsEnabled = false;
+				}
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
