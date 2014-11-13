@@ -340,7 +340,7 @@
 				'display': 'block'
 			});
 			window.cube = new ERNO.Cube();
-			if(settings.speed !== 1000 && typeof settings.speed == 'number'){
+			if(settings.speed != 1000 && typeof settings.speed == 'number'){
 				cube.twistDuration = settings.speed;
 			}
 			if(settings.scramble){
@@ -357,7 +357,7 @@
 				cube.twistDuration = settings.speed;
 			}
 			if(settings.initcontrols && settings.initcontrols === true && settings.algorithm){
-				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute;">Play Algorithm</button>');
+				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
