@@ -343,15 +343,7 @@
 			cube.twistDuration = settings.speed;
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
-				stn = settings.scramble.split(/[()[\]{}]/g).forEach(function(i){
-					if(i.match(/[i`']/gi)){
-						i = i.toLowerCase();
-					}
-					if(i.match(/[2]/i)){
-						i += i;
-					}
-				});
-				cube.twist(stn);
+				cube.twist(settings.scramble);
 				cube.twistDuration = settings.speed;
 			}
 			if(settings.initcontrols === true && settings.algorithm != ''){
@@ -359,26 +351,16 @@
 				$('g-cube #playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						$(this).text('Revert to Previous State');
-						atn = settings.algorithm.trim().split(/[()[\]{}]/g).forEach(function(i){
-							if(i.match(/[i`']/ig)){
-								i = i.toLowerCase();
-							}
-							if(i.match(/[2]/i)){
-								i += i;
-							}
-						});
-						cube.twist(atn);
+						cube.twist(settings.algorithm);
 					} else {
 						$(this).text('Play Algorithm');
-						rtn = settings.algorithm.reverse().trim().split(/[()[\]{}]/g).forEach(function(i){
-							if(i.match(/[i`']/gi)){
+						cube.twist(settings.algorithm.split('').forEach(function(i){
+							if(i == i.toUpperCase()){
 								i = i.toLowerCase();
+							} else {
+								i = i.toUpperCase();
 							}
-							if(i.match(/[2]/i)){
-								i += i;
-							}
-						});
-						cube.twist(rtn);
+						}));
 					}
 				});
 			}
