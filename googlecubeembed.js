@@ -390,7 +390,7 @@
 			$(this).append(cube.domElement);
 			console.log('G-cube loaded.');
 			console.log('Scramble: ' + settings.scramble + ', ' + stn);
-			console.log('Algorithm: ' + settings.algorithm + ', ' + atn '/' + rtn);
+			console.log('Algorithm: ' + settings.algorithm + ', ' + atn + '/' + rtn);
 			return this;
 		});
 	};
