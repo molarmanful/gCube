@@ -328,7 +328,6 @@
 		var settings = $.extend({
 			speed: 1000,
 			scramble: '',
-			initcontrols: false,
 			algorithm: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
@@ -344,7 +343,7 @@
 				cube.twistDuration = 10;
 				cube.twist(settings.scramble);
 			}
-			if(settings.initcontrols === true && settings.algorithm != ''){
+			if(settings.algorithm != ''){
 				cube.mouseControlsEnabled = false;
 				cube.keyboardControlsEnabled = false;
 				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
