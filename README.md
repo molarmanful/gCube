@@ -27,9 +27,8 @@ $('g-cube').gce({
 | Attribute | Description |
 |-----------|-------------|
 | _speed_ | Number. Milliseconds needed to perform a turn. Defaults to 1000. |
-| _initcontrols_ | Boolean. Whether to include "Play algorithm" button. Must be set to true to use _algorithm_ attribute. Defaults to false. |
 | _scramble_ | String. See _Notation_ for more info. Defaults to empty string. |
-| _algorithm_ | String. See _Notation_ for more info. Defaults to empty string. |
+| _algorithm_ | String. If this is set, then keyboard and mouse controls will be disabled unless ```'/keyboard'``` and/or ```'/mouse'``` is added to the end of the algorithm string. See _Notation_ for more info. Defaults to empty string. |
 | _callback_ | Function to be called after options are initialized. |
 
 CSS Defaults
