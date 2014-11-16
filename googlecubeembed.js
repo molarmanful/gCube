@@ -348,22 +348,22 @@
 			window.cube = new ERNO.Cube();
 			cube.twistDuration = settings.speed;
 			$('cube .sticker.orange').css({
-				'background-color': settings.colorscheme.u + ' !important'
+				'background-color': 
 			});
 			$('cube .sticker.red').css({
-				'background-color': settings.colorscheme.d + ' !important'
+				'background-color': 
 			});
 			$('cube .sticker.green').css({
-				'background-color': settings.colorscheme.l + ' !important'
+				'background-color': 
 			});
 			$('cube .sticker.blue').css({
-				'background-color': settings.colorscheme.r + ' !important'
+				'background-color': 
 			});
 			$('cube .sticker.white').css({
-				'background-color': settings.colorscheme.f + ' !important'
+				'background-color': 
 			});
 			$('cube .sticker.yellow').css({
-				'background-color': settings.colorscheme.b + ' !important'
+				'background-color': 
 			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
