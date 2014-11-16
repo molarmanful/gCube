@@ -328,8 +328,7 @@
 		var settings = $.extend({
 			speed: 1000,
 			scramble: '',
-			algorithm: '',
-			colorscheme: 'white yellow blue green orange red'
+			algorithm: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -344,24 +343,6 @@
 				colors.push(i);
 			});
 			cube.twistDuration = settings.speed;
-			$('cube .sticker.orange').css({
-				'background-color': colors[0]
-			});
-			$('cube .sticker.red').css({
-				'background-color': colors[1]
-			});
-			$('cube .sticker.green').css({
-				'background-color': colors[5]
-			});
-			$('cube .sticker.blue').css({
-				'background-color': colors[4]
-			});
-			$('cube .sticker.white').css({
-				'background-color': colors[2]
-			});
-			$('cube .sticker.yellow').css({
-				'background-color': colors[3]
-			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				cube.twist(settings.scramble);
