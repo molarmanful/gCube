@@ -341,7 +341,7 @@
 			var colors = [];
 			window.cube = new ERNO.Cube();
 			settings.colorscheme.split(' ').forEach(function(i){
-				i.push(colors);
+				colors.push(i);
 			});
 			cube.twistDuration = settings.speed;
 			$('cube .sticker.orange').css({
