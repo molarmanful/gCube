@@ -330,6 +330,7 @@
 			scramble: '',
 			algorithm: '',
 			colorscheme: 'white yellow blue green orange red'
+			highlight: 'all'
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -375,8 +376,8 @@
 				} else {
 					cube.keyboardControlsEnabled = false;
 				}
-				$('g-cube').append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
-				$('g-cube #playalg').click(function(){
+				$(this).append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
+				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
 						$(this).text('Revert to Previous State');
@@ -393,6 +394,81 @@
 						}).join());
 					}
 				});
+			}
+			if(!(settings.highlight.match('all'))){
+				cube.hideStickers();
+				switch(settings.highlight){
+					case settings.highlight.match('edges'):
+						cube.edges.showStickers();
+						break;
+					case settings.highlight.match('corners'):
+						cube.corners.showStickers();
+						break;
+					case settings.highlight.match('centers'):
+						cube.centers.showStickers();
+						break;
+					case settings.highlight.match('flcross'):
+						cube.down.cross.showStickers();
+						cube.centers.showStickers();
+						break;
+					case settings.highlight.match('flxcross'):
+						cube.down.cross.showStickers();
+						cube.centers.showStickers();
+						cube.hasId(5).showStickers();
+						cube.hasId(8).showStickers();
+						break;
+					case settings.highlight.match('fl'):
+						cube.down.showStickers();
+						break;
+					case settings.highlight.match('flcorners'):
+						
+						break;
+					case settings.highlight.match('f2l'):
+						
+						break;
+					case settings.highlight.match('f2ll'):
+						
+						break;
+					case settings.highlight.match('llcross'):
+						
+						break;
+					case settings.highlight.match('llbar'):
+						
+						break;
+					case settings.highlight.match('ll-l'):
+						
+						break;
+					case settings.highlight.match('lldot'):
+						
+						break;
+					case settings.highlight.match('llcorners'):
+						
+						break;
+					case settings.highlight.match('oll'):
+						
+						break;
+					case settings.highlight.match('pll'):
+						
+						break;
+					case settings.highlight.match('2x2x2'):
+						
+						break;
+					case settings.highlight.match('2x2x3'):
+						
+						break;
+					case settings.highlight.match('eoline'):
+						
+						break;
+					case settings.highlight.match('1x2x3'):
+						
+						break;
+					case settings.highlight.match('2(1x2x3)'):
+						
+						break;
+					case default:
+						
+						break;
+				}
 			}
 			if(typeof callback == 'function'){
 				callback();
