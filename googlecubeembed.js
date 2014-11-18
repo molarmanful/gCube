@@ -341,6 +341,7 @@
 			});
 			var colors = [];
 			window.cube = new ERNO.Cube();
+			cube.rotation.y = -.8
 			color = settings.colorscheme.trim().split(' ');
 			cube.twistDuration = settings.speed;
 			$('cube .sticker.orange').css({
@@ -409,18 +410,22 @@
 				else if(settings.highlight.match('flcross')){
 					cube.down.cross.showStickers();
 					cube.centers.showStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('flxcross')){
 					cube.down.cross.showStickers();
 					cube.centers.showStickers();
 					cube.hasId(5).showStickers();
 					cube.hasId(8).showStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('fl')){
 					cube.down.showStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('flcorners')){
 					cube.down.corners.showStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('f2l')){
 					cube.showStickers();
@@ -460,26 +465,31 @@
 					cube.up.hideStickers();
 					cube.back.hideStickers();
 					cube.left.hideStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('2x2x3')){
 					cube.showStickers();
 					cube.up.hideStickers();
 					cube.back.hideStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('eoline')){
 					cube.showStickers();
 					cube.up.hideStickers();
 					cube.left.hideStickers();
 					cube.right.hideStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('roux1')){
 					cube.right.showStickers();
 					cube.up.hideStickers();
+					cube.rotation.x = 100
 				}
 				else if(settings.highlight.match('roux2')){
 					cube.right.showStickers();
 					cube.left.showStickers();
 					cube.up.hideStickers();
+					cube.rotation.x = 100
 				}
 				else {
 					cube.showStickers();
