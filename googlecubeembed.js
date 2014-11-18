@@ -364,7 +364,20 @@
 			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
-				if(settings.scramble.match(/random/i)){
+				if(settings.scramble.match('/random')){
+					if(settings.scramble.match('/2-genR')){
+						cube.shuffleMethod = 'RrUu';
+					} else if(settings.scramble.match('/2-genM')){
+						cube.shuffleMethod = 'MmUu';
+					} else if(settings.scramble.match('/2-genL')){
+						cube.shuffleMethod = 'RrUu';
+					} else if(settings.scramble.match('/3-genRF')){
+						cube.shuffleMethod = 'RrUuFf';
+					} else if(settings.scramble.match('/3-genLF')){
+						cube.shuffleMethod = 'LlUuFf';
+					} else if(settings.scramble.match('/3-genRL')){
+						cube.shuffleMethod = 'RrUuLl';
+					}
 					cube.shuffle(25);
 				} else {
 					cube.twist(settings.scramble);
@@ -385,7 +398,7 @@
 				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
-						$(this).text('Revert to Previous State');
+						$(this).text('Reverse Algorithm');
 						cube.twist(settings.algorithm);
 					} else {
 						cube.twistDuration = 10;
