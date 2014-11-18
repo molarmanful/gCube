@@ -364,7 +364,11 @@
 			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
-				cube.twist(settings.scramble);
+				if(settings.scramble.match(/random/i)){
+					cube.shuffle(25);
+				} else {
+					cube.twist(settings.scramble);
+				}
 			}
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
