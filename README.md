@@ -4,18 +4,6 @@ googlecubeembed
 Have an online cubing tutorial page? Need an interactive, easy, 3D cube visualizer? Embed this Javascript Rubik's Cube in HTML5! All you need to do is to follow the steps below.
 
 Using Google Chrome Cube Lab Code.
-<pre>
-                          ___ ___ ___
-                        /___/___/___/|
-                       /___/___/___/||
-                      /___/___/__ /|/|
-                     |   |   |   | /||
-                     |___|___|___|/|/|
-                     |   |   |   | /||
-                     |___|___|___|/|/
-                     |   |   |   | /
-                     |___|___|___|/ 
-</pre>
 
 How to Use
 ==================
