@@ -471,7 +471,7 @@
 						
 						break;
 					case default:
-						
+						cube.showStickers();
 						break;
 				}
 			}
