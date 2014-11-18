@@ -5,57 +5,16 @@ Have an online cubing tutorial page? Need an interactive, easy, 3D cube visualiz
 
 Using Google Chrome Cube Lab Code.
 <pre>
-                                                                                                    
-                                           ```.....````                                             
-                                    ````..................``.`                                      
-                              ```...:+++//:-.........-:/+syso/...```                                
-                        ```............--::+++//:/+oyyso/:--...........```                          
-                  ```/+/:-.................-/+ssossys+/-..................:/+:``                    
-            ```......-/+oos+/:-......-:/+ooo/:---.---:+ooo+/:-......-:/osyyo+:.....```              
-     ```................---/++os+++sys+/:--.............--:/+oso+/oyyso+:--..............````       
-   `+o/:-.................-:/osso+osss+/:-................-:/oyhyyyyyo+/:-................--/+/`    
-   .hyyyso/:--......-:/+osoo/:--....--:++oo+/:-......-:/osyss+/--.---:/+oso+/:--......-:+oyhyys.    
-   `yyyyyyyyso+///ossoo/:--..............--:++oo+//osyys+/:-............--:/+ooso+//+syyyysoooo.    
-    syyyyyyyyyyhdmdy+:--..................--:+shhddhyo/:-....................-:+ydmdyssooooooo+`    
-    oyyyyyyyhhhdmNhyyyso+:--..........-:/osyyso+/:::/+ooso+/:-...........-:/oyhhyhNdoooooooooo/     
-    /yyyyyyyyyyhmNhhhhhhyyso+/:---:/+syyso+::-........--:/oosso+/:----:+syhyysooosmhoooooooooo:     
-    :yyyyyyyyyyhmmhhhhhhhhhhyysoyhhhs+::-..................-::/ossyyyyhyysoooooooymhoooooooooo.     
-    .yyyyyyyyyyymmdhhhhhhhhhhhhdmNdyo+:--....................-:/shmNmsooooooooooohmyoooooooooo`     
-    `yyyyyyyyyyymmdhhhhhhhhhhhhdmmhhhhhsso/:-...........--:+syyyyshNdoooooooooooohmsooooooooo+      
-     +yyyyyyyyyymmdhhhhhhhhhhhhdmmhhhhhhhyhyso+:--..-:/osyyysssoooyNdooooooooooooddsooooooooo/      
-     .hdhhhyyyyymmmyhhhhhhhhhhhdmmhhhhhhhhhhhhhhyssssyyyssoooooooohmhoooooooooooomdoooooosyys.      
-     -yhhdddhhhydmmyhhhhhhhhhhhhmmhhhhhhhhhhhhhhhdNdssoooooooooooohmhooooooooooosmhooosyhhhyo       
-     .yyyyhhdddddmmhhhhhhhhhhhhhmmhhhhhhhhhhhhhhhhmhoooooooooooooodmyoooooooooooymhyhhhysooo+       
-      yyyyyyyhhhdmNmdhhhhhhhhhhhmmhhhhhhhhhhhhhhhdmhoooooooooooooodmyooooooooossmmhhysoooooo:       
-      syyyyyyyyyhmNdddmddhhhhhhhmmhhhhhhhhhhhhhhhdmyoooooooooooooomdyoooooosyhddNmsooooooooo-       
-      +yyyyyyyyyhmmhhhhhddmddhhhmmhhhhhhhhhhhhhhhdmyoooooooooooooomdsoosyhddhyssNdoooooooooo`       
-      /yyyyyyyyyhmmhhhhhhhhddmmdmmhhhhhhhhhhhhhhhdmyoooooooooooooomdyhdddhysooosmhoooooooooo        
-      -yyyyyyyyyydmhyhhhhhhhhhhdmNdhhhhhhhhhhhhhhdmyooooooooooooshNmhhysoooooooymyooooooooo/        
-      `syyyyyyyyydmhhhhhhhhhhhhhmNmddddhhhhhhhhhhmmyoooooooosshhhmNdsoooooooooodmyooooooooo-        
-       +dhyyyyyyydmhyyhhhhhhhhhhmNhhhhddddhhhhhhhmmyooooosydhhyssdmhooooooooooommsoooooosy+`        
-      `yhdddhhyyydmhyhhhhhhhhhhhmNhhhhhhhhddddhhhmmyosyhdhysssooodmhoooooooooosmdoooosyhdhs`        
-       oyyhhdddhhhmdyyhhhhhhhhhhmNhhhhhhhhhhdddddmmddhhyssooooooommyoooooooooosmdssyhhyyso+`        
-       +yyyyyhhdddmmhhhhhhhhhhhhmNhhhhhhhhhhhhhhdNNdsssooooooooosmmyoooooooooohNdhhyysoooo/         
-       :yyyyyyyhhdmNmhhhhhhhhhhhmNhhhhhhhhhhhhhhhmmyoooooooooooosNmsooooooosyhNmhssooooooo:         
-       .yyyyyyyyyymNhhdddhhhhhhhmNhhhhhhhhhhhhhhhmmsooooooooooooyNmsoooosyhhhyddyosooooooo.         
-       `yyyyyyyyyymNhhhhdhdddhhhmmhhhhhhhhhhhhhhhmmsooooooooooooyNdsosyhhhyysshdysoooooooo`         
-        syyyyyyyyydmhhhhhhhhddddmmdhhhhhhhhhhhhhhmmsoooooooooooshmdyhhhyysssssddssssooooo+`         
-        :syyyyyyyydmdhhhhhhhhhdddNmdhhhhhhhhhhhhhmmsooooooossssymNdyyyssssssssmdsssssssso-`         
-        `./syyyyyydmdhhhhhhhhhhhmmNddddhhhhhhhhhhmmsssssssssyhhhmNdssssssssssymdsssssso+-```        
-        ```.:+syyyhmmhhhhhhhhhhhdmmhhhddddhhhhhhhmdssssssyhhhyyshmdsssssssssshmhssss+/-..````       
-         `````.:oshmmhhhhhhhhhhhdmmhhhhhdddddhhhdmdsssyhhhyysssshmhssssssssssdmhso/:-...``````      
-         ````````-/shyhhhhhhhhhhdmmhhhhhhhhhdddddmdhhdhhysssssssdmyssssssssssys/:-.....```````      
-         ``````````.-:oyhhhhhhhhdmmhhhhhhhhhhhhdmmNdhyssssssssssdmysssssssso/:--......````````      
-         `````````````.-/oyhhhhhdmmhhhhhhhhhhhhhhmmhssssssssssssmmyssssso/:--.......`````````       
-           ``````````````.-/syhhdmmhhhhhhhhhhhhhhmmyssssssssssssmdssso/:-............````````       
-              ``````````````.-/shmmhhhhhhhhhhhhhhmmyssssssssssssmho+:--...........```````````       
-                ```````````````.-+syhhhhhhhhhhhhhmmyssssssssssso+/--...............`````````        
-                    `````````````..:oyhhhhhhhhhhhmmyssssssssso/:--.............`````````````        
-                       `````````````..:oyhhhhhhhhmmysssssso/:---..............`````````````         
-                             ``````````..:+shhhhhmmyssso+:--.................`````````````          
-                                  `````````.-+shhddys+:--.................``````````````            
-                                             ``.:++:--.........``````````````````````               
-                                                       `````````````````````````                    
+                          ___ ___ ___
+                        /___/___/___/|
+                       /___/___/___/||
+                      /___/___/__ /|/|
+                     |   |   |   | /||
+                     |___|___|___|/|/|
+                     |   |   |   | /||
+                     |___|___|___|/|/
+                     |   |   |   | /
+                     |___|___|___|/ 
 </pre>
 
 How to Use
