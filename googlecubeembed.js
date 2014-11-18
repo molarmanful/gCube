@@ -437,17 +437,17 @@
 						cube.showStickers();
 						cube.up.corners.hideStickers();
 						break;
-					case settings.highlight.match('ollbar'):
+					case settings.highlight.match('llbar'):
 						cube.showStickers();
 						cube.hasId(1).hideStickers();
 						cube.hasId(19).hideStickers();
 						break;
-					case settings.highlight.match('ollL'):
+					case settings.highlight.match('llL'):
 						cube.showStickers();
 						cube.hasId(11).hideStickers();
 						cube.hasId(1).hideStickers();
 						break;
-					case settings.highlight.match('olldot'):
+					case settings.highlight.match('lldot'):
 						cube.showStickers();
 						cube.up.centers.hideStickers();
 						cube.up.corners.hideStickers();
