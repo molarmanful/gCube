@@ -484,7 +484,6 @@
 						break;
 					case default:
 						cube.showStickers();
-						break;
 				}
 			}
 			if(typeof callback == 'function'){
