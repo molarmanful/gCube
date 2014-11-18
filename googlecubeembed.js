@@ -330,7 +330,7 @@
 			scramble: '',
 			algorithm: '',
 			colorscheme: 'white yellow blue green orange red',
-			highlight: 'all'
+			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -482,7 +482,7 @@
 						cube.left.showStickers();
 						cube.up.hideStickers();
 						break;
-					case default:
+					default:
 						cube.showStickers();
 				}
 			}
