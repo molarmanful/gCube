@@ -397,93 +397,92 @@
 			}
 			if(!(settings.highlight.match('all'))){
 				cube.hideStickers();
-				switch(settings.highlight){
-					case settings.highlight.match('edges'):
-						cube.edges.showStickers();
-						break;
-					case settings.highlight.match('corners'):
-						cube.corners.showStickers();
-						break;
-					case settings.highlight.match('centers'):
-						cube.centers.showStickers();
-						break;
-					case settings.highlight.match('flcross'):
-						cube.down.cross.showStickers();
-						cube.centers.showStickers();
-						break;
-					case settings.highlight.match('flxcross'):
-						cube.down.cross.showStickers();
-						cube.centers.showStickers();
-						cube.hasId(5).showStickers();
-						cube.hasId(8).showStickers();
-						break;
-					case settings.highlight.match('fl'):
-						cube.down.showStickers();
-						break;
-					case settings.highlight.match('flcorners'):
-						cube.down.corners.showStickers();
-						break;
-					case settings.highlight.match('f2l'):
-						cube.showStickers();
-						cube.up.hideStickers();
-						break;
-					case settings.highlight.match('f2ll'):
-						cube.showStickers();
-						cube.up.hideStickers();
-						cube.hasId(5).hideStickers();
-						cube.hasId(8).hideStickers();
-						break;
-					case settings.highlight.match('llcross'):
-						cube.showStickers();
-						cube.up.corners.hideStickers();
-						break;
-					case settings.highlight.match('llbar'):
-						cube.showStickers();
-						cube.hasId(1).hideStickers();
-						cube.hasId(19).hideStickers();
-						break;
-					case settings.highlight.match('llL'):
-						cube.showStickers();
-						cube.hasId(11).hideStickers();
-						cube.hasId(1).hideStickers();
-						break;
-					case settings.highlight.match('lldot'):
-						cube.showStickers();
-						cube.up.centers.hideStickers();
-						cube.up.corners.hideStickers();
-						break;
-					case settings.highlight.match('llcorners'):
-						cube.showStickers();
-						cube.up.edges.hideStickers();
-						break;
-					case settings.highlight.match('2x2x2'):
-						cube.showStickers();
-						cube.up.hideStickers();
-						cube.back.hideStickers();
-						cube.left.hideStickers();
-						break;
-					case settings.highlight.match('2x2x3'):
-						cube.showStickers();
-						cube.up.hideStickers();
-						cube.back.hideStickers();
-						break;
-					case settings.highlight.match('eoline'):
-						cube.showStickers();
-						cube.up.hideStickers();
-						cube.left.hideStickers();
-						cube.right.hideStickers();
-						break;
-					case settings.highlight.match('roux1'):
-						cube.right.showStickers();
-						cube.up.hideStickers();
-						break;
-					case settings.highlight.match('roux2'):
-						cube.right.showStickers();
-						cube.left.showStickers();
-						cube.up.hideStickers();
-						break;
-					default:
-						cube.showStickers();
+				if(settings.highlight.match('edges')){
+					cube.edges.showStickers();
+				}
+				else if(settings.highlight.match('corners')){
+					cube.corners.showStickers();
+				}
+				else if(settings.highlight.match('centers')){
+					cube.centers.showStickers();
+				}
+				else if(settings.highlight.match('flcross')){
+					cube.down.cross.showStickers();
+					cube.centers.showStickers();
+				}
+				else if(settings.highlight.match('flxcross')){
+					cube.down.cross.showStickers();
+					cube.centers.showStickers();
+					cube.hasId(5).showStickers();
+					cube.hasId(8).showStickers();
+				}
+				else if(settings.highlight.match('fl')){
+					cube.down.showStickers();
+				}
+				else if(settings.highlight.match('flcorners')){
+					cube.down.corners.showStickers();
+				}
+				else if(settings.highlight.match('f2l')){
+					cube.showStickers();
+					cube.up.hideStickers();
+				}
+				else if(settings.highlight.match('f2ll')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.hasId(5).hideStickers();
+					cube.hasId(8).hideStickers();
+				}
+				else if(settings.highlight.match('llcross')){
+					cube.showStickers();
+					cube.up.corners.hideStickers();
+				}
+				else if(settings.highlight.match('llbar')){
+					cube.showStickers();
+					cube.hasId(1).hideStickers();
+					cube.hasId(19).hideStickers();
+				}
+				else if(settings.highlight.match('llL')){
+					cube.showStickers();
+					cube.hasId(11).hideStickers();
+					cube.hasId(1).hideStickers();
+				}
+				else if(settings.highlight.match('lldot')){
+					cube.showStickers();
+					cube.up.centers.hideStickers();
+					cube.up.corners.hideStickers();
+				}
+				else if(settings.highlight.match('llcorners')){
+					cube.showStickers();
+					cube.up.edges.hideStickers();
+				}
+				else if(settings.highlight.match('2x2x2')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.back.hideStickers();
+					cube.left.hideStickers();
+				}
+				else if(settings.highlight.match('2x2x3')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.back.hideStickers();
+				}
+				else if(settings.highlight.match('eoline')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.left.hideStickers();
+					cube.right.hideStickers();
+				}
+				else if(settings.highlight.match('roux1')){
+					cube.right.showStickers();
+					cube.up.hideStickers();
+				}
+				else if(settings.highlight.match('roux2')){
+					cube.right.showStickers();
+					cube.left.showStickers();
+					cube.up.hideStickers();
+				}
+				else {
+					cube.showStickers();
 				}
 			}
 			if(typeof callback == 'function'){
