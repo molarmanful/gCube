@@ -437,38 +437,50 @@
 						cube.showStickers();
 						cube.up.corners.hideStickers();
 						break;
-					case settings.highlight.match('llbar'):
-						
+					case settings.highlight.match('ollbar'):
+						cube.showStickers();
+						cube.hasId(1).hideStickers();
+						cube.hasId(19).hideStickers();
 						break;
-					case settings.highlight.match('ll-l'):
-						
+					case settings.highlight.match('ollL'):
+						cube.showStickers();
+						cube.hasId(11).hideStickers();
+						cube.hasId(1).hideStickers();
 						break;
-					case settings.highlight.match('lldot'):
-						
+					case settings.highlight.match('olldot'):
+						cube.showStickers();
+						cube.up.centers.hideStickers();
+						cube.up.corners.hideStickers();
 						break;
 					case settings.highlight.match('llcorners'):
-						
-						break;
-					case settings.highlight.match('oll'):
-						
-						break;
-					case settings.highlight.match('pll'):
-						
+						cube.showStickers();
+						cube.up.edges.hideStickers();
 						break;
 					case settings.highlight.match('2x2x2'):
-						
+						cube.showStickers();
+						cube.up.hideStickers();
+						cube.back.hideStickers();
+						cube.left.hideStickers();
 						break;
 					case settings.highlight.match('2x2x3'):
-						
+						cube.showStickers();
+						cube.up.hideStickers();
+						cube.back.hideStickers();
 						break;
 					case settings.highlight.match('eoline'):
-						
+						cube.showStickers();
+						cube.up.hideStickers();
+						cube.left.hideStickers();
+						cube.right.hideStickers();
 						break;
-					case settings.highlight.match('1x2x3'):
-						
+					case settings.highlight.match('roux1'):
+						cube.right.showStickers();
+						cube.up.hideStickers();
 						break;
-					case settings.highlight.match('2(1x2x3)'):
-						
+					case settings.highlight.match('roux2'):
+						cube.right.showStickers();
+						cube.left.showStickers();
+						cube.up.hideStickers();
 						break;
 					case default:
 						cube.showStickers();
