@@ -22,7 +22,8 @@ $('g-cube').gce({
 	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
 	initcontrols: true,
 	algorithm: "RUruRUruRUru",
-	colorscheme: "white yellow blue green orange red"
+	colorscheme: "white yellow blue green orange red",
+	highlight: "flxcross"
 }, callback());
 ```
 | Attribute | Description |
