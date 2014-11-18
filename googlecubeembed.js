@@ -428,10 +428,14 @@
 						cube.up.hideStickers();
 						break;
 					case settings.highlight.match('f2ll'):
-						
+						cube.showStickers();
+						cube.up.hideStickers();
+						cube.hasId(5).hideStickers();
+						cube.hasId(8).hideStickers();
 						break;
 					case settings.highlight.match('llcross'):
-						
+						cube.showStickers();
+						cube.up.corners.hideStickers();
 						break;
 					case settings.highlight.match('llbar'):
 						
