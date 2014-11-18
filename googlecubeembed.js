@@ -329,7 +329,7 @@
 			speed: 1000,
 			scramble: '',
 			algorithm: '',
-			colorscheme: 'white yellow blue green orange red'
+			colorscheme: 'white yellow blue green orange red',
 			highlight: 'all'
 		}, options);
 		this.filter('g-cube').each(function(e){
