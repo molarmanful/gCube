@@ -421,10 +421,11 @@
 						cube.down.showStickers();
 						break;
 					case settings.highlight.match('flcorners'):
-						
+						cube.down.corners.showStickers();
 						break;
 					case settings.highlight.match('f2l'):
-						
+						cube.showStickers();
+						cube.up.hideStickers();
 						break;
 					case settings.highlight.match('f2ll'):
 						
