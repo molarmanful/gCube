@@ -333,12 +333,6 @@
 			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
-			$(this).css({
-				'height': '100%',
-				'width': '100%',
-				'position': 'absolute',
-				'display': 'block'
-			});
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			cube.twistDuration = settings.speed;
