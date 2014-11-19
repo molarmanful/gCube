@@ -43,7 +43,7 @@ CSS Usage
 
 You may want to set `top`, `left`, `right`, `bottom` CSS attributes.
 
-If you want to change the cube color scheme, then you can declare a `background` or `background-color` CSS attribute for CSS selectors `gcdown`, `gcup`, `gcleft`, `gcright`, `gcfront`, and `gcback`.
+If you want to change the cube color scheme, then you can declare a `background` or `background-color` CSS attribute for CSS selectors `.gcdown`, `.gcup`, `.gcleft`, `.gcright`, `.gcfront`, and `.gcback`.
 
 Notation
 ===================
