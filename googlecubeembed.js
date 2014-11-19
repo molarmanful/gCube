@@ -382,6 +382,7 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
+				cube.twistDuration = settings.speed;
 			}
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
