@@ -515,6 +515,7 @@
 			console.log('Scramble: ' + settings.scramble);
 			console.log('Algorithm: ' + settings.algorithm);
 			console.log('Highlight: ' + settings.highlight);
+			console.log('Color Scheme: ' + colors[0] + ' ' + colors[1] + ' ' + colors[2] + ' ' + colors[3] + ' ' + colors[4] + ' ' + colors[5])
 			return this;
 		});
 	};
