@@ -335,7 +335,6 @@
 		this.filter('g-cube').each(function(){
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
-			cube.twistDuration = settings.speed;
 			if(settings.initmoves != ''){
 				cube.twistDuration = 10;
 				cube.twist(settings.initmoves);
@@ -496,6 +495,7 @@
 			console.log('Algorithm: ' + settings.algorithm);
 			console.log('Highlight: ' + settings.highlight);
 			return this;
+			window.sp = settings.speed;
 		});
 	};
 }( jQuery ));
@@ -503,4 +503,5 @@ $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
 		console.log('G-cube stylesheet loaded.');
 	});
+	cube.twistDuration = sp;
 });
