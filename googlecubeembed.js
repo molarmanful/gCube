@@ -329,7 +329,8 @@
 			speed: 1000,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			colorscheme: 'white yellow blue green orange red'
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -338,11 +339,28 @@
 				'position': 'absolute',
 				'display': 'block'
 			});
-			var colors = [];
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
-			colors = settings.colorscheme.trim().split(' ');
+			var colors = settings.colorscheme.trim().split(' ', 6);
 			cube.twistDuration = settings.speed;
+			$('.cube .sticker.orange').css({
+				'background': colors[1]
+			});
+			$('.cube .sticker.red').css({
+				'background': colors[0]
+			});
+			$('.cube .sticker.green').css({
+				'background': colors[5]
+			});
+			$('.cube .sticker.blue').css({
+				'background': colors[4]
+			});
+			$('.cube .sticker.white').css({
+				'background': colors[2]
+			});
+			$('.cube .sticker.yellow').css({
+				'background': colors[3]
+			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
