@@ -20,7 +20,6 @@ Example code:
 $('g-cube').gce({
 	speed: 1000,
 	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
-	initcontrols: true,
 	algorithm: "RUruRUruRUru",
 	highlight: "flxcross"
 }, callback());
