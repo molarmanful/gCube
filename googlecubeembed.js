@@ -415,13 +415,13 @@
 			}
 			if(!(settings.highlight.match('all'))){
 				cube.hideStickers();
-				if(settings.highlight.match('edges')){
+				if(settings.highlight.match('alledges')){
 					cube.edges.showStickers();
 				}
-				else if(settings.highlight.match('corners')){
+				else if(settings.highlight.match('allcorners')){
 					cube.corners.showStickers();
 				}
-				else if(settings.highlight.match('centers')){
+				else if(settings.highlight.match('allcenters')){
 					cube.centers.showStickers();
 				}
 				else if(settings.highlight.match('flcross')){
@@ -436,7 +436,7 @@
 					cube.hasId(8).showStickers();
 					cube.rotation.x = 100;
 				}
-				else if(settings.highlight.match('fl')){
+				else if(settings.highlight.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('flcorners'))){
 					cube.down.showStickers();
 					cube.rotation.x = 100;
 				}
