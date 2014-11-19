@@ -434,6 +434,7 @@
 				}
 				else if(settings.highlight.match('llbar')){
 					cube.showStickers();
+					cube.up.corners.hideStickers();
 					cube.hasId(1).hideStickers();
 					cube.hasId(19).hideStickers();
 				}
@@ -445,7 +446,7 @@
 				}
 				else if(settings.highlight.match('lldot')){
 					cube.showStickers();
-					cube.up.centers.hideStickers();
+					cube.up.edges.hideStickers();
 					cube.up.corners.hideStickers();
 				}
 				else if(settings.highlight.match('llcorners')){
