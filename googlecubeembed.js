@@ -327,6 +327,7 @@
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
 			speed: 1000,
+			initmoves: '',
 			scramble: '',
 			algorithm: '',
 			highlight: ''
@@ -341,6 +342,10 @@
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			cube.twistDuration = settings.speed;
+			if(settings.initmoves != ''){
+				cube.twistDuration = 10;
+				cube.twist(settings.initmoves);
+			}
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
