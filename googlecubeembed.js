@@ -439,6 +439,7 @@
 				}
 				else if(settings.highlight.match('llL')){
 					cube.showStickers();
+					cube.up.corners.hideStickers();
 					cube.hasId(11).hideStickers();
 					cube.hasId(1).hideStickers();
 				}
