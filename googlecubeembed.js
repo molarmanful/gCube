@@ -344,24 +344,12 @@
 			cube.rotation.y = -.8
 			colors = settings.colorscheme.trim().split(' ');
 			cube.twistDuration = settings.speed;
-			$('cube .sticker.orange').css({
-				'background-color': colors[1]
-			});
-			$('cube .sticker.red').css({
-				'background-color': colors[0]
-			});
-			$('cube .sticker.green').css({
-				'background-color': colors[5]
-			});
-			$('cube .sticker.blue').css({
-				'background-color': colors[4]
-			});
-			$('cube .sticker.white').css({
-				'background-color': colors[2]
-			});
-			$('cube .sticker.yellow').css({
-				'background-color': colors[3]
-			});
+			$('cube .sticker.orange').removeClass('orange').addClass('white');
+			$('cube .sticker.red').removeClass('red').addClass('yellow');
+			$('cube .sticker.green').removeClass('green').addClass('orange');
+			$('cube .sticker.blue').removeClass('blue').addClass('red');
+			$('cube .sticker.white').removeClass('white').addClass('blue');
+			$('cube .sticker.yellow').removeClass('yellow').addClass('green');
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
