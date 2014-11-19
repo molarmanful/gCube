@@ -332,7 +332,7 @@
 			algorithm: '',
 			highlight: ''
 		}, options);
-		this.filter('g-cube').each(function(e){
+		this.filter('g-cube').each(function(){
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			cube.twistDuration = settings.speed;
