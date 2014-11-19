@@ -391,13 +391,6 @@
 					} else {
 						cube.twistDuration = 10;
 						$(this).text('Play Algorithm');
-						cube.twist(settings.algorithm.split('').forEach(function(i){
-							if(i == i.toUpperCase()){
-								i = i.toLowerCase();
-							} else {
-								i = i.toUpperCase();
-							}
-						}).join());
 					}
 				});
 			}
