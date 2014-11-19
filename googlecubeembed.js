@@ -345,10 +345,10 @@
 			colors = settings.colorscheme.trim().split(' ');
 			cube.twistDuration = settings.speed;
 			$('cube .sticker.orange').css({
-				'background-color': colors[0]
+				'background-color': colors[1]
 			});
 			$('cube .sticker.red').css({
-				'background-color': colors[1]
+				'background-color': colors[0]
 			});
 			$('cube .sticker.green').css({
 				'background-color': colors[5]
