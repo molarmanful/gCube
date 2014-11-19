@@ -342,7 +342,7 @@
 			var colors = [];
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8
-			color = settings.colorscheme.trim().split(' ');
+			colors = settings.colorscheme.trim().split(' ');
 			cube.twistDuration = settings.speed;
 			$('cube .sticker.orange').css({
 				'background-color': colors[0]
@@ -382,7 +382,6 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
-				cube.twistDuration = settings.speed;
 			}
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
