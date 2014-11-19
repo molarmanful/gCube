@@ -372,15 +372,15 @@
 				} else {
 					cube.keyboardControlsEnabled = false;
 				}
-				$(this).append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
-				$(this).children('#playalg').click(function(){
-					if($(this).text() == 'Play Algorithm'){
+				$(this)[e].append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
+				$(this)[e].children('#playalg').click(function(){
+					if($(this)[e].text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
-						$(this).text('Reverse Algorithm');
+						$(this)[e].text('Reverse Algorithm');
 						cube.twist(settings.algorithm);
 					} else {
 						cube.twistDuration = 10;
-						$(this).text('Play Algorithm');
+						$(this)[e].text('Play Algorithm');
 					}
 				});
 			}
@@ -490,7 +490,7 @@
 			if(typeof callback == 'function'){
 				callback();
 			}
-			$(this).append(cube.domElement);
+			$(this)[e].append(cube.domElement);
 			console.log('G-cube loaded.');
 			console.log('Scramble: ' + settings.scramble);
 			console.log('Algorithm: ' + settings.algorithm);
