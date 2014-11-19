@@ -341,6 +341,12 @@
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			cube.twistDuration = settings.speed;
+			$('.cube .sticker.red').removeClass('red').addClass('down');
+			$('.cube .sticker.white').removeClass('white').addClass('front');
+			$('.cube .sticker.blue').removeClass('blue').addClass('right');
+			$('.cube .sticker.green').removeClass('green').addClass('left');
+			$('.cube .sticker.orange').removeClass('orange').addClass('up');
+			$('.cube .sticker.yellow').removeClass('yellow').addClass('back');
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
