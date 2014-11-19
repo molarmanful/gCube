@@ -329,8 +329,7 @@
 			speed: 1000,
 			scramble: '',
 			algorithm: '',
-			highlight: '',
-			colorscheme: 'white yellow blue green orange red'
+			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(e){
 			$(this).css({
@@ -341,26 +340,7 @@
 			});
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
-			var colors = settings.colorscheme.trim().split(' ', 6);
 			cube.twistDuration = settings.speed;
-			$('.cube .sticker.orange').css({
-				'background': colors[1]
-			});
-			$('.cube .sticker.red').css({
-				'background': colors[0]
-			});
-			$('.cube .sticker.green').css({
-				'background': colors[5]
-			});
-			$('.cube .sticker.blue').css({
-				'background': colors[4]
-			});
-			$('.cube .sticker.white').css({
-				'background': colors[2]
-			});
-			$('.cube .sticker.yellow').css({
-				'background': colors[3]
-			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
