@@ -345,22 +345,22 @@
 			colors = settings.colorscheme.trim().split(' ');
 			cube.twistDuration = settings.speed;
 			$('.cube .sticker.orange').css({
-				'background-color': colors[1]
+				'background': colors[1]
 			});
 			$('.cube .sticker.red').css({
-				'background-color': colors[0]
+				'background': colors[0]
 			});
 			$('.cube .sticker.green').css({
-				'background-color': colors[5]
+				'background': colors[5]
 			});
 			$('.cube .sticker.blue').css({
-				'background-color': colors[4]
+				'background': colors[4]
 			});
 			$('.cube .sticker.white').css({
-				'background-color': colors[2]
+				'background': colors[2]
 			});
 			$('.cube .sticker.yellow').css({
-				'background-color': colors[3]
+				'background': colors[3]
 			});
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
