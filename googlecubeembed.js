@@ -444,12 +444,12 @@
 					cube.down.corners.showStickers();
 					cube.rotation.x = 100;
 				}
-				else if(settings.highlight.match('f2l')){
+				else if(settings.highlight.match('f2l') && !(settings.highlight.match('f2ll'))){
 					cube.showStickers();
 					cube.up.hideStickers();
 					cube.rotation.x = 100;
 				}
-				else if(settings.highlight.match('f2l-1')){
+				else if(settings.highlight.match('f2ll')){
 					cube.showStickers();
 					cube.up.hideStickers();
 					cube.hasId(5).hideStickers();
