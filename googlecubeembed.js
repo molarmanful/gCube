@@ -376,11 +376,11 @@
 				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
-						$(this)[e].text('Reverse Algorithm');
+						$(this).text('Reverse Algorithm');
 						cube.twist(settings.algorithm);
 					} else {
 						cube.twistDuration = 10;
-						$(this)[e].text('Play Algorithm');
+						$(this).text('Play Algorithm');
 					}
 				});
 			}
