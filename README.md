@@ -22,7 +22,6 @@ $('g-cube').gce({
 	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
 	initcontrols: true,
 	algorithm: "RUruRUruRUru",
-	colorscheme: "white yellow blue green orange red",
 	highlight: "flxcross"
 }, callback());
 ```
@@ -31,7 +30,6 @@ $('g-cube').gce({
 | _speed_ | Number. Milliseconds needed to perform a turn. Defaults to `1000`. |
 | _scramble_ | String. See _Notation_ for more info. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to `''`. |
 | _algorithm_ | String. If this is set, then keyboard and mouse controls will be disabled unless `'/keyboard'` and/or `'/mouse'` is added to the end of the algorithm string. See _Notation_ for more info. Defaults to `''`. |
-| _colorscheme_ | String. Use CSS-accepted color values only. Separate colors with one space, and put colors in this format: `"down up front back left right"`. Defaults to `"white yellow blue green orange red"`, also known as the Western/BOY color scheme. |
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `alledges`, `allcorners`, `allcenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`. Case-sensitive. Defaults to highlighting the whole cube. |
 | _callback_ | Function to be called after options are initialized. |
 
