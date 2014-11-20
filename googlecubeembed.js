@@ -382,12 +382,18 @@
 				cube.hideStickers();
 				if(settings.highlight.match('alledges')){
 					cube.edges.showStickers();
+					cube.centers.hideStickers();
+					cube.corners.hideStickers();
 				}
 				else if(settings.highlight.match('allcorners')){
 					cube.corners.showStickers();
+					cube.edges.hideStickers();
+					cube.centers.hideStickers();
 				}
 				else if(settings.highlight.match('allcenters')){
 					cube.centers.showStickers();
+					cube.edges.hideStickers();
+					cube.corners.hideStickers();
 				}
 				else if(settings.highlight.match('flcross')){
 					cube.down.cross.showStickers();
