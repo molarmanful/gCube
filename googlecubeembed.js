@@ -485,18 +485,16 @@
 				callback();
 			}
 			$(this).append(cube.domElement);
-			console.log('G-cube loaded.');
-			console.log('Scramble: ' + settings.scramble);
-			console.log('Algorithm: ' + settings.algorithm);
-			console.log('Highlight: ' + settings.highlight);
-			return this;
-			window.sp = settings.speed;
 		});
+		console.log('G-cube loaded.');
+		console.log('Scramble: ' + settings.scramble);
+		console.log('Algorithm: ' + settings.algorithm);
+		console.log('Highlight: ' + settings.highlight);
+		return this;
 	};
 }( jQuery ));
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
 		console.log('G-cube stylesheet loaded.');
 	});
-	cube.twistDuration = sp;
 });
