@@ -380,17 +380,17 @@
 			}
 			if(!(settings.highlight.match('all'))){
 				cube.hideStickers();
-				if(settings.highlight.match('alledges')){
+				if(settings.highlight.match('onlyedges')){
 					cube.edges.showStickers();
 					cube.centers.hideStickers();
 					cube.corners.hideStickers();
 				}
-				else if(settings.highlight.match('allcorners')){
+				else if(settings.highlight.match('onlycorners')){
 					cube.corners.showStickers();
 					cube.edges.hideStickers();
 					cube.centers.hideStickers();
 				}
-				else if(settings.highlight.match('allcenters')){
+				else if(settings.highlight.match('onlycenters')){
 					cube.centers.showStickers();
 					cube.edges.hideStickers();
 					cube.corners.hideStickers();
