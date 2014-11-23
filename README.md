@@ -42,8 +42,6 @@ CSS Usage
 
 You may want to set `top`, `left`, `right`, `bottom` CSS attributes.
 
-If you want to change the cube color scheme, then you can declare a `background` or `background-color` CSS attribute for CSS selectors `.gcdown`, `.gcup`, `.gcleft`, `.gcright`, `.gcfront`, and `.gcback`.
-
 Notation
 ===================
 Googlecubeembed notation is based on Singmaster notation, but instead of i, `, or ' suffixes to denote counterclockwise turns, lowercase letters are used. Rotations are uppercase unless turning counterclockwise. 180-degree turns are denoted as 2 uppercase/lowercase letters.
