@@ -1,4 +1,4 @@
-googlecubeembed
+gCube
 ==================
 
 Have an online cubing tutorial page? Need an interactive, easy, 3D cube visualizer? Use gCube! All you need to do is to follow the steps below.
