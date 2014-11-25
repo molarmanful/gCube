@@ -492,7 +492,7 @@
 			}
 			$(this).append(cube.domElement);
 		});
-		console.log('G-cube loaded.');
+		console.log('gCube loaded.');
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
 		console.log('Highlight: ' + settings.highlight);
