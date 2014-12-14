@@ -342,7 +342,6 @@
 						console.log('shufflespeed: ' + cube.twistDuration);
 					} else {
 						cube.twistDuration = settings.speed;
-						cube.removeEventListener('onTwistComplete');
 					}
 				});
 				if(settings.scramble.match('/random')){
