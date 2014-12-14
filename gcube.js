@@ -334,6 +334,7 @@
 		this.filter('g-cube').each(function(){
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -0.8;
+			cube.twistDuration = settings.speed;
 			if(settings.scramble != ''){
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
