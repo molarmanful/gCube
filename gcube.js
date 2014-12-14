@@ -355,7 +355,7 @@
 				}
 			}
 			window.timing = setInterval(function(){
-				if(cube.isShuffling = false){
+				if(cube.isShuffling == false){
 					cube.twistDuration = settings.speed;
 				} else {
 					cube.twistDuration = 10;
