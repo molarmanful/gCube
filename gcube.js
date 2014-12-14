@@ -357,10 +357,11 @@
 					cube.twist(settings.scramble);
 				}
 				cube.addEventListener('onTwistComplete', function(){
-					if(cube.isShuffling == false){
-						cube.twistDuration = settings.speed;
-					} else {
+					if(cube.isShuffling == true){
 						cube.twistDuration = 10;
+					} else {
+						cube.twistDuration = settings.speed;
+						cube.removeEventListener('onTwistComplete');
 					}
 				});
 			}
