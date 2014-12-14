@@ -333,7 +333,7 @@
 		}, options);
 		this.filter('g-cube').each(function(){
 			window.cube = new ERNO.Cube();
-			cube.rotation.y = -.8;
+			cube.rotation.y = -0.8;
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
@@ -356,14 +356,14 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
+				cube.addEventListener('onTwistComplete', function(){
+					if(cube.isShuffling == false){
+						cube.twistDuration = settings.speed;
+					} else {
+						cube.twistDuration = 10;
+					}
+				});
 			}
-			cube.addEventListener('onTwistComplete', function(){
-				if(cube.isShuffling == false){
-					cube.twistDuration = settings.speed;
-				} else {
-					cube.twistDuration = 10;
-				}
-			});
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
