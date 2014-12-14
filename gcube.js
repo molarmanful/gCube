@@ -355,9 +355,10 @@
 					cube.twist(settings.scramble);
 				}
 			}
-			setInterval(function(){
+			window.timing = setInterval(function(){
 				if(cube.isShuffling = false){
 					cube.twistDuration = settings.speed;
+					clearInterval(timing);
 				}
 			}, 1);
 			if(settings.algorithm != ''){
