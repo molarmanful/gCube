@@ -358,12 +358,8 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
-				cube.addEventListener('onTwistComplete', function(){
-					if(cube.isShuffling === true){
-						cube.twistDuration = settings.shufflespeed;
-					} else {
-						cube.twistDuration = settings.speed;
-					}
+				cube.addEventListener('onShuffleComplete', function(){
+					cube.twistDuration = settings.speed;
 				});
 			}
 			if(settings.algorithm != ''){
