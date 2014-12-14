@@ -348,19 +348,21 @@
 						cube.shuffleMethod = 'LlUuFf';
 					} else if(settings.scramble.match('/3-genRL')){
 						cube.shuffleMethod = 'RrUuLl';
+					} else {
+						cube.shuffleMethod = 'RrLlUuDdFfBb';
 					}
 					cube.shuffle(25);
 				} else {
 					cube.twist(settings.scramble);
 				}
 			}
-			window.timing = setInterval(function(){
+			cube.addEventListener('onTwistComplete', function(){
 				if(cube.isShuffling == false){
 					cube.twistDuration = settings.speed;
 				} else {
 					cube.twistDuration = 10;
 				}
-			}, 1);
+			});
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
