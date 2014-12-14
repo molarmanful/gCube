@@ -32,15 +32,13 @@ $('g-cube').gce({
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`. Case-sensitive. Defaults to highlighting the whole cube. |
 | _callback_ | Function to be called after options are initialized. |
 
-CSS Usage
+CSS Defaults
 ==================
-`Height` and `width` attributes are both `100%`. You can change this if you want.
+`Height` and `width` attributes are both `100%`.
 
-`position` is set to `absolute`. Do not change this; instead, make a parent element if you really need to.
+`position` is set to `relative`.
 
-`display` is set to `block`. Do not change this.
-
-You may want to set `top`, `left`, `right`, `bottom` CSS attributes.
+`display` is set to `block`.
 
 Notation
 ===================
