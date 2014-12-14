@@ -359,6 +359,7 @@
 				cube.addEventListener('onTwistComplete', function(){
 					if(cube.isShuffling == true){
 						cube.twistDuration = 10;
+						console.log('shufflespeed:' + cube.twistDuration);
 					} else {
 						cube.twistDuration = settings.speed;
 						cube.removeEventListener('onTwistComplete');
