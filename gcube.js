@@ -336,6 +336,15 @@
 			cube.rotation.y = -0.8;
 			if(settings.scramble != ''){
 				cube.twistDuration = 10;
+				cube.addEventListener('onTwistComplete', function(){
+					if(cube.isShuffling == true){
+						cube.twistDuration = 10;
+						console.log('shufflespeed: ' + cube.twistDuration);
+					} else {
+						cube.twistDuration = settings.speed;
+						cube.removeEventListener('onTwistComplete');
+					}
+				});
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
 						cube.shuffleMethod = 'RrUu';
@@ -356,15 +365,6 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
-				cube.addEventListener('onTwistComplete', function(){
-					if(cube.isShuffling == true){
-						cube.twistDuration = 10;
-						console.log('shufflespeed: ' + cube.twistDuration);
-					} else {
-						cube.twistDuration = settings.speed;
-						cube.removeEventListener('onTwistComplete');
-					}
-				});
 			}
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
