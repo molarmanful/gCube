@@ -359,7 +359,7 @@
 					cube.twist(settings.scramble);
 				}
 				cube.addEventListener('onTwistComplete', function(){
-					if(cube.isShuffling == true){
+					if(cube.isShuffling === true){
 						cube.twistDuration = settings.shufflespeed;
 					} else {
 						cube.twistDuration = settings.speed;
