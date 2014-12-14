@@ -355,6 +355,11 @@
 					cube.twist(settings.scramble);
 				}
 			}
+			setInterval(function(){
+				if(cube.isShuffling = false){
+					cube.twistDuration = settings.speed;
+				}
+			}, 1);
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
