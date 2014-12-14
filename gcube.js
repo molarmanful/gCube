@@ -494,7 +494,6 @@
 					cube.right.showStickers();
 					cube.left.showStickers();
 					cube.up.edges.hideStickers();
-					cube.rotation.x = 100;
 				}
 				else {
 					cube.showStickers();
