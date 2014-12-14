@@ -326,6 +326,7 @@
 (function( $ ) {
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
+			shufflespeed: 10,
 			speed: 100,
 			scramble: '',
 			algorithm: '',
@@ -336,6 +337,7 @@
 			cube.rotation.y = -0.8;
 			cube.twistDuration = settings.speed;
 			if(settings.scramble != ''){
+				cube.twistDuration = settings.shufflespeed;
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
 						cube.shuffleMethod = 'RrUu';
@@ -356,6 +358,13 @@
 				} else {
 					cube.twist(settings.scramble);
 				}
+				cube.addEventListener('onTwistComplete', function(){
+					if(cube.isShuffling == true){
+						cube.twistDuration = settings.shufflespeed;
+					} else {
+						cube.twistDuration = settings.speed;
+					}
+				});
 			}
 			if(settings.algorithm != ''){
 				if(settings.algorithm.match('/mouse')){
