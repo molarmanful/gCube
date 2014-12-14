@@ -335,6 +335,7 @@
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			if(settings.scramble != ''){
+				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
 						cube.shuffleMethod = 'RrUu';
