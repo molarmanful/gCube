@@ -335,7 +335,6 @@
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -.8;
 			if(settings.scramble != ''){
-				cube.twistDuration = 10;
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
 						cube.shuffleMethod = 'RrUu';
@@ -358,7 +357,8 @@
 			window.timing = setInterval(function(){
 				if(cube.isShuffling = false){
 					cube.twistDuration = settings.speed;
-					clearInterval(timing);
+				} else {
+					cube.twistDuration = 10;
 				}
 			}, 1);
 			if(settings.algorithm != ''){
