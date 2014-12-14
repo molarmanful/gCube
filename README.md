@@ -18,7 +18,7 @@ How to Use
 Example code:
 ```javascript
 $('g-cube').gce({
-	speed: 1000,
+	speed: 100,
 	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
 	algorithm: "RUruRUruRUru",
 	highlight: "flxcross"
@@ -26,7 +26,7 @@ $('g-cube').gce({
 ```
 | Attribute | Description |
 |-----------|-------------|
-| _speed_ | Number. Milliseconds needed to perform a turn. Defaults to `1000`. |
+| _speed_ | Number. Milliseconds needed to perform a turn. Defaults to `100`. |
 | _scramble_ | String. See _Notation_ for more info. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to `''`. |
 | _algorithm_ | String. If this is set, then keyboard and mouse controls will be disabled unless `'/keyboard'` and/or `'/mouse'` is added to the end of the algorithm string. See _Notation_ for more info. Defaults to `''`. |
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`. Case-sensitive. Defaults to highlighting the whole cube. |
