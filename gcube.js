@@ -326,7 +326,7 @@
 (function( $ ) {
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
-			speed: 1000,
+			speed: 100,
 			scramble: '',
 			algorithm: '',
 			highlight: ''
