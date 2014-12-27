@@ -336,6 +336,7 @@
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -0.8;
 			cube.twistDuration = settings.speed;
+			cube.keyboardControlsEnabled = false;
 			if(settings.scramble != ''){
 				cube.twistDuration = settings.shufflespeed;
 				if(settings.scramble.match('/random')){
@@ -367,11 +368,6 @@
 					cube.mouseControlsEnabled = true;
 				} else {
 					cube.mouseControlsEnabled = false;
-				}
-				if(settings.algorithm.match('/keyboard')){
-					cube.keyboardControlsEnabled = true;
-				} else {
-					cube.keyboardControlsEnabled = false;
 				}
 				$(this).append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
 				$(this).children('#playalg').click(function(){
