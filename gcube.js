@@ -514,7 +514,7 @@ function reverse(s){
 				$('.sticker.white').css('background-color', 'Black');
 			} else if(settings.bodycolor == 'yellow'){
 				$('.face, .face.faceIntroverted').css('background-color', 'Gold');
-			} else if(settings.bodycolor == 'green){
+			} else if(settings.bodycolor == 'green'){
 				$('.face, .face.faceIntroverted').css('background-color', 'DarkGreen');
 			} else if(settings.bodycolor == 'blue'){
 				$('.face, .face.faceIntroverted').css('background-color', '#000398');
