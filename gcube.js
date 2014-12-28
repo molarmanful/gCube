@@ -510,7 +510,7 @@ function reverse(s){
 			} else if(settings.bodycolor == 'transparent'){
 				cube.hidePlastics().showWireframes();
 			} else if(settings.bodycolor == 'white'){
-				$('.face').css({'background-color', 'White'});
+				$('.face').css({'background-color': 'White'});
 				$('.sticker.white').css({'background-color': 'Black'});
 			} else if(settings.bodycolor == 'yellow'){
 				$('.face').css({'background-color': 'Gold'});
