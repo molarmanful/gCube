@@ -341,6 +341,7 @@ function reverse(s){
 			cube.rotation.y = -0.8;
 			cube.twistDuration = settings.speed;
 			cube.keyboardControlsEnabled = false;
+			cube.core.setOpacity(0);
 			if(settings.scramble != ''){
 				cube.twistDuration = settings.shufflespeed;
 				if(settings.scramble.match('/random')){
