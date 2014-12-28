@@ -333,7 +333,8 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			body: 'black'
 		}, options);
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
@@ -500,6 +501,19 @@ function reverse(s){
 				}
 				else {
 					cube.showStickers();
+				}
+			}
+			if(settings.body != 'black'){
+				if(settings.body == 'stickerless'){
+					Array.prototype.slice.call( document.querySelectorAll( '.cubelet' )).forEach( function( e ){
+						e.classList.add( 'purty' );
+					});
+				}
+				if(settings.body == 'transparent'){
+					cube.hidePlastics().showWireframes();
+				} else {
+					$('.face').css('background-color', settings.body);
+  					$('.faceIntroverted').css('background-color', settings.body);
 				}
 			}
 			if(typeof callback == 'function'){
