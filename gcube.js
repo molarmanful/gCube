@@ -333,7 +333,7 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			base: 'black',
+			base: '',
 			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(){
@@ -503,22 +503,24 @@ function reverse(s){
 					cube.showStickers();
 				}
 			}
-			if(settings.base == 'stickerless'){
-				$('.cubelet').addClass('purty');
-			} else if(settings.base == 'transparent'){
-				cube.hidePlastics().showWireframes();
-			} else if(settings.base == 'white'){
-				$('.cubelet').addClass('white');
-			} else if(settings.base == 'yellow'){
-				$('.cubelet').addClass('yellow');
-			} else if(settings.base == 'green'){
-				$('.cubelet').addClass('green');
-			} else if(settings.base == 'blue'){
-				$('.cubelet').addClass('blue');
-			} else if(settings.base == 'red'){
-				$('.cubelet').addClass('red');
-			} else if(settings.base == 'orange'){
-				$('.cubelet').addClass('orange');
+			if(settings.base != ''){	
+				if(settings.base == 'stickerless'){
+					$('.cubelet').addClass('purty');
+				} else if(settings.base == 'transparent'){
+					cube.hidePlastics().showWireframes();
+				} else if(settings.base == 'white'){
+					$('.cubelet').addClass('white');
+				} else if(settings.base == 'yellow'){
+					$('.cubelet').addClass('yellow');
+				} else if(settings.base == 'green'){
+					$('.cubelet').addClass('green');
+				} else if(settings.base == 'blue'){
+					$('.cubelet').addClass('blue');
+				} else if(settings.base == 'red'){
+					$('.cubelet').addClass('red');
+				} else if(settings.base == 'orange'){
+					$('.cubelet').addClass('orange');
+				}
 			}
 			$('#cubecont').append(cube.domElement);
 		});
