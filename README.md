@@ -13,7 +13,7 @@ How to Use
 3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
 4. Sit back and drag!
 
-<cube> Attributes
+jQuery Attributes
 ==================
 Example code:
 ```javascript
@@ -31,6 +31,18 @@ $('g-cube').gce({
 | _algorithm_ | String. If this is set, then mouse controls will be disabled unless `'/mouse'` is added to the end of the algorithm string. `/step` will add forward and backward step buttons. See _Notation_ for more info. Defaults to `''`. |
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`, and `cmll`. Case-sensitive. Defaults to highlighting the whole cube. |
 | _callback_ | Function to be called after options are initialized. |
+
+You can also set the cube's body color by adding:
+```javascript
+$('.cube').addClass(/*name of class here*/);
+```
+
+There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, and red. In addition, you can make your own class by doing:
+```css
+/*name of class here*/ .face {
+	background-color: /*desired color*/;
+}
+```
 
 CSS Defaults
 ==================
