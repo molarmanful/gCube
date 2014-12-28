@@ -376,8 +376,8 @@ function reverse(s){
 					cube.mouseControlsEnabled = false;
 				}
 				if(settings.algorithm.match('/step')){
-					$(this).append('<button id="stepfor" style="position: absolute; top: 0; float: left; z-index: 100">Step Forward</button>');
-					$(this).append('<button id="stepback" style="position: absolute; top: 0; float: left; z-index: 100">Step Backward</button>');
+					$(this).append('<button id="stepfor" style="position: absolute; top: 0; float: right; z-index: 100">Step Forward</button>');
+					$(this).append('<button id="stepback" style="position: absolute; top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
 						if(stepnum + 1 <= algstep.length){
 							stepnum++;
@@ -397,7 +397,7 @@ function reverse(s){
 						}
 					});
 				}
-				$(this).append('<button id="playalg" style="position: absolute; top: 0; float: left; z-index: 100">Play Algorithm</button>');
+				$(this).append('<button id="playalg" style="position: absolute; top: 0; clear: both; z-index: 100">Play Algorithm</button>');
 				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
