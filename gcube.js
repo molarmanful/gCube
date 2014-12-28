@@ -334,7 +334,7 @@ function reverse(s){
 			scramble: '',
 			algorithm: '',
 			highlight: '',
-			body: 'black'
+			bodycolor: 'black'
 		}, options);
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
@@ -504,15 +504,15 @@ function reverse(s){
 				}
 			}
 			if(settings.body != ''){
-				if(settings.body == 'stickerless'){
+				if(settings.bodycolor == 'stickerless'){
 					Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-						e.classList.add( 'purty' );
+						e.classList.add('purty');
 					});
 				}
-				if(settings.body == 'transparent'){
+				if(settings.bodycolor == 'transparent'){
 					cube.hidePlastics().showWireframes();
 				} else {
-					$('.face, .face.faceIntroverted').css('background-color', settings.body);
+					$('.face, .face.faceIntroverted').css('background-color', settings.bodycolor);
 				}
 			}
 			if(typeof callback == 'function'){
