@@ -503,17 +503,27 @@ function reverse(s){
 					cube.showStickers();
 				}
 			}
-			if(settings.body != ''){
-				if(settings.bodycolor == 'stickerless'){
-					Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-						e.classList.add('purty');
-					});
-				}
-				if(settings.bodycolor == 'transparent'){
-					cube.hidePlastics().showWireframes();
-				} else {
-					$('.face, .face.faceIntroverted').css('background-color', settings.bodycolor);
-				}
+			if(settings.bodycolor == 'stickerless'){
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('purty');
+				});
+			} else if(settings.bodycolor == 'transparent'){
+				cube.hidePlastics().showWireframes();
+			} else if(settings.bodycolor == 'white'){
+				$('.face, .face.faceIntroverted').css('background-color', 'White');
+				$('.sticker.white').css('background-color', 'Black');
+			} else if(settings.bodycolor == 'yellow'){
+				$('.face, .face.faceIntroverted').css('background-color', 'Gold');
+			} else if(settings.bodycolor == 'green){
+				$('.face, .face.faceIntroverted').css('background-color', 'DarkGreen');
+			} else if(settings.bodycolor == 'blue'){
+				$('.face, .face.faceIntroverted').css('background-color', '#000398');
+			} else if(settings.bodycolor == 'red'){
+				$('.face, .face.faceIntroverted').css('background-color', 'Maroon');
+			} else if(settings.bodycolor == 'orange'){
+				$('.face, .face.faceIntroverted').css('background-color', '#EE7600');
+			} else {
+				$('.face, .face.faceIntroverted').css('background-color', 'Black');
 			}
 			if(typeof callback == 'function'){
 				callback();
