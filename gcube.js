@@ -510,20 +510,20 @@ function reverse(s){
 			} else if(settings.bodycolor == 'transparent'){
 				cube.hidePlastics().showWireframes();
 			} else if(settings.bodycolor == 'white'){
-				$('.face').css('background-color', 'White');
-				$('.sticker.white').css('background-color', 'Black');
+				$('.face').css({'background-color', 'White'});
+				$('.sticker.white').css({'background-color': 'Black'});
 			} else if(settings.bodycolor == 'yellow'){
-				$('.face').css('background-color', 'Gold');
+				$('.face').css({'background-color': 'Gold'});
 			} else if(settings.bodycolor == 'green'){
-				$('.face').css('background-color', 'DarkGreen');
+				$('.face').css({'background-color': 'DarkGreen'});
 			} else if(settings.bodycolor == 'blue'){
-				$('.face').css('background-color', '#000398');
+				$('.face').css({'background-color': '#000398'});
 			} else if(settings.bodycolor == 'red'){
-				$('.face').css('background-color', 'Maroon');
+				$('.face').css({'background-color': 'Maroon'});
 			} else if(settings.bodycolor == 'orange'){
-				$('.face').css('background-color', '#EE7600');
+				$('.face').css({'background-color': '#EE7600'});
 			} else {
-				$('.face').css('background-color', 'Black');
+				$('.face').css({'background-color': 'Black'});
 			}
 			$('#cubecont').append(cube.domElement);
 		});
@@ -531,7 +531,7 @@ function reverse(s){
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
 		console.log('Highlight: ' + settings.highlight);
-		console.log('Body: ' + settings.bodycolor);
+		console.log('Body: ' + $('.face').css('background-color'););
 		return this;
 	};
 }( jQuery ));
