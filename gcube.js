@@ -328,13 +328,13 @@ function reverse(s){
 }
 (function( $ ) {
 	$.fn.gce = function(options, callback) {
-		var settings = $.extend({
+		window.settings = $.extend({
 			shufflespeed: 10,
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: '',
-			bodycolor: 'black'
+			bodycolor: 'black',
+			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
