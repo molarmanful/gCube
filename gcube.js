@@ -368,7 +368,7 @@ function reverse(s){
 				});
 			}
 			if(settings.algorithm != ''){
-				window.algstep = settings.algorithm.split('');
+				window.algstep = settings.algorithm.replace('/step', '').replace('/mouse', '').split('');
 				window.stepnum = 0;
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
@@ -376,8 +376,7 @@ function reverse(s){
 					cube.mouseControlsEnabled = false;
 				}
 				if(settings.algorithm.match('/step')){
-					$(this).append('<button id="stepfor" style="position: absolute; top: 0; float: right; z-index: 100">Step Forward</button>');
-					$(this).append('<button id="stepback" style="position: absolute; top: 0; float: right; z-index: 100">Step Backward</button>');
+					$(this).append('<button id="stepfor" style="position: absolute; top: 0; float: left; z-index: 100">Step Forward</button><button id="stepback" style="position: absolute; top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
 						if(stepnum + 1 <= algstep.length){
 							stepnum++;
@@ -402,10 +401,10 @@ function reverse(s){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
 						$(this).text('Reverse Algorithm');
-						cube.twist(settings.algorithm);
+						cube.twist(settings.algorithm.replace('/step', '').replace('/mouse', ''));
 					} else {
 						cube.twistDuration = 10;
-						cube.twist(reverse(settings.algorithm));
+						cube.twist(reverse(settings.algorithm.replace('/step', '').replace('/mouse', '')));
 						$(this).text('Play Algorithm');
 					}
 				});
