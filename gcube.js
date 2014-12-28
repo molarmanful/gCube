@@ -385,15 +385,7 @@ function reverse(s){
 					});
 					var inv;
 					$(this).children('#stepback').click(function(){
-						if(stepnum - 1 >= 0){
-							stepnum--;
-							if(algstep[stepnum] == algstep[stepnum].toUpperCase()){
-								inv = algstep[stepnum].toLowerCase();
-							} else {
-								inv = algstep[stepnum].toUpperCase();
-							}
-							cube.twist(inv);
-						}
+						cube.undo();
 					});
 				}
 				$(this).prepend('<button id="playalg" style="top: 0; z-index: 100">Play Algorithm</button>');
