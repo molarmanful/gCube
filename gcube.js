@@ -531,6 +531,7 @@ function reverse(s){
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
 		console.log('Highlight: ' + settings.highlight);
+		console.log('Body: ' + settings.bodycolor);
 		return this;
 	};
 }( jQuery ));
