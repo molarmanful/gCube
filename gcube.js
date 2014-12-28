@@ -333,9 +333,9 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			base: '',
 			highlight: ''
 		}, options);
+		window.gcube = $('.cube');
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
 			window.cube = new ERNO.Cube();
@@ -503,16 +503,12 @@ function reverse(s){
 					cube.showStickers();
 				}
 			}
-			if(settings.base != ''){	
-				$('.cube').addClass(settings.base);
-			}
 			$('#cubecont').append(cube.domElement);
 		});
 		console.log('gCube loaded.');
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
 		console.log('Highlight: ' + settings.highlight);
-		console.log('Base: ' + settings.base);
 		return this;
 	};
 }( jQuery ));
