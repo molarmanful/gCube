@@ -510,20 +510,29 @@ function reverse(s){
 			} else if(settings.bodycolor == 'transparent'){
 				cube.hidePlastics().showWireframes();
 			} else if(settings.bodycolor == 'white'){
-				$('.face').css({'background-color': 'White'});
-				$('.sticker.white').css({'background-color': 'Black'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('white');
+				});
 			} else if(settings.bodycolor == 'yellow'){
-				$('.face').css({'background-color': 'Gold'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('yellow');
+				});
 			} else if(settings.bodycolor == 'green'){
-				$('.face').css({'background-color': 'DarkGreen'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('green');
+				});
 			} else if(settings.bodycolor == 'blue'){
-				$('.face').css({'background-color': '#000398'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('blue');
+				});
 			} else if(settings.bodycolor == 'red'){
-				$('.face').css({'background-color': 'Maroon'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('red');
+				});
 			} else if(settings.bodycolor == 'orange'){
-				$('.face').css({'background-color': '#EE7600'});
-			} else {
-				$('.face').css({'background-color': 'Black'});
+				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+					e.classList.add('orange');
+				});
 			}
 			$('#cubecont').append(cube.domElement);
 		});
