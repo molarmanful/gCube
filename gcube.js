@@ -379,8 +379,8 @@ function reverse(s){
 					$(this).prepend('<button id="stepfor" style="top: 0; float: right; z-index: 100">Step Forward</button><button id="stepback" style="top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
 						if(stepnum + 1 <= algstep.length){
-							stepnum++;
 							cube.twist(algstep[stepnum]);
+							stepnum++;
 						}
 					});
 					var inv;
