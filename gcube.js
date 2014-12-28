@@ -378,20 +378,22 @@ function reverse(s){
 				if(settings.algorithm.match('/step')){
 					$(this).prepend('<button id="stepfor" style="top: 0; float: right; z-index: 100">Step Forward</button><button id="stepback" style="top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
-						if(stepnum + 1 <= algstep.length){
-							cube.twistDuration = settings.speed;
-							cube.twist(algstep[stepnum]);
-							stepnum++;
+						if(stepnum + 1 <= 0){
+							cube.redo();	
 						} else {
-							stepnum = 0;
+							if(stepnum + 1 <= algstep.length){
+								cube.twistDuration = settings.speed;
+								cube.twist(algstep[stepnum]);
+								stepnum++;
+							} else {
+								stepnum = 0;
+							}
 						}
 					});
 					var inv;
 					$(this).children('#stepback').click(function(){
 						cube.twistDuration = settings.speed;
-						if(stepnum - 1 >= 0){
-							stepnum--;
-						}
+						stepnum--;
 						cube.undo();
 					});
 				}
