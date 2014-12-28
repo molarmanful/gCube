@@ -387,6 +387,9 @@ function reverse(s){
 					var inv;
 					$(this).children('#stepback').click(function(){
 						cube.twistDuration = settings.speed;
+						if(stepnum - 1 >= 0){
+							stepnum--;
+						}
 						cube.undo();
 					});
 				}
