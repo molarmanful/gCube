@@ -336,6 +336,7 @@ function reverse(s){
 			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(){
+			$(this).append('<div id="cubecont"></div>');
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -0.8;
 			cube.twistDuration = settings.speed;
@@ -398,7 +399,6 @@ function reverse(s){
 				}
 				$(this).append('<button id="playalg" style="position: absolute; top: 0; float: left; z-index: 100">Play Algorithm</button>');
 				$(this).children('#playalg').click(function(){
-					$(this).parent('g-cube').children('button').fadeOut(100);
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
 						$(this).text('Reverse Algorithm');
@@ -527,7 +527,7 @@ function reverse(s){
 			if(typeof callback == 'function'){
 				callback();
 			}
-			$(this).append(cube.domElement);
+			$(this).children('#cubecont').append(cube.domElement);
 		});
 		console.log('gCube loaded.');
 		console.log('Scramble: ' + settings.scramble);
