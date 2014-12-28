@@ -510,20 +510,20 @@ function reverse(s){
 			} else if(settings.bodycolor == 'transparent'){
 				cube.hidePlastics().showWireframes();
 			} else if(settings.bodycolor == 'white'){
-				$('.face, .face.faceIntroverted').css('background-color', 'White');
+				$('.face').css('background-color', 'White');
 				$('.sticker.white').css('background-color', 'Black');
 			} else if(settings.bodycolor == 'yellow'){
-				$('.face, .face.faceIntroverted').css('background-color', 'Gold');
+				$('.face').css('background-color', 'Gold');
 			} else if(settings.bodycolor == 'green'){
-				$('.face, .face.faceIntroverted').css('background-color', 'DarkGreen');
+				$('.face').css('background-color', 'DarkGreen');
 			} else if(settings.bodycolor == 'blue'){
-				$('.face, .face.faceIntroverted').css('background-color', '#000398');
+				$('.face').css('background-color', '#000398');
 			} else if(settings.bodycolor == 'red'){
-				$('.face, .face.faceIntroverted').css('background-color', 'Maroon');
+				$('.face').css('background-color', 'Maroon');
 			} else if(settings.bodycolor == 'orange'){
-				$('.face, .face.faceIntroverted').css('background-color', '#EE7600');
+				$('.face').css('background-color', '#EE7600');
 			} else {
-				$('.face, .face.faceIntroverted').css('background-color', 'Black');
+				$('.face').css('background-color', 'Black');
 			}
 			if(typeof callback == 'function'){
 				callback();
