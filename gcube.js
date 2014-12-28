@@ -382,6 +382,8 @@ function reverse(s){
 							cube.twistDuration = settings.speed;
 							cube.twist(algstep[stepnum]);
 							stepnum++;
+						} else {
+							stepnum = 0;
 						}
 					});
 					var inv;
