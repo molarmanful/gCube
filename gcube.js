@@ -379,12 +379,14 @@ function reverse(s){
 					$(this).prepend('<button id="stepfor" style="top: 0; float: right; z-index: 100">Step Forward</button><button id="stepback" style="top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
 						if(stepnum + 1 <= algstep.length){
+							cube.twistDuration = settings.speed;
 							cube.twist(algstep[stepnum]);
 							stepnum++;
 						}
 					});
 					var inv;
 					$(this).children('#stepback').click(function(){
+						cube.twistDuration = settings.speed;
 						cube.undo();
 					});
 				}
