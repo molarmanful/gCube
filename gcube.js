@@ -368,45 +368,22 @@ function reverse(s){
 				});
 			}
 			if(settings.algorithm != ''){
-				window.algstep = settings.algorithm.replace('/step', '').replace('/mouse', '').split('');
+				window.algstep = settings.algorithm.replace('/mouse', '').split('');
 				window.stepnum = 0;
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
 				} else {
 					cube.mouseControlsEnabled = false;
 				}
-				if(settings.algorithm.match('/step')){
-					$(this).prepend('<button id="stepfor" style="top: 0; float: right; z-index: 100">Step Forward</button><button id="stepback" style="top: 0; float: right; z-index: 100">Step Backward</button>');
-					$(this).children('#stepfor').click(function(){
-						if(stepnum <= 0){
-							cube.twistDuration = settings.speed;
-							cube.redo();	
-						} else {
-							if(stepnum + 1 <= algstep.length){
-								cube.twistDuration = settings.speed;
-								cube.twist(algstep[stepnum]);
-								stepnum++;
-							} else {
-								stepnum = 0;
-							}
-						}
-					});
-					var inv;
-					$(this).children('#stepback').click(function(){
-						cube.twistDuration = settings.speed;
-						stepnum--;
-						cube.undo();
-					});
-				}
 				$(this).prepend('<button id="playalg" style="top: 0; z-index: 100">Play Algorithm</button>');
 				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
 						$(this).text('Reverse Algorithm');
-						cube.twist(settings.algorithm.replace('/step', '').replace('/mouse', ''));
+						cube.twist(settings.algorithm.replace('/mouse', ''));
 					} else {
 						cube.twistDuration = 10;
-						cube.twist(reverse(settings.algorithm.replace('/step', '').replace('/mouse', '')));
+						cube.twist(reverse(settings.algorithm.replace('/mouse', '')));
 						$(this).text('Play Algorithm');
 					}
 				});
