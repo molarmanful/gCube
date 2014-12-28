@@ -504,35 +504,21 @@ function reverse(s){
 				}
 			}
 			if(settings.bodycolor == 'stickerless'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('purty');
-				});
+				$('.cubelet').addClass('purty');
 			} else if(settings.bodycolor == 'transparent'){
 				cube.hidePlastics().showWireframes();
 			} else if(settings.bodycolor == 'white'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('white');
-				});
+				$('.cubelet').addClass('white');
 			} else if(settings.bodycolor == 'yellow'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('yellow');
-				});
+				$('.cubelet').addClass('yellow');
 			} else if(settings.bodycolor == 'green'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('green');
-				});
+				$('.cubelet').addClass('green');
 			} else if(settings.bodycolor == 'blue'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('blue');
-				});
+				$('.cubelet').addClass('blue');
 			} else if(settings.bodycolor == 'red'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('red');
-				});
+				$('.cubelet').addClass('red');
 			} else if(settings.bodycolor == 'orange'){
-				Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
-					e.classList.add('orange');
-				});
+				$('.cubelet').addClass('orange');
 			}
 			$('#cubecont').append(cube.domElement);
 		});
