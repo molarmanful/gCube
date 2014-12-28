@@ -333,7 +333,7 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			bodycolor: 'black',
+			base: 'black',
 			highlight: ''
 		}, options);
 		this.filter('g-cube').each(function(){
@@ -503,21 +503,21 @@ function reverse(s){
 					cube.showStickers();
 				}
 			}
-			if(settings.bodycolor == 'stickerless'){
+			if(settings.base == 'stickerless'){
 				$('.cubelet').addClass('purty');
-			} else if(settings.bodycolor == 'transparent'){
+			} else if(settings.base == 'transparent'){
 				cube.hidePlastics().showWireframes();
-			} else if(settings.bodycolor == 'white'){
+			} else if(settings.base == 'white'){
 				$('.cubelet').addClass('white');
-			} else if(settings.bodycolor == 'yellow'){
+			} else if(settings.base == 'yellow'){
 				$('.cubelet').addClass('yellow');
-			} else if(settings.bodycolor == 'green'){
+			} else if(settings.base == 'green'){
 				$('.cubelet').addClass('green');
-			} else if(settings.bodycolor == 'blue'){
+			} else if(settings.base == 'blue'){
 				$('.cubelet').addClass('blue');
-			} else if(settings.bodycolor == 'red'){
+			} else if(settings.base == 'red'){
 				$('.cubelet').addClass('red');
-			} else if(settings.bodycolor == 'orange'){
+			} else if(settings.base == 'orange'){
 				$('.cubelet').addClass('orange');
 			}
 			$('#cubecont').append(cube.domElement);
@@ -526,7 +526,7 @@ function reverse(s){
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
 		console.log('Highlight: ' + settings.highlight);
-		console.log('Body: ' + $('.face').css('background-color'));
+		console.log('Body: ' + settings.base);
 		return this;
 	};
 }( jQuery ));
