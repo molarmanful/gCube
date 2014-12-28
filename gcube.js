@@ -335,7 +335,6 @@ function reverse(s){
 			algorithm: '',
 			highlight: ''
 		}, options);
-		window.gcube = $('.cube');
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
 			window.cube = new ERNO.Cube();
