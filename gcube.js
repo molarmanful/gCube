@@ -383,10 +383,10 @@ function reverse(s){
 							cube.twist(algstep[stepnum]);
 						}
 					});
+					var inv;
 					$(this).children('#stepback').click(function(){
 						if(stepnum - 1 >= 0){
 							stepnum--;
-							var inv;
 							if(algstep[stepnum] == algstep[stepnum].toUpperCase()){
 								inv = algstep[stepnum].toLowerCase();
 							} else {
