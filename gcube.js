@@ -375,10 +375,10 @@ function reverse(s){
 				} else {
 					cube.mouseControlsEnabled = false;
 				}
-				$(this).prepend('<button id="playalg" style="top: 0; z-index: 100">Play Algorithm</button>');
+				$(this).prepend('<button id="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input id="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('#playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
-						cube.twistDuration = settings.speed;
+						cube.twistDuration = $('#speedslider').val();
 						$(this).text('Reverse Algorithm');
 						cube.twist(settings.algorithm.replace('/mouse', ''));
 					} else {
