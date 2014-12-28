@@ -525,6 +525,7 @@ function reverse(s){
 			} else {
 				$('.face').css('background-color', 'Black');
 			}
+			$('#cubecont').append(cube.domElement);
 		});
 		console.log('gCube loaded.');
 		console.log('Scramble: ' + settings.scramble);
