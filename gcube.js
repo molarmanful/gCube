@@ -378,7 +378,8 @@ function reverse(s){
 				if(settings.algorithm.match('/step')){
 					$(this).prepend('<button id="stepfor" style="top: 0; float: right; z-index: 100">Step Forward</button><button id="stepback" style="top: 0; float: right; z-index: 100">Step Backward</button>');
 					$(this).children('#stepfor').click(function(){
-						if(stepnum + 1 <= 0){
+						if(stepnum <= 0){
+							cube.twistDuration = settings.speed;
 							cube.redo();	
 						} else {
 							if(stepnum + 1 <= algstep.length){
