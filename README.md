@@ -32,12 +32,12 @@ $('g-cube').gce({
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`, and `cmll`. Case-sensitive. Defaults to highlighting the whole cube. |
 | _callback_ | Function to be called after options are initialized. |
 
-You can also set the cube's body color by adding:
+You can also set the cube's body color by adding this to your jQuery code:
 ```javascript
 $('.cube').addClass(/*name of class here*/);
 ```
 
-There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, and red. In addition, you can make your own class by doing:
+There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, and red. In addition, you can make your own class by adding this to your CSS code:
 ```css
 /*name of class here*/ .face {
 	background-color: /*desired color*/;
