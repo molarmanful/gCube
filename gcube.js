@@ -323,6 +323,9 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }());
+function reverse(s){
+    return s.split("").reverse().join("");
+}
 (function( $ ) {
 	$.fn.gce = function(options, callback) {
 		var settings = $.extend({
@@ -364,19 +367,45 @@
 				});
 			}
 			if(settings.algorithm != ''){
+				window.algstep = settings.algorithm.split('');
+				window.stepnum = 0;
 				if(settings.algorithm.match('/mouse')){
 					cube.mouseControlsEnabled = true;
 				} else {
 					cube.mouseControlsEnabled = false;
 				}
-				$(this).append('<button id="playalg" style="top: 0; left: 0; position: absolute; z-index: 100">Play Algorithm</button>');
+				if(settings.algorithm.match('/step')){
+					$(this).append('<button id="stepfor" style="top: 0; float: left; z-index: 100">Step Forward</button>');
+					$(this).append('<button id="stepback" style="top: 0; float: left; z-index: 100">Step Backward</button>');
+					$(this).children('#stepfor').click(function(){
+						if(stepnum + 1 <= algstep.length){
+							stepnum++;
+							cube.twist(algstep[stepnum]);
+						}
+					});
+					$(this).children('#stepback').click(function(){
+						if(stepnum - 1 >= 0){
+							stepnum--;
+							var inv;
+							if(algstep[stepnum] == algstep[stepnum].toUpperCase()){
+								inv = algstep[stepnum].toLowerCase();
+							} else {
+								inv = algstep[stepnum].toUpperCase();
+							}
+							cube.twist(inv);
+						}
+					});
+				}
+				$(this).append('<button id="playalg" style="top: 0; float: left; z-index: 100">Play Algorithm</button>');
 				$(this).children('#playalg').click(function(){
+					$(this).parent('g-cube').children('button').fadeOut(100);
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = settings.speed;
 						$(this).text('Reverse Algorithm');
 						cube.twist(settings.algorithm);
 					} else {
 						cube.twistDuration = 10;
+						cube.twist(reverse(settings.algorithm));
 						$(this).text('Play Algorithm');
 					}
 				});
