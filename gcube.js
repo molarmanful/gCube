@@ -503,15 +503,17 @@ function reverse(s){
 					cube.showStickers();
 				}
 			}
-			if(settings.body == 'stickerless'){
-				Array.prototype.slice.call( document.querySelectorAll( '.cubelet' )).forEach( function( e ){
-					e.classList.add( 'purty' );
-				});
-			}
-			if(settings.body == 'transparent'){
-				cube.hidePlastics().showWireframes();
-			} else {
-				$('.face, .face.faceIntroverted').css('background-color', settings.body);
+			if(settings.body != ''){
+				if(settings.body == 'stickerless'){
+					Array.prototype.slice.call( document.querySelectorAll('.cubelet')).forEach(function(e){
+						e.classList.add( 'purty' );
+					});
+				}
+				if(settings.body == 'transparent'){
+					cube.hidePlastics().showWireframes();
+				} else {
+					$('.face, .face.faceIntroverted').css('background-color', settings.body);
+				}
 			}
 			if(typeof callback == 'function'){
 				callback();
