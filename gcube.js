@@ -505,7 +505,7 @@ function reverse(s){
 				}
 			}
 			if(settings.title != ''){
-				$(this).append('<div id="title" style="position: absolute; top: 0; right: 0">' + settings.title + '</div>');
+				$(this).append('<div id="title" style="position: absolute; top: 0; right: 0; z-index: 100">' + settings.title + '</div>');
 			}
 			$('#cubecont').append(cube.domElement);
 		});
