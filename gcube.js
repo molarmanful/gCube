@@ -333,7 +333,8 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			title: ''
 		}, options);
 		this.filter('g-cube').each(function(){
 			$(this).append('<div id="cubecont"></div>');
@@ -502,6 +503,9 @@ function reverse(s){
 				else {
 					cube.showStickers();
 				}
+			}
+			if(settings.title != ''){
+				$(this).append('<div id="title" style="position: absolute; top: 0; right: 0">' + settings.title + '</div>');
 			}
 			$('#cubecont').append(cube.domElement);
 		});
