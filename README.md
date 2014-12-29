@@ -37,7 +37,7 @@ You can also set the cube's body color by adding this to your jQuery code:
 $('.cube').addClass(/*name of class here*/);
 ```
 
-There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, and red. In addition, you can make your own class by adding this to your CSS code:
+There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
 ```css
 /*name of class here*/ .face {
 	background-color: /*desired color*/;
