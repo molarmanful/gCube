@@ -377,10 +377,10 @@ function reverse(s){
 				} else {
 					cube.mouseControlsEnabled = false;
 				}
-				$(this).prepend('<button id="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input id="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
-				$(this).children('#playalg').click(function(){
+				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
+				$(this).children('.playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
-						cube.twistDuration = $('#speedslider').val();
+						cube.twistDuration = $('.speedslider').val();
 						$(this).text('Reverse Algorithm');
 						cube.twist(settings.algorithm.replace('/mouse', ''));
 					} else {
@@ -505,7 +505,7 @@ function reverse(s){
 				}
 			}
 			if(settings.title != ''){
-				$(this).append('<div id="title" style="position: absolute; top: 0; right: 0; z-index: 100">' + settings.title + '</div>');
+				$(this).append('<div style="position: absolute; top: 0; right: 0; z-index: 100">' + settings.title + '</div>');
 			}
 			$('#cubecont').append(cube.domElement);
 		});
