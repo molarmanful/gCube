@@ -331,10 +331,105 @@ function reverse(s){
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //plugin start
 (function() {
-	
+	// Define our constructor
+	this.gcube = function() {
+		
+		//global element references
+		
+		
+		//parameters
+		window.settings = {
+			shufflespeed: 10,
+			speed: 100,
+			scramble: '',
+			algorithm: '',
+			highlight: '',
+			container: document.getElementsByTagName('g-cube')[0]
+		}
+		
+		//evaluate parameters
+		
+		//cube container
+		settings.container.appendChild('<div id="cubecont"></div>');
+		
+		//cube initialization
+		window.cube = new ERNO.Cube();
+		cube.rotation.y = -0.8;
+		cube.twistDuration = settings.speed;
+		cube.keyboardControlsEnabled = false;
+		cube.core.setOpacity(0);
+		
+		//scramble param
+		if(settings.scramble != ''){
+			cube.twistDuration = settings.shufflespeed;
+			if(settings.scramble.match('/random')){
+				if(settings.scramble.match('/2-genR')){
+					cube.shuffleMethod = 'RrUu';
+				} else if(settings.scramble.match('/2-genM')){
+					cube.shuffleMethod = 'MmUu';
+				} else if(settings.scramble.match('/2-genL')){
+					cube.shuffleMethod = 'RrUu';
+				} else if(settings.scramble.match('/3-genRF')){
+					cube.shuffleMethod = 'RrUuFf';
+				} else if(settings.scramble.match('/3-genLF')){
+					cube.shuffleMethod = 'LlUuFf';
+				} else if(settings.scramble.match('/3-genRL')){
+					cube.shuffleMethod = 'RrUuLl';
+				} else {
+					cube.shuffleMethod = 'RrLlUuDdFfBb';
+				}
+				cube.shuffle(25);
+			} else {
+				cube.twist(settings.scramble);
+			}
+			cube.addEventListener('onShuffleComplete', function(){
+				cube.twistDuration = settings.speed;
+			});
+		}
+		
+		//alg param
+		if(settings.algorithm != ''){
+			window.algstep = settings.algorithm.replace('/mouse', '').split('');
+			window.stepnum = 0;
+			if(settings.algorithm.match('/mouse')){
+				cube.mouseControlsEnabled = true;
+			} else {
+				cube.mouseControlsEnabled = false;
+			}
+			settings.container.insertBefore('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">', document.body.childNodes[0]);
+			settings.container.getElementsByClassName('playalg')[0].onclick = function(){
+				if(settings.container.getElementsByClassName('playalg')[0].innerHTML == 'Play Algorithm'){
+					cube.twistDuration = document.getElementsByClassName('speedslider')[0].value;
+					settings.container.getElementsByClassName('playalg')[0].innerHTML = 'Reverse Algorithm';
+					cube.twist(settings.algorithm.replace('/mouse', ''));
+				} else {
+					cube.twistDuration = 10;
+					cube.twist(reverse(settings.algorithm.replace('/mouse', '')));
+					settings.container.getElementsByClassName('playalg')[0].innerHTML = 'Play Algorithm';
+				}
+			};
+		}
+		
+		// Create options by extending defaults with the passed in arguments
+		if (arguments[0] && typeof arguments[0] === "object") {
+			this.options = extendDefaults(defaults, arguments[0]);
+		}
+		
+	};
+		
+	//extend defaults with user options
+	function extendDefaults(source, properties) {
+		var property;
+		for (property in properties) {
+			if (properties.hasOwnProperty(property)) {
+				source[property] = properties[property];
+			}
+		}
+		return source;
+	}
 }());
 
-//load stylesheet
+//stylesheet
 window.onload = function(){
   document.head.insertBefore('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', document.body.childNodes[0]);
   console.log('G-cube vanilla stylesheet loaded.');
