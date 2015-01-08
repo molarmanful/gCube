@@ -339,8 +339,7 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: '',
-			title: ''
+			highlight: ''
 		}, options);
 		
 		//only <g-cube></g-cube> allowed
