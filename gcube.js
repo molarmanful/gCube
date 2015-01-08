@@ -323,11 +323,17 @@
 	window.TWEEN = window.TWEEN || TWEEN;
 	window.THREE = window.THREE || THREE;
 }());
+
+//function for alg reversing in playback
 function reverse(s){
     return s.split("").reverse().join("");
 }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//plugin start
 (function( $ ) {
 	$.fn.gce = function(options, callback) {
+		
+		//parameters
 		window.settings = $.extend({
 			shufflespeed: 10,
 			speed: 100,
@@ -336,13 +342,20 @@ function reverse(s){
 			highlight: '',
 			title: ''
 		}, options);
+		
+		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
+			//cube container
 			$(this).append('<div id="cubecont"></div>');
+			
+			//cube initialization
 			window.cube = new ERNO.Cube();
 			cube.rotation.y = -0.8;
 			cube.twistDuration = settings.speed;
 			cube.keyboardControlsEnabled = false;
 			cube.core.setOpacity(0);
+			
+			//scramble param
 			if(settings.scramble != ''){
 				cube.twistDuration = settings.shufflespeed;
 				if(settings.scramble.match('/random')){
@@ -369,6 +382,8 @@ function reverse(s){
 					cube.twistDuration = settings.speed;
 				});
 			}
+			
+			//alg param
 			if(settings.algorithm != ''){
 				window.algstep = settings.algorithm.replace('/mouse', '').split('');
 				window.stepnum = 0;
@@ -390,6 +405,8 @@ function reverse(s){
 					}
 				});
 			}
+			
+			//highlight param
 			if(!(settings.highlight.match('all'))){
 				cube.hideStickers();
 				if(settings.highlight.match('onlyedges')){
@@ -440,29 +457,21 @@ function reverse(s){
 					cube.rotation.x = 100;
 				}
 				else if(settings.highlight.match('llcross')){
-					cube.showStickers();
-					cube.up.corners.hideStickers();
+					cube.up.cross.showStickers();
 				}
 				else if(settings.highlight.match('llbar')){
-					cube.showStickers();
-					cube.up.corners.hideStickers();
-					cube.hasId(1).hideStickers();
-					cube.hasId(19).hideStickers();
+					cube.hasId(1).showStickers();
+					cube.hasId(19).showStickers();
 				}
 				else if(settings.highlight.match('llL')){
-					cube.showStickers();
-					cube.up.corners.hideStickers();
-					cube.hasId(11).hideStickers();
-					cube.hasId(1).hideStickers();
+					cube.hasId(11).showStickers();
+					cube.hasId(1).showStickers();
 				}
 				else if(settings.highlight.match('lldot')){
-					cube.showStickers();
-					cube.up.edges.hideStickers();
-					cube.up.corners.hideStickers();
+					cube.up.center.showStickers();
 				}
 				else if(settings.highlight.match('llcorners')){
-					cube.showStickers();
-					cube.up.edges.hideStickers();
+					cube.up.corners.showStickers();
 				}
 				else if(settings.highlight.match('2x2x2')){
 					cube.showStickers();
@@ -495,20 +504,16 @@ function reverse(s){
 					cube.up.hideStickers();
 					cube.rotation.x = 100;
 				}
-				else if(settings.highlight.match('cmll')){
-					cube.right.showStickers();
-					cube.left.showStickers();
-					cube.up.edges.hideStickers();
-				}
 				else {
 					cube.showStickers();
 				}
 			}
-			if(settings.title != ''){
-				$(this).append('<div style="position: absolute; top: 0; right: 0; z-index: 100">' + settings.title + '</div>');
-			}
+			
+			//put cube in container
 			$('#cubecont').append(cube.domElement);
 		});
+		
+		//debug purposes
 		console.log('gCube loaded.');
 		console.log('Scramble: ' + settings.scramble);
 		console.log('Algorithm: ' + settings.algorithm);
@@ -517,7 +522,9 @@ function reverse(s){
 	};
 }( jQuery ));
 $(document).ready(function(){
+	//stylesheet
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
+		//debug purposes
 		console.log('G-cube stylesheet loaded.');
 	});
 });
