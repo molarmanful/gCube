@@ -4,10 +4,15 @@
 		
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
-			//only allow array params
+			//only allow arrays of equal length for params
 			if(typeof alg == 'array' && typeof comments == 'array' && algs.length == comments.length){
-				
+				//check for cube presence
+				if(window.cube){
+					
+				}
 			}
+			
+			//callback
 			if(typeof callback == 'function'){
 				callback.call();
 			}
