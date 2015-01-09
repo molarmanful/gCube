@@ -508,15 +508,21 @@ function reverse(s){
 				}
 			}
 			
+			//callback
+			if(typeof callback == 'function'){
+				callback.call();
+			}
+			
 			//put cube in container
 			$('#cubecont').append(cube.domElement);
+			//debug purposes
+			console.log('gCube loaded.');
+			console.log('Scramble: ' + settings.scramble);
+			console.log('Algorithm: ' + settings.algorithm);
+			console.log('Highlight: ' + settings.highlight);
 		});
 		
-		//debug purposes
-		console.log('gCube loaded.');
-		console.log('Scramble: ' + settings.scramble);
-		console.log('Algorithm: ' + settings.algorithm);
-		console.log('Highlight: ' + settings.highlight);
+		//chaining
 		return this;
 	};
 }( jQuery ));
