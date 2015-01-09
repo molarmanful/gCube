@@ -8,8 +8,13 @@
 			if(typeof alg == 'array' && typeof comments == 'array' && algs.length == comments.length){
 				//check for cube presence
 				if(window.cube){
-					
+					rec();
 				}
+			}
+			
+			//reconstruct function - still can make 'this' refer to a g-cube tag
+			function rec(){
+				$(this).empty().append(cube);
 			}
 			
 			//callback
