@@ -3,7 +3,7 @@
 		
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
-		  
+			
 		});
 		
 		//debug purposes
