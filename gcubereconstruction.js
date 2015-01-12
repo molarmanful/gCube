@@ -17,7 +17,7 @@
 			//reconstruct function - still can make 'this' refer to a g-cube tag
 			function rec(){
 				//overwrite any buttons previously in tag except for cube container and speed slider with reconstruction buttons
-				$(this).children(':not(.cubecont):not(.speedslider)').remove().prepend('<button class="rec" style="top: 0; z-index: 100">Play Reconstruction</button><br><span class="steps"></span><br>');
+				$(this).children(':not(.cubecont)').remove().prepend('<button class="rec" style="top: 0; z-index: 100">Play Reconstruction</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '"><br><span class="steps"></span><br>');
 				//play button clicked
 				$('.rec').click(function(){
 					//play through steps
