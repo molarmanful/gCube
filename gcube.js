@@ -356,8 +356,7 @@ function nt(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: '',
-			mouse: true
+			highlight: ''
 		}, options);
 		
 		window.scram = nt(settings.scramble);
@@ -396,7 +395,7 @@ function nt(s){
 					}
 					cube.shuffle(25);
 				} else {
-					cube.twist(settings.scramble);
+					cube.twist(scram);
 				}
 				cube.addEventListener('onShuffleComplete', function(){
 					cube.twistDuration = settings.speed;
@@ -405,22 +404,16 @@ function nt(s){
 			
 			//alg param
 			if(settings.algorithm != ''){
-				window.algstep = settings.algorithm.replace('/mouse', '').split('');
-				window.stepnum = 0;
-				if(settings.algorithm.match('/mouse')){
-					cube.mouseControlsEnabled = true;
-				} else {
-					cube.mouseControlsEnabled = false;
-				}
+				cube.mouseControlsEnabled = false;
 				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('.playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = $('.speedslider').val();
 						$(this).text('Reverse Algorithm');
-						cube.twist(settings.algorithm.replace('/mouse', ''));
+						cube.twist(algo);
 					} else {
 						cube.twistDuration = 10;
-						cube.twist(reverse(settings.algorithm.replace('/mouse', '')));
+						cube.twist(reverse(algo));
 						$(this).text('Play Algorithm');
 					}
 				});
@@ -527,11 +520,6 @@ function nt(s){
 				else {
 					cube.showStickers();
 				}
-			}
-			
-			//mouse controls
-			if(settings.mouse != true){
-				cube.mouseControlsEnabled = false;
 			}
 			
 			//callback
