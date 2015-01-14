@@ -333,7 +333,7 @@ function reverse(s){
 function nt(s){
   var x = '';
   s.trim().split(/\s+/).forEach(function(e) {
-    if (e.length === 2) {
+    if (e.length === 2 && e != e.toLowerCase()) {
       if (e[1] === '2') {
         x += e[0] + e[0];
       } else {
