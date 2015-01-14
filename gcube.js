@@ -339,7 +339,8 @@ function reverse(s){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			mouse: true
 		}, options);
 		
 		//only <g-cube></g-cube> allowed
@@ -506,6 +507,11 @@ function reverse(s){
 				else {
 					cube.showStickers();
 				}
+			}
+			
+			//mouse controls
+			if(settings.mouse != true){
+				cube.mouseControlsEnabled = false;
 			}
 			
 			//callback
