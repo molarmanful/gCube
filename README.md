@@ -18,20 +18,17 @@ jQuery Attributes
 Example code:
 ```javascript
 $('g-cube').gce({
-	shufflespeed: 10,
 	speed: 100,
-	scramble: "D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B",
-	algorithm: "R2 U R2 U R2 U2 R U2",
-	highlight: "flxcross",
-	
+	scramble: "RrLlUuDdFfBbMmEeSsXxYyZz",
+	algorithm: "RUruRUruRUru",
+	highlight: "flxcross"
 }, callback());
 ```
 | Attribute | Description |
 |-----------|-------------|
-| _shufflespeed_ | Number. Milliseconds needed to perform a turn in scramble. Defaults to `10`. |
-| _speed_ | Number. Milliseconds needed to perform a turn in algorithm. Defaults to `100`. |
-| _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to `''`. |
-| _algorithm_ | String. If this is set, then mouse controls will be disabled unless `'/mouse'` is added to the end of the algorithm string. `/step` will add forward and backward step buttons. Use WCA notation. Defaults to `''`. |
+| _speed_ | Number. Milliseconds needed to perform a turn. Defaults to `100`. |
+| _scramble_ | String. See _Notation_ for more info. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to `''`. |
+| _algorithm_ | String. If this is set, then mouse controls will be disabled unless `'/mouse'` is added to the end of the algorithm string. `/step` will add forward and backward step buttons. See _Notation_ for more info. Defaults to `''`. |
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`, and `cmll`. Case-sensitive. Defaults to highlighting the whole cube. |
 | _callback_ | Function to be called after options are initialized. |
 
@@ -54,3 +51,15 @@ CSS Defaults
 `position` is set to `relative`.
 
 `display` is set to `block`.
+
+Notation
+===================
+Googlecubeembed notation is based on Singmaster notation, but instead of i, `, or ' suffixes to denote counterclockwise turns, lowercase letters are used. Rotations are uppercase unless turning counterclockwise. 180-degree turns are denoted as 2 uppercase/lowercase letters.
+
+Examples:
+
+R = R
+
+Ri/R`/R' = r
+
+R2 = RR/rr
