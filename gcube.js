@@ -324,8 +324,9 @@
 	window.THREE = window.THREE || THREE;
 }());
 
-//notation translation
-function nta(s){
+//notation translators
+//for scramble
+function ntscramble(s){
   var x = '';
   s.trim().split(/\s+/).forEach(function(e) {
     if (e.length === 2) {
@@ -340,7 +341,8 @@ function nta(s){
   });
   return x;
 }
-function ntb(s){
+//for solve
+function ntsolve(s){
   var x = '';
   s.trim().split(/\s+/).reverse().forEach(function(e) {
     if (e.length === 2) {
@@ -369,9 +371,9 @@ function ntb(s){
 			highlight: ''
 		}, options);
 		
-		window.scram = nta(settings.scramble);
-		window.algo = nta(settings.algorithm);
-		window.algor = ntb(settings.algorithm);
+		window.scram = ntscramble(settings.scramble);
+		window.algo = ntscramble(settings.algorithm);
+		window.algor = ntsolve(settings.algorithm);
 		
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
