@@ -342,7 +342,7 @@ function nta(s){
 }
 function ntb(s){
   var x = '';
-  s.trim().split(/\s+/).forEach(function(e) {
+  s.trim().split(/\s+/).reverse().forEach(function(e) {
     if (e.length === 2) {
       if (e[1] === '2') {
         x += e[0] + e[0];
@@ -542,9 +542,9 @@ function ntb(s){
 			$('#cubecont').append(cube.domElement);
 			//debug purposes
 			console.log('gCube loaded.');
-			console.log('Scramble: ' + settings.scramble);
-			console.log('Algorithm: ' + settings.algorithm);
-			console.log('Highlight: ' + settings.highlight);
+			console.log('Scramble: ' + scram);
+			console.log('Algorithm: ' + algo);
+			console.log('Highlight: ' + algor);
 		});
 		
 		//chaining
