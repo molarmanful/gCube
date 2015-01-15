@@ -324,35 +324,9 @@
 	window.THREE = window.THREE || THREE;
 }());
 
-//notation translation
-function nt(s, a){
-  var x = '';
-  if(a == 'norm'){
-  	s.trim().split(/\s+/).forEach(function(e) {
-	    if (e.length === 2) {
-	      if (e[1] === '2') {
-	        x += e[0] + e[0];
-	      } else {
-	        x += e[0].toLowerCase();
-	      }
-	    } else {
-	      x += e[0];
-	    }
-	  });
-  } else {
-  	s.trim().split(/\s+/).forEach(function(e) {
-	    if (e.length === 2) {
-	      if (e[1] === '2') {
-	        x += e[0] + e[0];
-	      } else {
-	        x += e[0];
-	      }
-	    } else {
-	      x += e[0].toLowerCase();
-	    }
-	  });
-  }
-  return x;
+//function for alg reversing in playback
+function reverse(s){
+    return s.split("").reverse().join("");
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //plugin start
@@ -365,12 +339,9 @@ function nt(s, a){
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			mouse: true
 		}, options);
-		
-		window.scram = nt(settings.scramble, 'norm');
-		window.algo = nt(settings.algorithm, 'norm');
-		window.algor = nt(settings.algorithm, 'rev');
 		
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
@@ -405,7 +376,7 @@ function nt(s, a){
 					}
 					cube.shuffle(25);
 				} else {
-					cube.twist(scram);
+					cube.twist(settings.scramble);
 				}
 				cube.addEventListener('onShuffleComplete', function(){
 					cube.twistDuration = settings.speed;
@@ -414,16 +385,22 @@ function nt(s, a){
 			
 			//alg param
 			if(settings.algorithm != ''){
-				cube.mouseControlsEnabled = false;
+				window.algstep = settings.algorithm.replace('/mouse', '').split('');
+				window.stepnum = 0;
+				if(settings.algorithm.match('/mouse')){
+					cube.mouseControlsEnabled = true;
+				} else {
+					cube.mouseControlsEnabled = false;
+				}
 				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('.playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = $('.speedslider').val();
 						$(this).text('Reverse Algorithm');
-						cube.twist(algo);
+						cube.twist(settings.algorithm.replace('/mouse', ''));
 					} else {
 						cube.twistDuration = 10;
-						cube.twist(algor);
+						cube.twist(reverse(settings.algorithm.replace('/mouse', '')));
 						$(this).text('Play Algorithm');
 					}
 				});
@@ -530,6 +507,11 @@ function nt(s, a){
 				else {
 					cube.showStickers();
 				}
+			}
+			
+			//mouse controls
+			if(settings.mouse != true){
+				cube.mouseControlsEnabled = false;
 			}
 			
 			//callback
