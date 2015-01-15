@@ -371,7 +371,7 @@ function ntsolve(s){
 			highlight: ''
 		}, options);
 		
-		window.scram = ntscramble(settings.scramble);
+		window.scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
 		window.algo = ntscramble(settings.algorithm);
 		window.algor = ntsolve(settings.algorithm);
 		
