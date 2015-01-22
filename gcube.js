@@ -371,10 +371,6 @@ function ntsolve(s){
 			highlight: ''
 		}, options);
 		
-		window.scram;
-		window.algo;
-		window.algor;
-		
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
 			//cube container
@@ -389,7 +385,7 @@ function ntsolve(s){
 			
 			//scramble param
 			if(settings.scramble != ''){
-				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
+				window.scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
 				cube.twistDuration = settings.shufflespeed;
 				if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
@@ -418,8 +414,8 @@ function ntsolve(s){
 			
 			//alg param
 			if(settings.algorithm != ''){
-				algo = ntscramble(settings.algorithm);
-				algor = ntsolve(settings.algorithm);
+				window.algo = ntscramble(settings.algorithm);
+				window.algor = ntsolve(settings.algorithm);
 				cube.mouseControlsEnabled = false;
 				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('.playalg').click(function(){
