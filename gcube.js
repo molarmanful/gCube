@@ -557,7 +557,7 @@ var scram, algo, algor;
 			}
 			
 			//put cube in container
-			$('#cubecont').append(cube.domElement).css('display', 'none').fadeIn(1000);
+			$('#cubecont').append(cube.domElement);
 			//debug purposes
 			console.log('gCube loaded.');
 			console.log('Scramble: ' + scram);
