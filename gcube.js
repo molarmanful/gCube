@@ -547,7 +547,7 @@ var scram, algo, algor;
 			}
 			
 			//put cube in container
-			$('#cubecont').append(cube.domElement).css('display', 'none').fadeIn();
+			$('#cubecont').append(cube.domElement).css('display', 'none');
 			//debug purposes
 			console.log('gCube loaded.');
 			console.log('Scramble: ' + scram);
@@ -564,5 +564,6 @@ $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
 		//debug purposes
 		console.log('G-cube stylesheet loaded.');
+		$('g-cube #cubecont').fadeIn(1000);
 	});
 });
