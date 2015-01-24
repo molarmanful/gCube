@@ -483,20 +483,30 @@ var scram, algo, algor;
 					cube.rotation.x = 100;
 				}
 				else if(settings.highlight.match('llcross')){
+					cube.showStickers();
+					cube.up.hideStickers();
 					cube.up.cross.showStickers();
 				}
 				else if(settings.highlight.match('llbar')){
+					cube.showStickers();
+					cube.up.hideStickers();
 					cube.hasId(1).showStickers();
 					cube.hasId(19).showStickers();
 				}
 				else if(settings.highlight.match('llL')){
+					cube.showStickers();
+					cube.up.hideStickers();
 					cube.hasId(11).showStickers();
 					cube.hasId(1).showStickers();
 				}
 				else if(settings.highlight.match('lldot')){
+					cube.showStickers();
+					cube.up.hideStickers();
 					cube.up.center.showStickers();
 				}
 				else if(settings.highlight.match('llcorners')){
+					cube.showStickers();
+					cube.up.hideStickers();
 					cube.up.corners.showStickers();
 				}
 				else if(settings.highlight.match('2x2x2')){
