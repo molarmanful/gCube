@@ -530,6 +530,12 @@ var scram, algo, algor;
 					cube.up.hideStickers();
 					cube.rotation.x = 100;
 				}
+				else if(settings.highlight.match('roux2')){
+					cube.right.showStickers();
+					cube.left.showStickers();
+					cube.up.hideStickers();
+					cube.up.corners.showStickers();
+				}
 				else {
 					cube.showStickers();
 				}
