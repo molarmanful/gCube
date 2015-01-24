@@ -530,7 +530,7 @@ var scram, algo, algor;
 					cube.up.hideStickers();
 					cube.rotation.x = 100;
 				}
-				else if(settings.highlight.match('roux2')){
+				else if(settings.highlight.match('cmll')){
 					cube.right.showStickers();
 					cube.left.showStickers();
 					cube.up.hideStickers();
