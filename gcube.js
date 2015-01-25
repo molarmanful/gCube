@@ -282,7 +282,8 @@ var scram, algo, algor;
 			speed: 100,
 			scramble: '',
 			algorithm: '',
-			highlight: ''
+			highlight: '',
+			text: ''
 		}, options);
 		
 		//only <g-cube></g-cube> allowed
@@ -462,6 +463,12 @@ var scram, algo, algor;
 				else {
 					cube.showStickers();
 				}
+			}
+			
+			//text
+			if(settings.text != ''){
+				cube.showTexts();
+				cube.setText(settings.text);
 			}
 			
 			//callback
