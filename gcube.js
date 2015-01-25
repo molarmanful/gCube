@@ -303,16 +303,6 @@ ERNO.renderers.IeCSS3D = (function(){
 		cube.up.label.rotation.x 	= Math.PI * -0.5;
 		cube.down.label.rotation.x 	= Math.PI *  0.5;
 
-
-
-		//	CSS CUBELETS
-		//	Each ERNO.Cubelet is an abstract representation of a cubelet,
-		//	it has some useful information like a list of faces, but it doesn't have any visual component.
-		// 	Here we take the abstract cubelet and create something you can see.
-
-		//	First we add some functionality to the ERNO.Cubelet specific to css,
-		//	things like setOpacity, and showStickers directly affects css styles.
-
 		ERNO.extend( ERNO.Cubelet.prototype, ERNO.renderers.IeCSS3DCubelet.methods ); 
 
 
