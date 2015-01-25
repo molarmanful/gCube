@@ -1,75 +1,7 @@
 (function(){
-	/**
-	@license
-	CUBER
-	-----
-	Cuber is a programmable Rubiks cube of sorts.
-	Made with love by:
-	@author Mark Lundin - http://mark-lundin.com / @mark_lundin
-	@author Stewart Smith - stewd.io
-	@author Google Creative Lab
-	NOTATION
-	UPPERCASE = Clockwise to next 90 degree peg
-	lowercase = Anticlockwise to next 90 degree peg
-	FACE & SLICE ROTATION COMMANDS
-	F   Front
-	S   Standing (rotate according to Front Face's orientation)
-	B   Back
-	L   Left
-	M   Middle (rotate according to Left Face's orientation)
-	R   Right
-	U   Up
-	E   Equator (rotate according to Up Face's orientation)
-	D   Down
-	ENTIRE CUBE ROTATION COMMANDS
-	X   Rotate entire cube according to Right Face's orientation
-	Y   Rotate entire cube according to Up Face's orientation
-	Z   Rotate entire cube according to Front Face's orientation
-	NOTATION REFERENCES
-	http://en.wikipedia.org/wiki/Rubik's_Cube#Move_notation
-	http://en.wikibooks.org/wiki/Template:Rubik's_cube_notation
-	The MIT License (MIT)
-	Copyright (c) 2014 Cuber Authors
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-	*/
 	var ERNO={};
 	(function(){function a(a,c){c=c||{bubbles:!1,cancelable:!1,detail:void 0};var d=document.createEvent("CustomEvent");d.initCustomEvent(a,c.bubbles,c.cancelable,c.detail);return d}a.prototype=window.Event.prototype;window.CustomEvent=a;Function.prototype.bind||(Function.prototype.bind=function(a){if("function"!==typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var c=Array.prototype.slice.call(arguments,1),d=this,e=function(){},f=function(){return d.apply(this instanceof e&&
-	a?this:a,c.concat(Array.prototype.slice.call(arguments)))};e.prototype=this.prototype;f.prototype=new e;return f})})();ERNO.extend=function(a,b){if(Object.keys)for(var c=Object.keys(b),d=0,e=c.length;d<e;d++){var f=c[d];Object.defineProperty(a,f,Object.getOwnPropertyDescriptor(b,f))}else for(f in c={}.hasOwnProperty,b)c.call(b,f)&&(a[f]=b[f]);return a};/**
-	 @license
-	 The MIT License
-	 Copyright (c) 2010-2012 Tween.js authors.
-	 Easing equations Copyright (c) 2001 Robert Penner
-	 http://robertpenner.com/easing/
-	 Permission is hereby granted, free of charge, to any person obtaining a copy
-	 of this software and associated documentation files (the "Software"), to deal
-	 in the Software without restriction, including without limitation the rights
-	 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 copies of the Software, and to permit persons to whom the Software is
-	 furnished to do so, subject to the following conditions:
-	 The above copyright notice and this permission notice shall be included in
-	 all copies or substantial portions of the Software.
-	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	 THE SOFTWARE.
-	*/
+	a?this:a,c.concat(Array.prototype.slice.call(arguments)))};e.prototype=this.prototype;f.prototype=new e;return f})})();ERNO.extend=function(a,b){if(Object.keys)for(var c=Object.keys(b),d=0,e=c.length;d<e;d++){var f=c[d];Object.defineProperty(a,f,Object.getOwnPropertyDescriptor(b,f))}else for(f in c={}.hasOwnProperty,b)c.call(b,f)&&(a[f]=b[f]);return a};
 	void 0===Date.now&&(Date.now=function(){return(new Date).valueOf()});
 	var TWEEN=TWEEN||function(){var a=[];return{REVISION:"12",getAll:function(){return a},removeAll:function(){a=[]},add:function(b){a.push(b)},remove:function(b){b=a.indexOf(b);-1!==b&&a.splice(b,1)},update:function(b){if(0===a.length)return!1;var c=0;for(b=void 0!==b?b:"undefined"!==typeof window&&void 0!==window.performance&&void 0!==window.performance.now?window.performance.now():Date.now();c<a.length;)a[c].update(b)?c++:a.splice(c,1);return!0}}}();
 	TWEEN.Tween=function(a){var b={},c={},d={},e=1E3,f=0,g=!1,h=!1,k=0,l=null,n=TWEEN.Easing.Linear.None,m=TWEEN.Interpolation.Linear,r=[],q=null,t=!1,u=null,p=null,s;for(s in a)b[s]=parseFloat(a[s],10);this.to=function(a,b){void 0!==b&&(e=b);c=a;return this};this.start=function(e){TWEEN.add(this);h=!0;t=!1;l=void 0!==e?e:"undefined"!==typeof window&&void 0!==window.performance&&void 0!==window.performance.now?window.performance.now():Date.now();l+=k;for(var f in c){if(c[f]instanceof Array){if(0===c[f].length)continue;
@@ -83,26 +15,7 @@
 	TWEEN.Easing.Bounce.Out(1-a)},Out:function(a){return a<1/2.75?7.5625*a*a:a<2/2.75?7.5625*(a-=1.5/2.75)*a+0.75:a<2.5/2.75?7.5625*(a-=2.25/2.75)*a+0.9375:7.5625*(a-=2.625/2.75)*a+0.984375},InOut:function(a){return 0.5>a?0.5*TWEEN.Easing.Bounce.In(2*a):0.5*TWEEN.Easing.Bounce.Out(2*a-1)+0.5}}};
 	TWEEN.Interpolation={Linear:function(a,b){var c=a.length-1,d=c*b,e=Math.floor(d),f=TWEEN.Interpolation.Utils.Linear;return 0>b?f(a[0],a[1],d):1<b?f(a[c],a[c-1],c-d):f(a[e],a[e+1>c?c:e+1],d-e)},Bezier:function(a,b){var c=0,d=a.length-1,e=Math.pow,f=TWEEN.Interpolation.Utils.Bernstein,g;for(g=0;g<=d;g++)c+=e(1-b,d-g)*e(b,g)*a[g]*f(d,g);return c},CatmullRom:function(a,b){var c=a.length-1,d=c*b,e=Math.floor(d),f=TWEEN.Interpolation.Utils.CatmullRom;return a[0]===a[c]?(0>b&&(e=Math.floor(d=c*(1+b))),f(a[(e-
 	1+c)%c],a[e],a[(e+1)%c],a[(e+2)%c],d-e)):0>b?a[0]-(f(a[0],a[0],a[1],a[1],-d)-a[0]):1<b?a[c]-(f(a[c],a[c],a[c-1],a[c-1],d-c)-a[c]):f(a[e?e-1:0],a[e],a[c<e+1?c:e+1],a[c<e+2?c:e+2],d-e)},Utils:{Linear:function(a,b,c){return(b-a)*c+a},Bernstein:function(a,b){var c=TWEEN.Interpolation.Utils.Factorial;return c(a)/c(b)/c(a-b)},Factorial:function(){var a=[1];return function(b){var c=1,d;if(a[b])return a[b];for(d=b;1<d;d--)c*=d;return a[b]=c}}(),CatmullRom:function(a,b,c,d,e){a=0.5*(c-a);d=0.5*(d-b);var f=
-	e*e;return(2*b-2*c+a+d)*e*f+(-3*b+3*c-2*a-d)*f+a*e+b}}};/**
-	 @license
-	 The MIT License
-	 Copyright &copy; 2010-2014 three.js authors
-	 Permission is hereby granted, free of charge, to any person obtaining a copy
-	 of this software and associated documentation files (the "Software"), to deal
-	 in the Software without restriction, including without limitation the rights
-	 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 copies of the Software, and to permit persons to whom the Software is
-	 furnished to do so, subject to the following conditions:
-	 The above copyright notice and this permission notice shall be included in
-	 all copies or substantial portions of the Software.
-	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	 THE SOFTWARE.
-	*/
+	e*e;return(2*b-2*c+a+d)*e*f+(-3*b+3*c-2*a-d)*f+a*e+b}}};
 	var THREE={REVISION:"66"};self.console=self.console||{info:function(){},log:function(){},debug:function(){},warn:function(){},error:function(){}};
 	(function(){for(var a=0,b=["ms","moz","webkit","o"],c=0;c<b.length&&!self.requestAnimationFrame;++c)self.requestAnimationFrame=self[b[c]+"RequestAnimationFrame"],self.cancelAnimationFrame=self[b[c]+"CancelAnimationFrame"]||self[b[c]+"CancelRequestAnimationFrame"];void 0===self.requestAnimationFrame&&void 0!==self.setTimeout&&(self.requestAnimationFrame=function(b){var c=Date.now(),f=Math.max(0,16-(c-a)),g=self.setTimeout(function(){b(c+f)},f);a=c+f;return g});void 0===self.cancelAnimationFrame&&void 0!==
 	self.clearTimeout&&(self.cancelAnimationFrame=function(a){self.clearTimeout(a)})})();THREE.CullFaceNone=0;THREE.CullFaceBack=1;THREE.CullFaceFront=2;THREE.CullFaceFrontBack=3;THREE.FrontFaceDirectionCW=0;THREE.FrontFaceDirectionCCW=1;THREE.BasicShadowMap=0;THREE.PCFShadowMap=1;THREE.PCFSoftShadowMap=2;THREE.FrontSide=0;THREE.BackSide=1;THREE.DoubleSide=2;THREE.NoShading=0;THREE.FlatShading=1;THREE.SmoothShading=2;THREE.NoColors=0;THREE.FaceColors=1;THREE.VertexColors=2;THREE.NoBlending=0;
