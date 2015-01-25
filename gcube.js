@@ -236,19 +236,6 @@ ERNO.renderers = ERNO.renderers || {};
 
 ERNO.renderers.IeCSS3D = (function(){
 
-
-	//	This is a basic css renderer that uses a modified version of the three.js CSS3DRenderer.
-	//	Having the renderer is a seperate file allows us to abstract all the visual components
-	//	of the cube in a simple, straightforward way.
-
-
-	//	THREE.JS HACK
-
-	//	You can actually use a THREE.Object3D as a Scene like object 
-	//	and render it with the THREE.CSS3DRenderer. For projects with filesize restrictions,
-	//	this is useful as it allows you to exclude the THREE.Scene and all it's dependancies entirely.
-	//	The only caveat is that we need to temporarily define/re-define a dummy Scene object
-
 	var SceneType = THREE.Scene;
 		THREE.Scene = SceneType || function(){};
 
@@ -534,23 +521,6 @@ ERNO.renderers.IeCSS3DCubelet = (function(){
 	}
 
 }());
-
-
-/**
- * Based on THREE.CSSRenderer http://www.emagix.net/academic/mscs-project/item/camera-sync-with-css3-and-webgl-threejs
- *
- * The IeCss3DRenderer is a heavily influenced/modified version of the THREE.CSS3DRenderer. It is designed to circumvent
- * the annoyingly problematic fact that IE 10/11 does not support the 'preserve-3d' property which means we need to calculate
- * and apply the model view matrix to each dom elements individually. Not only this, but it needs a manual depth sorting
- * routine. Painter sort just doesn't cut the mustard.
- *
- * For those reasons, this renderer is not general purpose, it only works with Cuber. It makes a lot of assumptions about
- * the elements it's rendering. It could be possible to refactor this into a generalised CSS 3D renderer for IE, but not 
- * without some significant work.
- *
- * NOTE: This isn't entirely bug free. There are some visible glitches when the depth sorting is incorrect.
- *
- */
 
 
 THREE.CSS3DObject = function ( element ) {
