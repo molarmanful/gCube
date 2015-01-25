@@ -469,6 +469,7 @@ var scram, algo, algor;
 			if(settings.text != ''){
 				cube.showTexts();
 				cube.setText(settings.text);
+				cube.rotation.x = 50.2;
 			}
 			
 			//callback
