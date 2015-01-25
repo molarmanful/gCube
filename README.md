@@ -9,7 +9,7 @@ How to Use
 ==================
 
 1. Include jQuery 1.11.1 (```<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>```) if you have not already done so.
-2. Put ```<script src="http://molarmanful.github.io/gCube/gcube.js"></script>``` in the head tag, AFTER your jQuery script tag.
+2. Put ```<script src="http://molarmanful.github.io/gCube/gcube.js"></script>``` or ```<script src="http://molarmanful.github.io/gCube/gcube.min.js"></script>``` in the head tag, AFTER your jQuery script tag.
 3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
 4. Sit back and drag!
 
