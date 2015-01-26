@@ -258,7 +258,7 @@ var scram, algo, algor;
 }( jQuery ));
 $(document).ready(function(){
 	//stylesheet
-	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
+	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.min.css">', function(){
 		//debug purposes
 		console.log('G-cube stylesheet loaded.');
 	});
