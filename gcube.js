@@ -38,7 +38,7 @@ function ntsolve(s){
 }
 
 //pll's
-var pllnames = ['Aa', 'Ab', 'E', 'Z', 'H', 'Ua', 'Ub', 'Ja', 'Jb', 'T', 'Ra', 'Rb', 'F', 'Ga', 'Gb', 'Gc', 'Gd', 'V', 'Na', 'Nb', 'Y'];
+var pllnames = [/Aa/i, /Ab/i, /E/i, /Z/i, /H/i, /Ua/i, /Ub/i, /Ja/i, /Jb/i, /T/i, /Ra/i, /Rb/i, /F/i, /Ga/i, /Gb/i, /Gc/i, /Gd/i, /V/i, /Na/i, /Nb/i, /Y/i];
 
 //setup algs from speedsolving wiki
 var pllalgs = [
@@ -64,11 +64,15 @@ var pllalgs = [
 	"R' U R U' R' F' U' F R U R' F R' F' R U' R", //nb
 	"F R U' R' U' R U R' F' R U R' U' R' F R F'" //y
 ];
+
+//use both pll arrays for 
 function getPLL(s){
-	if(s.match('/') && s.replace('/', '').length <= 2){
-		if($.inArray(s.replace('/', ''), pllnames) != -1){
+	if(s.match(/\/pll /i)){
+		if($.inArray(s.replace(/\/pll /i, ''), pllnames) != -1){
 			return pllalgs[$.inArray(s.replace('/', ''), pllnames)];
 		}
+	} else {
+		return false;
 	}
 }
 
@@ -104,7 +108,10 @@ var scram, algo, algor;
 			if(settings.scramble != ''){
 				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
 				cube.twistDuration = settings.shufflespeed;
-				if(settings.scramble.match('/random')){
+				if(getPLL(settings.scramble) != -1){
+					cube.twist(getPLL(settings.scramble));
+				}
+				else if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
 						cube.shuffleMethod = 'RrUu';
 					} else if(settings.scramble.match('/2-genM')){
