@@ -106,10 +106,10 @@ var scram, algo, algor;
 			
 			//scramble param
 			if(settings.scramble != ''){
-				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
+				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, '').replace(/pll /i, '').replace($.inArray(s.replace(/\/pll /i, ''), pllnames), ''));
 				cube.twistDuration = settings.shufflespeed;
 				if(getPLL(settings.scramble) != -1){
-					cube.twist(getPLL(ntscramble(settings.scramble)));
+					cube.twist(ntscramble(getPLL(settings.scramble)));
 				}
 				else if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
