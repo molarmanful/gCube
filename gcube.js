@@ -67,8 +67,8 @@ var pllalgs = [
 
 //use both pll arrays for 
 function getPLL(s){
-	if(s.match(/\/pll /i)){
-		if($.inArray(s.replace(/\/pll /i, ''), pllnames) != -1){
+	if(s.match(/\/pll/i)){
+		if($.inArray(s.replace(/\/pll/i, ''), pllnames) != -1){
 			return pllalgs[$.inArray(s.replace('/', ''), pllnames)];
 		}
 	} else {
