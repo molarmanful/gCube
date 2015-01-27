@@ -65,11 +65,11 @@ var pllalgs = [
 	"F R U' R' U' R U R' F' R U R' U' R' F R F'" //y
 ];
 
-//use both pll arrays for 
+//use both pll arrays for returning proper pll
 function getPLL(s){
-	if(s.match(/\/pll/ig)){
-		if($.inArray(s.replace(/\/pll/ig, ''), pllnames) != -1){
-			return ntscramble(pllalgs[$.inArray(s.replace(/\/pll/ig, ''), pllnames)]);
+	if(s.match(/\/pll /i)){
+		if($.inArray(s.replace(/\/pll /i, ''), pllnames) != -1){
+			return pllalgs[$.inArray(s.replace(/\/pll /i, ''), pllnames)];
 		}
 	} else {
 		return false;
@@ -109,7 +109,7 @@ var scram, algo, algor;
 				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
 				cube.twistDuration = settings.shufflespeed;
 				if(getPLL(settings.scramble) != -1){
-					cube.twist(getPLL(settings.scramble));
+					cube.twist(getPLL(ntscramble(settings.scramble)));
 				}
 				else if(settings.scramble.match('/random')){
 					if(settings.scramble.match('/2-genR')){
