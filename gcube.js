@@ -67,9 +67,9 @@ var pllalgs = [
 
 //use both pll arrays for 
 function getPLL(s){
-	if(s.match(/\/pll/i)){
-		if($.inArray(s.replace(/\/pll/i, ''), pllnames) != -1){
-			return ntscramble(pllalgs[$.inArray(s.replace(/\/pll/i, ''), pllnames)]);
+	if(s.match(/\/pll/ig)){
+		if($.inArray(s.replace(/\/pll/ig, ''), pllnames) != -1){
+			return ntscramble(pllalgs[$.inArray(s.replace(/\/pll/ig, ''), pllnames)]);
 		}
 	} else {
 		return false;
