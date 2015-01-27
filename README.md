@@ -33,7 +33,7 @@ $('g-cube').gce({
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. If this is set, then mouse controls will be disabled unless `'/mouse'` is added to the end of the algorithm string. `/step` will add forward and backward step buttons. Use WCA notation. Defaults to an empty string. |
 | _highlight_ | String. You can use one or more of these to hide all but some selected stickers: `onlyedges`, `onlycorners`, `onlycenters`, `flcross`, `flxcross`, `fl`, `flcorners`, `f2l`, `f2ll`, `llcross`, `llbar`, `llL`, `lldot`, `llcorners`, `2x2x2`, `2x2x3`, `eoline`, `roux1`, `roux2`, and `cmll`. Case-sensitive. Defaults to highlighting the whole cube. |
-| _text_ | String. You can set text that is 18 characters or less. Defaults to an empty string. |
+| _text_ | String. You can put a message that is 18 characters or less. This will render on the front 2 faces of the cube. Defaults to an empty string. |
 | _callback_ | Function to be called after options are initialized. |
 
 You can also set the cube's body color by adding this to your jQuery code:
@@ -52,6 +52,6 @@ CSS Defaults
 ==================
 `Height` and `width` attributes are both `100%`.
 
-`position` is set to `relative`.
+`position` is set to `absolute`.
 
 `display` is set to `block`.
