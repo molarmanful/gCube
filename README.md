@@ -48,6 +48,28 @@ There are 8 predefined classes that you can use: transparent, stickerless, white
 }
 ```
 
+Stickerless cubes can use this CSS:
+```css
+/*name of class here*/ .faceUp {
+	background-color: /*desired color for the face*/;
+}
+/*name of class here*/ .faceDown {
+	background-color: /*desired color for the face*/;
+}
+/*name of class here*/ .faceLeft {
+	background-color: /*desired color for the face*/;
+}
+/*name of class here*/ .faceRight {
+	background-color: /*desired color for the face*/;
+}
+/*name of class here*/ .faceFront {
+	background-color: /*desired color for the face*/;
+}
+/*name of class here*/ .faceBack {
+	background-color: /*desired color for the face*/;
+}
+```
+
 CSS Defaults
 ==================
 `Height` and `width` attributes are both `100%`.
