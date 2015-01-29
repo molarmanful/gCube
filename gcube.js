@@ -247,6 +247,15 @@ var scram, algo, algor;
 			
 			//put cube in container
 			$('#cubecont').append(cube.domElement);
+			
+			//switch around classes
+			$('.sticker.red').removeClass('red').addClass('down');
+			$('.sticker.orange').removeClass('orange').addClass('up');
+			$('.sticker.green').removeClass('green').addClass('left');
+			$('.sticker.blue').removeClass('blue').addClass('right');
+			$('.sticker.white').removeClass('white').addClass('front');
+			$('.sticker.yellow').removeClass('yellow').addClass('back');
+			
 			//debug purposes
 			console.log('gCube loaded.');
 			console.log('Scramble: ' + scram);
