@@ -25,7 +25,8 @@ $('g-cube').gce({
 	scramble: "D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B",
 	algorithm: "R2 U R2 U R2 U2 R U2",
 	highlight: "flxcross",
-	text: "GCUBE"
+	text: "GCUBE",
+	florian: "0.3em"
 }, callback());
 ```
 | Attribute | Description |
