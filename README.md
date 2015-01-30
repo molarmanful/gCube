@@ -13,10 +13,13 @@ How to Use
 1. Include jQuery 1.11.1 (```<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>```) if you have not already done so.
 2. Put ```<script src="http://molarmanful.github.io/gCube/gcube.js"></script>``` or ```<script src="http://molarmanful.github.io/gCube/gcube.min.js"></script>``` in the head tag, AFTER your jQuery script tag.
 3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
-4. Sit back and drag!
+4. Sit back and cube!
 
-jQuery Attributes
+Embed Function
 ==================
+
+This is the function you use to create, append and display the cube. This will only work on `g-cube` tags.
+
 Example code:
 ```javascript
 $('g-cube').gce({
@@ -40,19 +43,40 @@ $('g-cube').gce({
 | _florian_ | String. The amount of curve to add to the intersection of each cubelet. Must be a CSS-acceptable measurement. |
 | _callback_ | Function to be called after options are initialized. |
 
-You can also set the cube's body color by adding this to your jQuery code:
+Other Functions
+==================
+
+These functions are used to change the cube settings after `.gce()` has been called.
+
 ```javascript
-$('.cube').addClass(/*name of class here*/);
+//speed, numeric
+$('g-cube').setspeed(10);
+//scramble, string
+$('g-cube').scramble("D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B");
+//algorithm, string
+$('g-cube').setalg("R U R' U'");
+//highlight, string
+$('g-cube').sethighlight("flxcross");
+//florian, string
+$('g-cube').setflorian("0.2em");
 ```
 
-There are 8 predefined classes that you can use: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
+Base Color Options
+==================
+There are 8 predefined classes that you can use for the base: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
+
 ```css
 /*name of class here*/ .face {
 	background-color: /*desired color*/;
 }
 ```
 
-Stickerless cubes can use this CSS:
+You can also set the cube's body color by adding this to your jQuery code:
+```javascript
+$('.cube').addClass(/*name of class here*/);
+```
+
+Custom stickerless cubes can use this CSS:
 ```css
 /*name of class here*/ .faceUp {
 	background-color: /*desired color for the face*/;
