@@ -40,6 +40,7 @@ function ntsolve(s){
 //plugin start
 var scram, algo, algor;
 (function( $ ) {
+	//embed cube
 	$.fn.gce = function(options, callback) {
 		
 		//parameters
@@ -241,6 +242,9 @@ var scram, algo, algor;
 				cube.rotation.x = 50.2;
 			}
 			
+			//florian
+			$(this).prepend('<style>.cube .cubeletId-0 .faceFront {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceFront .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-1 .faceFront {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceFront .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceUp {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-1 .faceUp .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-2 .faceFront {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceFront .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-3 .faceFront {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceFront .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceLeft {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-3 .faceLeft .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-4 .faceFront {  border-radius: '+settings.florian+';}.cube .cubeletId-4 .faceFront .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-5 .faceFront {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceFront .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceRight {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-5 .faceRight .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-6 .faceFront {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceFront .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-7 .faceFront {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceFront .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceDown {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-7 .faceDown .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-8 .faceFront {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceFront .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-9 .faceUp {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceUp .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceLeft {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-9 .faceLeft .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-10 .faceUp {  border-radius: '+settings.florian+';}.cube .cubeletId-10 .faceUp .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-11 .faceUp {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceUp .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceRight {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-12 .faceLeft {  border-radius: '+settings.florian+';}.cube .cubeletId-12 .faceLeft .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-15 .faceDown {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceDown .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceLeft {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-15 .faceLeft .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-16 .faceDown {  border-radius: '+settings.florian+';}.cube .cubeletId-16 .faceDown .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-17 .faceDown {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceRight {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-17 .faceRight .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-18 .faceBack {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceBack .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-19 .faceUp {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceBack {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-19 .faceBack .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-20 .faceUp {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceUp .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-21 .faceBack {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceBack .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceLeft {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-22 .faceBack {  border-radius: '+settings.florian+';}.cube .cubeletId-22 .faceBack .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-23 .faceBack {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceRight {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-23 .faceRight .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-24 .faceBack {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceBack .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-25 .faceBack {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceBack .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceDown {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-25 .faceDown .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-26 .faceRight {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceRight .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack .sticker {  border-bottom-right-radius: '+settings.florian+';}</style>');
+			
 			//callback
 			if(typeof callback == 'function'){
 				callback.call();
@@ -248,8 +252,6 @@ var scram, algo, algor;
 			
 			//put cube in container
 			$('#cubecont').append(cube.domElement);
-			
-			$(this).prepend('<style>.cube .cubeletId-0 .faceFront {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceFront .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-1 .faceFront {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceFront .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceUp {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-1 .faceUp .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-2 .faceFront {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceFront .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-3 .faceFront {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceFront .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceLeft {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-3 .faceLeft .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-4 .faceFront {  border-radius: '+settings.florian+';}.cube .cubeletId-4 .faceFront .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-5 .faceFront {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceFront .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceRight {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-5 .faceRight .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-6 .faceFront {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceFront .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-7 .faceFront {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceFront .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceDown {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-7 .faceDown .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-8 .faceFront {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceFront .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-9 .faceUp {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceUp .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceLeft {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-9 .faceLeft .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-10 .faceUp {  border-radius: '+settings.florian+';}.cube .cubeletId-10 .faceUp .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-11 .faceUp {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceUp .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceRight {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-12 .faceLeft {  border-radius: '+settings.florian+';}.cube .cubeletId-12 .faceLeft .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-15 .faceDown {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceDown .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceLeft {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-15 .faceLeft .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-16 .faceDown {  border-radius: '+settings.florian+';}.cube .cubeletId-16 .faceDown .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-17 .faceDown {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceRight {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-17 .faceRight .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-18 .faceBack {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceBack .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-19 .faceUp {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceBack {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-19 .faceBack .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-20 .faceUp {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceUp .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-21 .faceBack {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceBack .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceLeft {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-22 .faceBack {  border-radius: '+settings.florian+';}.cube .cubeletId-22 .faceBack .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-23 .faceBack {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceRight {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-23 .faceRight .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-24 .faceBack {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceBack .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-25 .faceBack {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceBack .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceDown {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-25 .faceDown .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-26 .faceRight {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceRight .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack .sticker {  border-bottom-right-radius: '+settings.florian+';}</style>');
 			
 			//debug purposes
 			console.log('gCube loaded.');
@@ -259,6 +261,208 @@ var scram, algo, algor;
 		});
 		
 		//chaining
+		return this;
+	};
+	
+	//change speed
+	$.fn.setspeed = function(x){
+		this.filter('g-cube').each(function(){
+			cube.twistDuration = x;
+			settings.speed = x;
+		});
+		return this;
+	};
+	//change scramble
+	$.fn.scramble = function(x){
+		this.filter('g-cube').each(function(){
+			scram = ntscramble(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
+			cube.twistDuration = settings.shufflespeed;
+			if(settings.scramble.match('/random')){
+				if(x.match('/2-genR')){
+					cube.shuffleMethod = 'RrUu';
+				} else if(x.match('/2-genM')){
+					cube.shuffleMethod = 'MmUu';
+				} else if(x.match('/2-genL')){
+					cube.shuffleMethod = 'RrUu';
+				} else if(x.match('/3-genRF')){
+					cube.shuffleMethod = 'RrUuFf';
+				} else if(x.match('/3-genLF')){
+					cube.shuffleMethod = 'LlUuFf';
+				} else if(x.match('/3-genRL')){
+					cube.shuffleMethod = 'RrUuLl';
+				} else {
+					cube.shuffleMethod = 'RrLlUuDdFfBb';
+				}
+				cube.shuffle(25);
+			} else {
+				cube.twist(scram);
+			}
+			cube.addEventListener('onShuffleComplete', function(){
+				cube.twistDuration = settings.speed;
+			});
+		});
+		return this;
+	};
+	//change alg
+	$.fn.setalg = function(x){
+		this.filter('g-cube').each(function(){
+			algo = ntscramble(x);
+			algor = ntsolve(x);
+			cube.mouseControlsEnabled = false;
+			$(this).children(':not(.cube)').remove();
+			$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
+			$(this).children('.playalg').click(function(){
+				if($(this).text() == 'Play Algorithm'){
+					cube.twistDuration = $('.speedslider').val();
+					$(this).text('Reverse Algorithm');
+					cube.twist(algo);
+				} else {
+					cube.twistDuration = 10;
+					cube.twist(algor);
+					$(this).text('Play Algorithm');
+				}
+			});
+		});
+		return this;
+	};
+	//change state/highlight
+	$.fn.highlight = function(x){
+		this.filter('g-cube').each(function(){
+			cube.hideStickers();
+			if(x.match('onlyedges')){
+				cube.edges.showStickers();
+				cube.centers.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('onlycorners')){
+				cube.corners.showStickers();
+				cube.edges.hideStickers();
+				cube.centers.hideStickers();
+			}
+			else if(x.match('onlycenters')){
+				cube.centers.showStickers();
+				cube.edges.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('flcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('flxcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.hasId(5).showStickers();
+				cube.hasId(8).showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('fl') && !(x.match('flxcross')) && !(x.match('flcross'))  && !(x.match('flcorners'))){
+				cube.down.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('flcorners')){
+				cube.down.corners.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('f2l') && !(x.match('f2ll'))){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('f2ll')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.hasId(5).hideStickers();
+				cube.hasId(8).hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('llcross')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.up.cross.showStickers();
+			}
+			else if(x.match('llbar')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.hasId(1).showStickers();
+				cube.hasId(19).showStickers();
+			}
+			else if(x.match('llL')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.hasId(11).showStickers();
+				cube.hasId(1).showStickers();
+			}
+			else if(x.match('lldot')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.up.center.showStickers();
+			}
+			else if(x.match('llcorners')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.up.corners.showStickers();
+			}
+			else if(x.match('2x2x2')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.left.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('2x2x3')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('eoline')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.left.hideStickers();
+				cube.right.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('roux1')){
+				cube.right.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('roux2')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('cmll')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.up.corners.showStickers();
+			}
+			else {
+				cube.showStickers();
+			}
+		});
+		return this;
+	};
+	//change text
+	$.fn.settext = function(x){
+		this.filter('g-cube').each(function(){
+			cube.showTexts();
+			cube.folds[0].setText(x);
+			cube.folds[1].setText('');
+			cube.folds[2].setText('');
+			cube.rotation.x = 50.2;
+		});
+		return this;
+	};
+	//change florian
+	$.fn.setflorian = function(x){
+		this.filter('g-cube').each(function(){
+			//florian
+			$(this).children('style').remove();
+			$(this).prepend('<style>.cube .cubeletId-0 .faceFront {  border-bottom-right-radius: '+x+';}.cube .cubeletId-0 .faceFront .sticker {  border-bottom-right-radius: '+x+';}.cube .cubeletId-0 .faceUp {  border-top-right-radius: '+x+';}.cube .cubeletId-0 .faceUp .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-0 .faceLeft {  border-top-left-radius: '+x+';}.cube .cubeletId-0 .faceLeft .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-1 .faceFront {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-1 .faceFront .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-1 .faceUp {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-1 .faceUp .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-2 .faceFront {  border-bottom-left-radius: '+x+';}.cube .cubeletId-2 .faceFront .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-2 .faceUp {  border-top-left-radius: '+x+';}.cube .cubeletId-2 .faceUp .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-2 .faceRight {  border-bottom-right-radius: '+x+';}.cube .cubeletId-2 .faceRight .sticker {  border-bottom-right-radius: '+x+';}.cube .cubeletId-3 .faceFront {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-3 .faceFront .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-3 .faceLeft {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-3 .faceLeft .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-4 .faceFront {  border-radius: '+x+';}.cube .cubeletId-4 .faceFront .sticker {  border-radius: '+x+';}.cube .cubeletId-5 .faceFront {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-5 .faceFront .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-5 .faceRight {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-5 .faceRight .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-6 .faceFront {  border-top-right-radius: '+x+';}.cube .cubeletId-6 .faceFront .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-6 .faceDown {  border-top-right-radius: '+x+';}.cube .cubeletId-6 .faceDown .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-6 .faceLeft {  border-top-right-radius: '+x+';}.cube .cubeletId-6 .faceLeft .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-7 .faceFront {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-7 .faceFront .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-7 .faceDown {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-7 .faceDown .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-8 .faceFront {  border-top-left-radius: '+x+';}.cube .cubeletId-8 .faceFront .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-8 .faceDown {  border-bottom-right-radius: '+x+';}.cube .cubeletId-8 .faceDown .sticker {  border-bottom-right-radius: '+x+';}.cube .cubeletId-8 .faceRight {  border-top-right-radius: '+x+';}.cube .cubeletId-8 .faceRight .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-9 .faceUp {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-9 .faceUp .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-9 .faceLeft {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-9 .faceLeft .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-10 .faceUp {  border-radius: '+x+';}.cube .cubeletId-10 .faceUp .sticker {  border-radius: '+x+';}.cube .cubeletId-11 .faceUp {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-11 .faceUp .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-11 .faceRight {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-12 .faceLeft {  border-radius: '+x+';}.cube .cubeletId-12 .faceLeft .sticker {  border-radius: '+x+';}.cube .cubeletId-14 .faceRight {  border-radius: '+x+';}.cube .cubeletId-14 .faceRight .sticker {  border-radius: '+x+';}.cube .cubeletId-15 .faceDown {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-15 .faceDown .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-15 .faceLeft {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-15 .faceLeft .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-16 .faceDown {  border-radius: '+x+';}.cube .cubeletId-16 .faceDown .sticker {  border-radius: '+x+';}.cube .cubeletId-17 .faceDown {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-17 .faceRight {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-17 .faceRight .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-18 .faceBack {  border-top-left-radius: '+x+';}.cube .cubeletId-18 .faceBack .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-18 .faceUp {  border-bottom-right-radius: '+x+';}.cube .cubeletId-18 .faceUp .sticker {  border-bottom-right-radius: '+x+';}.cube .cubeletId-18 .faceLeft {  border-bottom-left-radius: '+x+';}.cube .cubeletId-18 .faceLeft .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-19 .faceUp {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-19 .faceBack {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-19 .faceBack .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-20 .faceUp {  border-bottom-left-radius: '+x+';}.cube .cubeletId-20 .faceUp .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-20 .faceBack {  border-bottom-left-radius: '+x+';}.cube .cubeletId-20 .faceBack .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-20 .faceRight {  border-bottom-left-radius: '+x+';}.cube .cubeletId-20 .faceRight .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-21 .faceBack {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-21 .faceBack .sticker {  border-radius: '+x+' '+x+' 0 0;}.cube .cubeletId-21 .faceLeft {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-22 .faceBack {  border-radius: '+x+';}.cube .cubeletId-22 .faceBack .sticker {  border-radius: '+x+';}.cube .cubeletId-23 .faceBack {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 '+x+' '+x+';}.cube .cubeletId-23 .faceRight {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-23 .faceRight .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-24 .faceBack {  border-top-right-radius: '+x+';}.cube .cubeletId-24 .faceBack .sticker {  border-top-right-radius: '+x+';}.cube .cubeletId-24 .faceDown {  border-top-left-radius: '+x+';}.cube .cubeletId-24 .faceDown .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-24 .faceLeft {  border-bottom-right-radius: '+x+';}.cube .cubeletId-24 .faceLeft .sticker {  border-bottom-right-radius: '+x+';}.cube .cubeletId-25 .faceBack {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-25 .faceBack .sticker {  border-radius: 0 '+x+' '+x+' 0;}.cube .cubeletId-25 .faceDown {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-25 .faceDown .sticker {  border-radius: '+x+' 0 0 '+x+';}.cube .cubeletId-26 .faceRight {  border-top-left-radius: '+x+';}.cube .cubeletId-26 .faceRight .sticker {  border-top-left-radius: '+x+';}.cube .cubeletId-26 .faceDown {  border-bottom-left-radius: '+x+';}.cube .cubeletId-26 .faceDown .sticker {  border-bottom-left-radius: '+x+';}.cube .cubeletId-26 .faceBack {  border-bottom-right-radius: '+x+';}.cube .cubeletId-26 .faceBack .sticker {  border-bottom-right-radius: '+x+';}</style>');		});
 		return this;
 	};
 }( jQuery ));
