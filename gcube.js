@@ -472,7 +472,7 @@ $(document).ready(function(){
 		//debug purposes
 		console.log('G-cube stylesheet loaded.');
 	});
-	//if tags don't exist
+	//if tags exist
 	if(!($('g-shufflespeed').length)){
 		$('g-shufflespeed').text('10');
 	}
