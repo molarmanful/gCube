@@ -1,36 +1,34 @@
-
-//if tags exist
-if(!($('g-shufflespeed').length)){
-	$('g-shufflespeed').text('10');
-}
-if(!($('g-speed').length)){
-	$('g-speed').text('100');
-}
-if(!($('g-scramble').length)){
-	$('g-scramble').text();
-}
-if(!($('g-algorithm').length)){
-	$('g-algorithm').text('');
-}
-if(!($('g-highlight').length)){
-	$('g-highlight').text('');
-}
-if(!($('g-text').length)){
-	$('g-text').text('');
-}
-if(!($('g-florian').length)){
-	$('g-florian').text('0.1em');
-}
-
 //managing html tags
 $('g-cube').each(function(){
+	//if tags exist
+	if(!($(this).children('g-shufflespeed').length)){
+		$(this).children('g-shufflespeed').text('10');
+	}
+	if(!($(this).children('g-speed').length)){
+		$(this).children('g-speed').text('100');
+	}
+	if(!($(this).children('g-scramble').length)){
+		$(this).children('g-scramble').text();
+	}
+	if(!($(this).children('g-algorithm').length)){
+		$(this).children('g-algorithm').text('');
+	}
+	if(!($(this).children('g-highlight').length)){
+		$(this).children('g-highlight').text('');
+	}
+	if(!($(this).children('g-text').length)){
+		$(this).children('g-text').text('');
+	}
+	if(!($(this).children('g-florian').length)){
+		$(this).children('g-florian').text('0.1em');
+	}
 	$(this).gce({
-		shufflespeed: $('g-shufflespeed').text(),
-		speed: parseInt($('g-speed').text()),
-		scramble: $('g-scramble').text(),
-		algorithm: $('g-algorithm').text(),
-		highlight: $('g-highlight').text(),
-		text: $('g-text').text(),
-		florian: $('g-florian').text()
+		shufflespeed: $(this).children('g-shufflespeed').text(),
+		speed: parseInt($(this).children('g-speed').text()),
+		scramble: $(this).children('g-scramble').text(),
+		algorithm: $(this).children('g-algorithm').text(),
+		highlight: $(this).children('g-highlight').text(),
+		text: $(this).children('g-text').text(),
+		florian: $(this).children('g-florian').text()
 	});
 });
