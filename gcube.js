@@ -57,7 +57,7 @@ var scram, algo, algor;
 		//only <g-cube></g-cube> allowed
 		this.filter('g-cube').each(function(){
 			//cube container
-			$(this).append('<div id="cubecont"></div>');
+			$(this).append('<div class="cubecont"></div>');
 			
 			//cube initialization
 			window.cube = new ERNO.Cube();
@@ -251,7 +251,7 @@ var scram, algo, algor;
 			}
 			
 			//put cube in container
-			$('#cubecont').append(cube.domElement);
+			$(this).children('.cubecont').append(cube.domElement);
 			
 			//debug purposes
 			console.log('gCube loaded.');
