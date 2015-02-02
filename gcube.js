@@ -170,6 +170,7 @@ var scram, algo, algor;
 					cube.showStickers();
 					cube.up.hideStickers();
 					cube.up.corners.showStickers();
+					cube.up.centers.showStickers();
 				}
 				else if(settings.highlight.match('2x2x2')){
 					cube.showStickers();
@@ -362,6 +363,7 @@ var scram, algo, algor;
 				cube.showStickers();
 				cube.up.hideStickers();
 				cube.up.corners.showStickers();
+				cube.up.centers.showStickers();
 			}
 			else if(settings.highlight.match('2x2x2')){
 				cube.showStickers();
@@ -403,7 +405,7 @@ var scram, algo, algor;
 			else {
 				cube.showStickers();
 			}
-		});
+			});
 		return this;
 	};
 	//change text
