@@ -1,7 +1,7 @@
 gCube
 ==================
 
-Have an online cubing tutorial page? Need an interactive, easy, 3D cube visualizer? Use gCube! All you need to do is to follow the steps below.
+Have an online cubing tutorial page? Need an interactive, easy-to-use 3x3x3 cube visualizer? Use gCube! All you need to do is to follow the steps below.
 
 To see how gCube works, go to [this Codepen Collection](http://codepen.io/collection/XOLVLQ/).
 
