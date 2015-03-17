@@ -5,7 +5,7 @@ Have an online cubing tutorial page? Need an interactive, easy, 3D cube visualiz
 
 To see how gCube works, go to [this Codepen Collection](http://codepen.io/collection/XOLVLQ/).
 
-gCube is built using Google Chrome Cube Lab Code.
+gCube is built using Google Chrome Cube Lab Code, and is inspired by alg.cubing.net.
 
 How to Use
 ==================
