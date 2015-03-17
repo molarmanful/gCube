@@ -86,7 +86,7 @@ There are 8 predefined classes that you can use for the base: transparent, stick
 }
 ```
 
-You can also set the cube's body color by adding this to your jQuery code:
+Then add this to your jQuery code:
 ```javascript
 $('.cube').addClass(/*name of class here*/);
 ```
