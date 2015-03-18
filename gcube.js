@@ -6,7 +6,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
 //alg parsers
 function ntscramble(s){
   var x = '';
-  s.trim().split(/\s+/).forEach(function(e) {
+  s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).forEach(function(e) {
     if(e.length === 2){
       //180deg
       if(e[1] === '2'){
@@ -30,27 +30,25 @@ function ntscramble(s){
 }
 function ntsolve(s){
   var x = '';
-  s.trim().split(/\s+/).reverse().forEach(function(e) {
-    s.trim().split(/\s+/).forEach(function(e) {
-      if(e.length === 2){
-        //180deg
-        if(e[1] === '2'){
-          x += e[0] + e[0];
-        }
-        //inverse
-        else {
-          x += e[0].toLowerCase();
-        }
+  s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).reverse().forEach(function(e) {
+    if(e.length === 2){
+      //180deg
+      if(e[1] === '2'){
+        x += e[0] + e[0];
       }
-      //inverse 180deg
-      else if(e.length === 3){
-        x += e[0].toLowerCase() + e[0].toLowerCase();
-      }
-      //default
+      //inverse
       else {
-        x += e[0];
+        x += e[0].toLowerCase();
       }
-    });
+    }
+    //inverse 180deg
+    else if(e.length === 3){
+      x += e[0].toLowerCase() + e[0].toLowerCase();
+    }
+    //default
+    else {
+      x += e[0];
+    }
   });
   return x;
 }
