@@ -180,27 +180,27 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -273,12 +273,6 @@ var scram, algo, algor;
 			
 			//put cube in container
 			$(e).children('.cubecont').append(cube.domElement);
-			
-			//debug purposes
-			console.log('gCube loaded.');
-			console.log('Scramble: ' + scram);
-			console.log('Algorithm: ' + algo);
-			console.log('Highlight: ' + algor);
 		});
 		
 		//chaining
@@ -398,27 +392,27 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
