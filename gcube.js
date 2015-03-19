@@ -181,21 +181,21 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(settings.highlight.match('eoll')) && !(settings.highlight.match('coll'))){
 				cube.showStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
@@ -386,21 +386,21 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
 				cube.showStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$(this).prepend('.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}');
+				$(this).prepend('<style>.cube .cubeletId-0 .faceLeft .sticker,.cube .cubeletId-0 .faceFront .sticker,.cube .cubeletId-1 .faceFront .sticker,.cube .cubeletId-2 .faceFront .sticker,.cube .cubeletId-2 .faceRight .sticker,.cube .cubeletId-11 .faceRight .sticker,.cube .cubeletId-20 .faceRight .sticker,.cube .cubeletId-20 .faceBack .sticker,.cube .cubeletId-19 .faceBack .sticker,.cube .cubeletId-18 .faceBack .sticker,.cube .cubeletId-18 .faceLeft .sticker,.cube .cubeletId-9 .faceLeft .sticker {display: none;}</style>');
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
