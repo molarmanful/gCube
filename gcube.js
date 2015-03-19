@@ -187,6 +187,7 @@ var scram, algo, algor;
 				cube.showStickers();
 				cube.up.corners.hideStickers();
 				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			
+			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
@@ -391,6 +392,7 @@ var scram, algo, algor;
 				cube.showStickers();
 				cube.up.corners.hideStickers();
 				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			
+			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
