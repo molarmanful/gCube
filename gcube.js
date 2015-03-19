@@ -131,103 +131,99 @@ var scram, algo, algor;
 			}
 			
 			//highlight param
-			if(!(settings.highlight.match('all'))){
-				cube.hideStickers();
-				if(settings.highlight.match('onlyedges')){
-					cube.edges.showStickers();
-					cube.centers.hideStickers();
-					cube.corners.hideStickers();
+			cube.hideStickers();
+			if(x.match('onlyedges')){
+				cube.edges.showStickers();
+				cube.centers.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('onlycorners')){
+				cube.corners.showStickers();
+				cube.edges.hideStickers();
+				cube.centers.hideStickers();
+			}
+			else if(x.match('onlycenters')){
+				cube.centers.showStickers();
+				cube.edges.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('flcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('flxcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.hasId(5).showStickers();
+				cube.hasId(8).showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('flcorners'))){
+				cube.down.showStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('flcorners')){
+				cube.down.corners.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('belt')){
+				cube.equator.showStickers();
+			}
+			else if(x.match('f2l')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('oll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				if(x.match('cross')){
+				  cube.up.corners.hideStickers();
 				}
-				else if(settings.highlight.match('onlycorners')){
-					cube.corners.showStickers();
-					cube.edges.hideStickers();
-					cube.centers.hideStickers();
+				if(x.match('corners')){
+				  cube.up.edges.hideStickers();
 				}
-				else if(settings.highlight.match('onlycenters')){
-					cube.centers.showStickers();
-					cube.edges.hideStickers();
-					cube.corners.hideStickers();
-				}
-				else if(settings.highlight.match('flcross')){
-					cube.down.cross.showStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('flxcross')){
-					cube.down.cross.showStickers();
-					cube.centers.showStickers();
-					cube.hasId(5).showStickers();
-					cube.hasId(8).showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('flcorners'))){
-					cube.down.showStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('flcorners')){
-					cube.down.corners.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('belt')){
-					cube.equator.showStickers();
-				}
-				else if(settings.highlight.match('f2l')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('llcross')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.up.cross.showStickers();
-				}
-				else if(settings.highlight.match('llcorners')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.up.corners.showStickers();
-					cube.up.center.showStickers();
-				}
-				else if(settings.highlight.match('2x2x2')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.back.hideStickers();
-					cube.left.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('2x2x3')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.back.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('eoline')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.left.hideStickers();
-					cube.right.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('roux1')){
-					cube.right.showStickers();
-					cube.up.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('roux2')){
-					cube.right.showStickers();
-					cube.left.showStickers();
-					cube.up.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(settings.highlight.match('cmll')){
-					cube.right.showStickers();
-					cube.left.showStickers();
-					cube.up.hideStickers();
-					cube.up.corners.showStickers();
-				}
-				else {
-					cube.showStickers();
-				}
+			}
+			else if(x.match('2x2x2')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.left.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('2x2x3')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('eoline')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.left.hideStickers();
+				cube.right.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('roux1')){
+				cube.right.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('roux2')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('cmll')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.up.corners.showStickers();
+			}
+			else {
+				cube.showStickers();
 			}
 			
 			//text
@@ -370,16 +366,14 @@ var scram, algo, algor;
 				cube.up.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('llcross')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.up.cross.showStickers();
-			}
-			else if(x.match('llcorners')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.up.corners.showStickers();
-				cube.up.center.showStickers();
+			else if(x.match('oll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				if(x.match('cross')){
+				  cube.up.corners.hideStickers();
+				}
+				if(x.match('corners')){
+				  cube.up.edges.hideStickers();
+				}
 			}
 			else if(x.match('2x2x2')){
 				cube.showStickers();
@@ -421,7 +415,7 @@ var scram, algo, algor;
 			else {
 				cube.showStickers();
 			}
-			});
+		});
 		return this;
 	};
 	//change text
