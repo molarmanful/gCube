@@ -179,24 +179,36 @@ var scram, algo, algor;
 				cube.centers.showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('oll') && !(settings.highlight.match('eoll')) && !(settings.highlight.match('coll'))){
-				cube.showStickers();
-				$(this).find('.cube').addClass('oll');
+			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				cube.showStickers();
-				cube.up.corners.hideStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				cube.showStickers();
-				cube.up.edges.hideStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				cube.showStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.up.corners.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('cll')){
+				cube.showStickers();
+				cube.up.edges.hideStickers();
+			}
+			else if(x.match('ell')){
+				cube.showStickers();
+				cube.up.corners.hideStickers();
 			}
 			else if(x.match('2x2x2')){
 				cube.showStickers();
@@ -337,7 +349,6 @@ var scram, algo, algor;
 	//change state/highlight
 	$.fn.sethighlight = function(x){
 		this.filter('g-cube').each(function(i, e){
-			$(this).find('.cube').attr('class', '').addClass('cube');
 			cube.hideStickers();
 			if(x.match('edges')){
 				cube.edges.showStickers();
@@ -386,23 +397,35 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				cube.showStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				cube.showStickers();
-				cube.up.corners.hideStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				cube.showStickers();
-				cube.up.edges.hideStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				cube.equator.showStickers();
+				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				cube.showStickers();
-				$(this).find('.cube').addClass('oll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
 				cube.up.corners.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('cll')){
+				cube.showStickers();
+				cube.up.edges.hideStickers();
+			}
+			else if(x.match('ell')){
+				cube.showStickers();
+				cube.up.corners.hideStickers();
 			}
 			else if(x.match('2x2x2')){
 				cube.showStickers();
@@ -471,9 +494,6 @@ var scram, algo, algor;
 	};
 }( jQuery ));
 $(document).ready(function(){
-	$('.oll .cubeletId-0 .faceLeft .sticker, .oll .cubeletId-0 .faceFront .sticker, .oll .cubeletId-1 .faceFront .sticker, .oll .cubeletId-2 .faceFront .sticker, .oll .cubeletId-2 .faceRight .sticker, .oll .cubeletId-11 .faceRight .sticker, .oll .cubeletId-20 .faceRight .sticker, .oll .cubeletId-20 .faceBack .sticker, .oll .cubeletId-19 .faceBack .sticker, .oll .cubeletId-18 .faceBack .sticker, .oll .cubeletId-18 .faceLeft .sticker, .oll .cubeletId-9 .faceLeft .sticker').css('display', 'none');
 	//stylesheet
-	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
-		console.log('G-cube stylesheet loaded.');
-	});
+	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 });
