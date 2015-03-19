@@ -335,7 +335,7 @@ var scram, algo, algor;
 		return this;
 	};
 	//change state/highlight
-	$.fn.highlight = function(x){
+	$.fn.sethighlight = function(x){
 		this.filter('g-cube').each(function(i, e){
 			$(this).attr('class', '').addClass('cube');
 			cube.hideStickers();
