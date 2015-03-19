@@ -171,6 +171,7 @@ var scram, algo, algor;
 			}
 			else if(x.match('belt')){
 				cube.equator.showStickers();
+				cube.centers.showStickers();
 			}
 			else if(x.match('f2l')){
 				cube.showStickers();
@@ -375,6 +376,7 @@ var scram, algo, algor;
 			}
 			else if(x.match('belt')){
 				cube.equator.showStickers();
+				cube.centers.showStickers();
 			}
 			else if(x.match('f2l')){
 				cube.showStickers();
