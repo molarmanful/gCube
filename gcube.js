@@ -337,6 +337,7 @@ var scram, algo, algor;
 	//change state/highlight
 	$.fn.highlight = function(x){
 		this.filter('g-cube').each(function(i, e){
+			$(this).attr('class', '').addClass('cube');
 			cube.hideStickers();
 			if(x.match('edges')){
 				cube.edges.showStickers();
