@@ -181,21 +181,20 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
 				cube.showStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
-			}
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
@@ -386,21 +385,20 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
 				cube.showStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
-			}
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$(this).children('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+				$(this).children('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');			}
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
