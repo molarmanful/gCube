@@ -131,6 +131,7 @@ var scram, algo, algor;
 			}
 			
 			//highlight param
+			var x = settings.highlight;
 			cube.hideStickers();
 			if(x.match('onlyedges')){
 				cube.edges.showStickers();
