@@ -133,17 +133,17 @@ var scram, algo, algor;
 			//highlight param
 			var x = settings.highlight;
 			cube.hideStickers();
-			if(x.match('onlyedges')){
+			if(x.match('edges')){
 				cube.edges.showStickers();
 				cube.centers.hideStickers();
 				cube.corners.hideStickers();
 			}
-			else if(x.match('onlycorners')){
+			else if(x.match('corners')){
 				cube.corners.showStickers();
 				cube.edges.hideStickers();
 				cube.centers.hideStickers();
 			}
-			else if(x.match('onlycenters')){
+			else if(x.match('centers')){
 				cube.centers.showStickers();
 				cube.edges.hideStickers();
 				cube.corners.hideStickers();
@@ -160,12 +160,12 @@ var scram, algo, algor;
 				cube.hasId(8).showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('flcorners'))){
+			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
 				cube.down.showStickers();
 				cube.centers.showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('flcorners')){
+			else if(x.match('cfl')){
 				cube.down.corners.showStickers();
 				cube.rotation.x = 100;
 			}
@@ -177,14 +177,14 @@ var scram, algo, algor;
 				cube.up.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('oll')){
+			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('ocll'))){
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
-				if(x.match('cross')){
-				  cube.up.corners.hideStickers();
-				}
-				if(x.match('corners')){
-				  cube.up.edges.hideStickers();
-				}
+			}
+			else if(x.match('eoll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+			}
+			else if(x.match('ocll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('2x2x2')){
 				cube.showStickers();
@@ -206,12 +206,12 @@ var scram, algo, algor;
 				cube.right.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('roux1')){
+			else if(x.match('fb')){
 				cube.right.showStickers();
 				cube.up.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('roux2')){
+			else if(x.match('f2b')){
 				cube.right.showStickers();
 				cube.left.showStickers();
 				cube.up.hideStickers();
@@ -323,17 +323,17 @@ var scram, algo, algor;
 	$.fn.highlight = function(x){
 		this.filter('g-cube').each(function(){
 			cube.hideStickers();
-			if(x.match('onlyedges')){
+			if(x.match('edges')){
 				cube.edges.showStickers();
 				cube.centers.hideStickers();
 				cube.corners.hideStickers();
 			}
-			else if(x.match('onlycorners')){
+			else if(x.match('corners')){
 				cube.corners.showStickers();
 				cube.edges.hideStickers();
 				cube.centers.hideStickers();
 			}
-			else if(x.match('onlycenters')){
+			else if(x.match('centers')){
 				cube.centers.showStickers();
 				cube.edges.hideStickers();
 				cube.corners.hideStickers();
@@ -350,12 +350,12 @@ var scram, algo, algor;
 				cube.hasId(8).showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('flcorners'))){
+			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
 				cube.down.showStickers();
 				cube.centers.showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('flcorners')){
+			else if(x.match('cfl')){
 				cube.down.corners.showStickers();
 				cube.rotation.x = 100;
 			}
@@ -367,14 +367,14 @@ var scram, algo, algor;
 				cube.up.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('oll')){
+			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('ocll'))){
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
-				if(x.match('cross')){
-				  cube.up.corners.hideStickers();
-				}
-				if(x.match('corners')){
-				  cube.up.edges.hideStickers();
-				}
+			}
+			else if(x.match('eoll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
+			}
+			else if(x.match('ocll')){
+				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('2x2x2')){
 				cube.showStickers();
@@ -396,12 +396,12 @@ var scram, algo, algor;
 				cube.right.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('roux1')){
+			else if(x.match('fb')){
 				cube.right.showStickers();
 				cube.up.hideStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('roux2')){
+			else if(x.match('f2b')){
 				cube.right.showStickers();
 				cube.left.showStickers();
 				cube.up.hideStickers();
