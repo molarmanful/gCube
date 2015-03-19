@@ -471,10 +471,9 @@ var scram, algo, algor;
 	};
 }( jQuery ));
 $(document).ready(function(){
+	$('g-cube').find('.oll .cubeletId-0 .faceLeft .sticker, .oll .cubeletId-0 .faceFront .sticker, .oll .cubeletId-1 .faceFront .sticker, .oll .cubeletId-2 .faceFront .sticker, .oll .cubeletId-2 .faceRight .sticker, .oll .cubeletId-11 .faceRight .sticker, .oll .cubeletId-20 .faceRight .sticker, .oll .cubeletId-20 .faceBack .sticker, .oll .cubeletId-19 .faceBack .sticker, .oll .cubeletId-18 .faceBack .sticker, .oll .cubeletId-18 .faceLeft .sticker, .oll .cubeletId-9 .faceLeft .sticker').css('display', 'none');
 	//stylesheet
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">', function(){
-		//debug purposes
-		$('.oll .cubeletId-0 .faceLeft .sticker, .oll .cubeletId-0 .faceFront .sticker, .oll .cubeletId-1 .faceFront .sticker, .oll .cubeletId-2 .faceFront .sticker, .oll .cubeletId-2 .faceRight .sticker, .oll .cubeletId-11 .faceRight .sticker, .oll .cubeletId-20 .faceRight .sticker, .oll .cubeletId-20 .faceBack .sticker, .oll .cubeletId-19 .faceBack .sticker, .oll .cubeletId-18 .faceBack .sticker, .oll .cubeletId-18 .faceLeft .sticker, .oll .cubeletId-9 .faceLeft .sticker').css('display', 'none');
 		console.log('G-cube stylesheet loaded.');
 	});
 });
