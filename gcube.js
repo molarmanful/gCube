@@ -181,21 +181,21 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(settings.highlight.match('eoll')) && !(settings.highlight.match('coll'))){
 				cube.showStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
@@ -386,21 +386,21 @@ var scram, algo, algor;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
 				cube.showStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('eoll')){
 				cube.showStickers();
 				cube.up.corners.hideStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('ocll')){
 				cube.showStickers();
 				cube.up.edges.hideStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 			}
 			else if(x.match('coll')){
 				cube.showStickers();
-				$('.cube', this).addClass('oll');
+				$(this).find('.cube').addClass('oll');
 				cube.up.corners.showStickers();
 			}
 			else if(x.match('2x2x2')){
