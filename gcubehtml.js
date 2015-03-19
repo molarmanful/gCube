@@ -8,7 +8,7 @@ $('g-cube').each(function(){
 		$(this).children('g-speed').text('100');
 	}
 	if(!($(this).children('g-scramble').length)){
-		$(this).children('g-scramble').text();
+		$(this).children('g-scramble').text('');
 	}
 	if(!($(this).children('g-algorithm').length)){
 		$(this).children('g-algorithm').text('');
