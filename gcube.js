@@ -179,25 +179,21 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('eoll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				cube.up.corners.hideStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('ocll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				cube.up.edges.hideStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('coll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 				cube.up.corners.showStickers();
 			}
@@ -387,25 +383,21 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('eoll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				cube.up.corners.hideStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('ocll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				cube.up.edges.hideStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 			}
 			else if(x.match('coll')){
-				cube.down.showStickers();
-				cube.equator.showStickers();
+				cube.showStickers();
 				$('.cubeletId-0 .faceLeft, .cubeletId-0 .faceFront, .cubeletId-1 .faceFront, .cubeletId-2 .faceFront, .cubeletId-2 .faceRight, .cubeletId-11 .faceRight, .cubeletId-20 .faceRight, .cubeletId-20 .faceBack, .cubeletId-19 .faceBack, .cubeletId-18 .faceBack, .cubeletId-18 .faceLeft, .cubeletId-9 .faceLeft').children('.sticker').css('display', 'none');
 				cube.up.corners.showStickers();
 			}
