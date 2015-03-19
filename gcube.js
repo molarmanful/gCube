@@ -179,7 +179,7 @@ var scram, algo, algor;
 				cube.centers.showStickers();
 				cube.rotation.x = 100;
 			}
-			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
+			else if(x.match('oll') && !(settings.highlight.match('eoll')) && !(settings.highlight.match('coll'))){
 				cube.showStickers();
 				$(e).find('.cube').find('.cubeletId-0 .faceLeft .sticker, .cubeletId-0 .faceFront .sticker, .cubeletId-1 .faceFront .sticker, .cubeletId-2 .faceFront .sticker, .cubeletId-2 .faceRight .sticker, .cubeletId-11 .faceRight .sticker, .cubeletId-20 .faceRight .sticker, .cubeletId-20 .faceBack .sticker, .cubeletId-19 .faceBack .sticker, .cubeletId-18 .faceBack .sticker, .cubeletId-18 .faceLeft .sticker, .cubeletId-9 .faceLeft .sticker').css('display', 'none');
 			}
