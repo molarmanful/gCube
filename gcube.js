@@ -187,20 +187,20 @@ var scram, algo, algor;
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -399,20 +399,20 @@ var scram, algo, algor;
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').css('display', 'block');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').css('display', 'block');
+				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
