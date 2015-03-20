@@ -116,7 +116,7 @@ var scram, algo, algor;
 				algo = ntscramble(settings.algorithm);
 				algor = ntsolve(settings.algorithm);
 				cube.mouseControlsEnabled = false;
-				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
+				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('.playalg').click(function(){
 					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = $('.speedslider').val();
@@ -324,7 +324,8 @@ var scram, algo, algor;
 			algo = ntscramble(x);
 			algor = ntsolve(x);
 			cube.mouseControlsEnabled = false;
-			$(this).html($(this).find('.cubecont')).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
+			$(this).children('button, input, span').remove();
+			$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 			$(this).children('.playalg').click(function(){
 				if($(this).text() == 'Play Algorithm'){
 					cube.twistDuration = $('.speedslider').val();
