@@ -118,14 +118,14 @@ var scram, algo, algor;
 				cube.mouseControlsEnabled = false;
 				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br>Speed:<input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
 				$(this).children('.playalg').click(function(){
-					if($(e).text() == 'Play Algorithm'){
+					if($(this).text() == 'Play Algorithm'){
 						cube.twistDuration = $('.speedslider').val();
-						$(e).text('Reverse Algorithm');
+						$(this).text('Reverse Algorithm');
 						cube.twist(algo);
 					} else {
 						cube.twistDuration = 10;
 						cube.twist(algor);
-						$(e).text('Play Algorithm');
+						$(this).text('Play Algorithm');
 					}
 				});
 			}
