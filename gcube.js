@@ -180,27 +180,25 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').addClass('ocll eoll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').addClass('eoll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(this).find('.cube').addClass('ocll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').addClass('eoll');
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -344,7 +342,6 @@ var scram, algo, algor;
 	$.fn.sethighlight = function(x){
 		this.filter('g-cube').each(function(i, e){
 			cube.hideStickers();
-			cube.hideStickers();
 			if(x.match('edges')){
 				cube.edges.showStickers();
 				cube.centers.hideStickers();
@@ -392,27 +389,25 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').removeClass('ocll eoll').addClass('ocll eoll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').removeClass('ocll eoll').addClass('eoll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+				$(this).find('.cube').removeClass('ocll eoll').addClass('ocll');
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
+				$(this).find('.cube').removeClass('ocll eoll').addClass('eoll');
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -488,7 +483,9 @@ var scram, algo, algor;
 		return this;
 	};
 }( jQuery ));
-$(document).ready(function(){
+$(window).on('load', function(){
 	//stylesheet
+	$('.ocll').find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
+	$('.eoll').find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 });
