@@ -55,19 +55,17 @@ function ntsolve(s){
 
 //plugin start
 var scram, algo, algor;
+window.cube = new ERNO.Cube();
 (function( $ ) {
 	//make new cube
 	$.fn.gcube = function(){
 		this.filter('g-cube').each(function(){
 			//cube container
 			$(this).append('<div class="cubecont"></div>');
-			
-			//cube itself
-			window.cube = new ERNO.Cube();
-      cube.rotation.y = -0.8;
-      cube.keyboardControlsEnabled = false;
-      cube.core.setOpacity(0);
-      $(this).find('.cubecont').append(cube.domElement);
+			cube.rotation.y = -0.8;
+			cube.keyboardControlsEnabled = false;
+			cube.core.setOpacity(0);
+			$(this).find('.cubecont').append(cube.domElement);
 		});
 		return this;
 	}
@@ -282,12 +280,12 @@ var scram, algo, algor;
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	$('g-cube').each(function(){
-    var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
-    sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
-    a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
-    h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
-    t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
-    f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
-    $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+		var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
+		sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
+		a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
+		h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
+		t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
+		f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
+		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
 	});
 });
