@@ -279,7 +279,7 @@ var scram, algo, algor;
 		return this;
 	};
 }( jQuery ));
-$(function(){
+$(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	$('g-cube').each(function(){
     var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
