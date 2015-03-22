@@ -60,42 +60,46 @@ cube.core.setOpacity(0);
 	}
 	//change speed
 	$.fn.gspeed = function(x){
-		this.filter('g-cube').each(function(){
-			cube.twistDuration = x;
-		});
+		if(x.length){
+			this.filter('g-cube').each(function(){
+				cube.twistDuration = x;
+			});
+		}
 		return this;
 	};
 	//change scramble
 	$.fn.gscramble = function(x){
-		this.filter('g-cube').each(function(){
-			scram = algparse(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
-			if(x.match('/random')){
-				if(x.match('/2-genR')){
-					cube.shuffleMethod = 'RrUu';
-				} 
-				else if(x.match('/2-genM')){
-					cube.shuffleMethod = 'MmUu';
-				} 
-				else if(x.match('/2-genL')){
-					cube.shuffleMethod = 'RrUu';
-				} 
-				else if(x.match('/3-genRF')){
-					cube.shuffleMethod = 'RrUuFf';
-				} 
-				else if(x.match('/3-genLF')){
-					cube.shuffleMethod = 'LlUuFf';
-				} 
-				else if(x.match('/3-genRL')){
-					cube.shuffleMethod = 'RrUuLl';
-				} 
-				else {
-					cube.shuffleMethod = 'RrLlUuDdFfBb';
+		if(x.length){
+			this.filter('g-cube').each(function(){
+				scram = algparse(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
+				if(x.match('/random')){
+					if(x.match('/2-genR')){
+						cube.shuffleMethod = 'RrUu';
+					} 
+					else if(x.match('/2-genM')){
+						cube.shuffleMethod = 'MmUu';
+					} 
+					else if(x.match('/2-genL')){
+						cube.shuffleMethod = 'RrUu';
+					} 
+					else if(x.match('/3-genRF')){
+						cube.shuffleMethod = 'RrUuFf';
+					} 
+					else if(x.match('/3-genLF')){
+						cube.shuffleMethod = 'LlUuFf';
+					} 
+					else if(x.match('/3-genRL')){
+						cube.shuffleMethod = 'RrUuLl';
+					} 
+					else {
+						cube.shuffleMethod = 'RrLlUuDdFfBb';
+					}
+					cube.shuffle(25);
+				} else {
+					cube.twist(scram);
 				}
-				cube.shuffle(25);
-			} else {
-				cube.twist(scram);
-			}
-		});
+			});
+		}
 		return this;
 	};
 	//change alg
@@ -124,128 +128,130 @@ cube.core.setOpacity(0);
 	};
 	//change state/highlight
 	$.fn.ghighlight = function(x){
-		this.filter('g-cube').each(function(){
-			cube.hideStickers();
-			if(x.match('edges')){
-				cube.edges.showStickers();
-				cube.centers.hideStickers();
-				cube.corners.hideStickers();
-			}
-			else if(x.match('corners')){
-				cube.corners.showStickers();
-				cube.edges.hideStickers();
-				cube.centers.hideStickers();
-			}
-			else if(x.match('centers')){
-				cube.centers.showStickers();
-				cube.edges.hideStickers();
-				cube.corners.hideStickers();
-			}
-			else if(x.match('flcross')){
-				cube.down.cross.showStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('flxcross')){
-				cube.down.cross.showStickers();
-				cube.centers.showStickers();
-				cube.hasId(5).showStickers();
-				cube.hasId(8).showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
-				cube.down.showStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('cfl')){
-				cube.down.corners.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('belt')){
-				cube.equator.showStickers();
-				cube.centers.showStickers();
-			}
-			else if(x.match('f2l')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('eoll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.up.corners.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('cll')){
-				cube.showStickers();
-				cube.up.edges.hideStickers();
-			}
-			else if(x.match('2x2x2')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.back.hideStickers();
-				cube.left.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('2x2x3')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.back.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('eoline')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.left.hideStickers();
-				cube.right.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('fb')){
-				cube.right.showStickers();
-				cube.up.hideStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('f2b')){
-				cube.right.showStickers();
-				cube.left.showStickers();
-				cube.up.hideStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('cmll')){
-				cube.right.showStickers();
-				cube.left.showStickers();
-				cube.up.hideStickers();
-				cube.up.corners.showStickers();
-			}
-			else {
-				cube.showStickers();
-			}
-		});
+		if(x.length){
+			this.filter('g-cube').each(function(){
+				cube.hideStickers();
+				if(x.match('edges')){
+					cube.edges.showStickers();
+					cube.centers.hideStickers();
+					cube.corners.hideStickers();
+				}
+				else if(x.match('corners')){
+					cube.corners.showStickers();
+					cube.edges.hideStickers();
+					cube.centers.hideStickers();
+				}
+				else if(x.match('centers')){
+					cube.centers.showStickers();
+					cube.edges.hideStickers();
+					cube.corners.hideStickers();
+				}
+				else if(x.match('flcross')){
+					cube.down.cross.showStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('flxcross')){
+					cube.down.cross.showStickers();
+					cube.centers.showStickers();
+					cube.hasId(5).showStickers();
+					cube.hasId(8).showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
+					cube.down.showStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('cfl')){
+					cube.down.corners.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('belt')){
+					cube.equator.showStickers();
+					cube.centers.showStickers();
+				}
+				else if(x.match('f2l')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
+					$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+					cube.centers.showStickers();
+					cube.equator.showStickers();
+					cube.down.showStickers();
+				}
+				else if(x.match('eoll')){
+					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+					cube.centers.showStickers();
+					cube.equator.showStickers();
+					cube.down.showStickers();
+				}
+				else if(x.match('ocll')){
+					$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+					cube.centers.showStickers();
+					cube.equator.showStickers();
+					cube.down.showStickers();
+				}
+				else if(x.match('coll')){
+					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+					cube.centers.showStickers();
+					cube.up.corners.showStickers();
+					cube.equator.showStickers();
+					cube.down.showStickers();
+				}
+				else if(x.match('cll')){
+					cube.showStickers();
+					cube.up.edges.hideStickers();
+				}
+				else if(x.match('2x2x2')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.back.hideStickers();
+					cube.left.hideStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('2x2x3')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.back.hideStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('eoline')){
+					cube.showStickers();
+					cube.up.hideStickers();
+					cube.left.hideStickers();
+					cube.right.hideStickers();
+					cube.centers.showStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('fb')){
+					cube.right.showStickers();
+					cube.up.hideStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('f2b')){
+					cube.right.showStickers();
+					cube.left.showStickers();
+					cube.up.hideStickers();
+					cube.rotation.x = 100;
+				}
+				else if(x.match('cmll')){
+					cube.right.showStickers();
+					cube.left.showStickers();
+					cube.up.hideStickers();
+					cube.up.corners.showStickers();
+				}
+				else {
+					cube.showStickers();
+				}
+			});
+		}
 		return this;
 	};
 	//change text
