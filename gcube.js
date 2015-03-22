@@ -52,273 +52,66 @@ function ntsolve(s){
   });
   return x;
 }
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 //plugin start
 var scram, algo, algor;
 (function( $ ) {
-	//embed cube
-	$.fn.gce = function(options, callback) {
-		
-		//parameters
-		window.settings = $.extend({
-			shufflespeed: 10,
-			speed: 100,
-			scramble: '',
-			algorithm: '',
-			highlight: '',
-			text: '',
-			florian: '0.1em'
-		}, options);
-		
-		//only <g-cube></g-cube> allowed
-		this.filter('g-cube').each(function(i, e){
+	//make new cube
+	$.fn.gcube = function(){
+		this.filter('g-cube').each(function(){
 			//cube container
 			$(this).append('<div class="cubecont"></div>');
 			
-			//cube initialization
+			//cube itself
 			window.cube = new ERNO.Cube();
-			cube.rotation.y = -0.8;
-			cube.twistDuration = settings.speed;
-			cube.keyboardControlsEnabled = false;
-			cube.core.setOpacity(0);
-			
-			//scramble param
-			if(settings.scramble != ''){
-				scram = ntscramble(settings.scramble.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
-				cube.twistDuration = settings.shufflespeed;
-				if(settings.scramble.match('/random')){
-					if(settings.scramble.match('/2-genR')){
-						cube.shuffleMethod = 'RrUu';
-					} else if(settings.scramble.match('/2-genM')){
-						cube.shuffleMethod = 'MmUu';
-					} else if(settings.scramble.match('/2-genL')){
-						cube.shuffleMethod = 'RrUu';
-					} else if(settings.scramble.match('/3-genRF')){
-						cube.shuffleMethod = 'RrUuFf';
-					} else if(settings.scramble.match('/3-genLF')){
-						cube.shuffleMethod = 'LlUuFf';
-					} else if(settings.scramble.match('/3-genRL')){
-						cube.shuffleMethod = 'RrUuLl';
-					} else {
-						cube.shuffleMethod = 'RrLlUuDdFfBb';
-					}
-					cube.shuffle(25);
-				} else {
-					cube.twist(scram);
-				}
-				cube.addEventListener('onShuffleComplete', function(){
-					cube.twistDuration = settings.speed;
-				});
-			}
-			
-			//alg param
-			if(settings.algorithm != ''){
-				algo = ntscramble(settings.algorithm);
-				algor = ntsolve(settings.algorithm);
-				cube.mouseControlsEnabled = false;
-				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="' + settings.speed + '">');
-				$(this).children('.playalg').click(function(){
-					if($(this).text() == 'Play Algorithm'){
-						cube.twistDuration = $('.speedslider').val();
-						$(this).text('Reverse Algorithm');
-						cube.twist(algo);
-					} else {
-						cube.twistDuration = 10;
-						cube.twist(algor);
-						$(this).text('Play Algorithm');
-					}
-				});
-			}
-			
-			//highlight param
-			var x = settings.highlight;
-			cube.hideStickers();
-			if(x.match('edges')){
-				cube.edges.showStickers();
-				cube.centers.hideStickers();
-				cube.corners.hideStickers();
-			}
-			else if(x.match('corners')){
-				cube.corners.showStickers();
-				cube.edges.hideStickers();
-				cube.centers.hideStickers();
-			}
-			else if(x.match('centers')){
-				cube.centers.showStickers();
-				cube.edges.hideStickers();
-				cube.corners.hideStickers();
-			}
-			else if(x.match('flcross')){
-				cube.down.cross.showStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('flxcross')){
-				cube.down.cross.showStickers();
-				cube.centers.showStickers();
-				cube.hasId(5).showStickers();
-				cube.hasId(8).showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
-				cube.down.showStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('cfl')){
-				cube.down.corners.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('belt')){
-				cube.equator.showStickers();
-				cube.centers.showStickers();
-			}
-			else if(x.match('f2l')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('eoll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('ocll')){
-				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('coll')){
-				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-				cube.centers.showStickers();
-				cube.up.corners.showStickers();
-				cube.equator.showStickers();
-				cube.down.showStickers();
-			}
-			else if(x.match('cll')){
-				cube.showStickers();
-				cube.up.edges.hideStickers();
-			}
-			else if(x.match('2x2x2')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.back.hideStickers();
-				cube.left.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('2x2x3')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.back.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('eoline')){
-				cube.showStickers();
-				cube.up.hideStickers();
-				cube.left.hideStickers();
-				cube.right.hideStickers();
-				cube.centers.showStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('fb')){
-				cube.right.showStickers();
-				cube.up.hideStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('f2b')){
-				cube.right.showStickers();
-				cube.left.showStickers();
-				cube.up.hideStickers();
-				cube.rotation.x = 100;
-			}
-			else if(x.match('cmll')){
-				cube.right.showStickers();
-				cube.left.showStickers();
-				cube.up.hideStickers();
-				cube.up.corners.showStickers();
-			}
-			else {
-				cube.showStickers();
-			}
-			
-			//text
-			if(settings.text != ''){
-				cube.showTexts();
-				cube.folds[0].setText(settings.text);
-				cube.folds[1].setText('');
-				cube.folds[2].setText('');
-				cube.rotation.x = 50.2;
-			}
-			
-			//florian
-			$(this).prepend('<style>.cube .cubeletId-0 .faceFront {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceFront .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceUp .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-0 .faceLeft .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-1 .faceFront {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceFront .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-1 .faceUp {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-1 .faceUp .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-2 .faceFront {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceFront .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceUp .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-2 .faceRight .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-3 .faceFront {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceFront .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-3 .faceLeft {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-3 .faceLeft .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-4 .faceFront {  border-radius: '+settings.florian+';}.cube .cubeletId-4 .faceFront .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-5 .faceFront {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceFront .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-5 .faceRight {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-5 .faceRight .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-6 .faceFront {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceFront .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceDown .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-6 .faceLeft .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-7 .faceFront {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceFront .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-7 .faceDown {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-7 .faceDown .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-8 .faceFront {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceFront .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceDown .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-8 .faceRight .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-9 .faceUp {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceUp .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-9 .faceLeft {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-9 .faceLeft .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-10 .faceUp {  border-radius: '+settings.florian+';}.cube .cubeletId-10 .faceUp .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-11 .faceUp {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceUp .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-11 .faceRight {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-12 .faceLeft {  border-radius: '+settings.florian+';}.cube .cubeletId-12 .faceLeft .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight {  border-radius: '+settings.florian+';}.cube .cubeletId-14 .faceRight .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-15 .faceDown {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceDown .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-15 .faceLeft {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-15 .faceLeft .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-16 .faceDown {  border-radius: '+settings.florian+';}.cube .cubeletId-16 .faceDown .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-17 .faceDown {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-17 .faceRight {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-17 .faceRight .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-18 .faceBack {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceBack .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceUp .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-18 .faceLeft .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-19 .faceUp {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-19 .faceBack {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-19 .faceBack .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-20 .faceUp {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceUp .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceBack .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-20 .faceRight .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-21 .faceBack {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceBack .sticker {  border-radius: '+settings.florian+' '+settings.florian+' 0 0;}.cube .cubeletId-21 .faceLeft {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-22 .faceBack {  border-radius: '+settings.florian+';}.cube .cubeletId-22 .faceBack .sticker {  border-radius: '+settings.florian+';}.cube .cubeletId-23 .faceBack {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 '+settings.florian+' '+settings.florian+';}.cube .cubeletId-23 .faceRight {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-23 .faceRight .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-24 .faceBack {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceBack .sticker {  border-top-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceDown .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-24 .faceLeft .sticker {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-25 .faceBack {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceBack .sticker {  border-radius: 0 '+settings.florian+' '+settings.florian+' 0;}.cube .cubeletId-25 .faceDown {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-25 .faceDown .sticker {  border-radius: '+settings.florian+' 0 0 '+settings.florian+';}.cube .cubeletId-26 .faceRight {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceRight .sticker {  border-top-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceDown .sticker {  border-bottom-left-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack {  border-bottom-right-radius: '+settings.florian+';}.cube .cubeletId-26 .faceBack .sticker {  border-bottom-right-radius: '+settings.florian+';}</style>');
-			
-			//callback
-			if(typeof callback == 'function'){
-				callback.call();
-			}
-			
-			//put cube in container
-			$(this).children('.cubecont').append(cube.domElement);
+      cube.rotation.y = - 0.8;
+      cube.keyboardControlsEnabled = false;
+      cube.core.setOpacity(0);
+      $(this).find('.cubecont').append(cube.domElement);
 		});
-		
-		//chaining
-		return this;
-	};
-	
+	}
 	//change speed
-	$.fn.setspeed = function(x){
+	$.fn.gspeed = function(x){
 		this.filter('g-cube').each(function(){
 			cube.twistDuration = x;
-			settings.speed = x;
 		});
 		return this;
 	};
 	//change scramble
-	$.fn.scramble = function(x){
+	$.fn.gscramble = function(x){
 		this.filter('g-cube').each(function(){
 			scram = ntscramble(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
-			cube.twistDuration = settings.shufflespeed;
-			if(settings.scramble.match('/random')){
+			if(x.match('/random')){
 				if(x.match('/2-genR')){
 					cube.shuffleMethod = 'RrUu';
-				} else if(x.match('/2-genM')){
+				} 
+				else if(x.match('/2-genM')){
 					cube.shuffleMethod = 'MmUu';
-				} else if(x.match('/2-genL')){
+				} 
+				else if(x.match('/2-genL')){
 					cube.shuffleMethod = 'RrUu';
-				} else if(x.match('/3-genRF')){
+				} 
+				else if(x.match('/3-genRF')){
 					cube.shuffleMethod = 'RrUuFf';
-				} else if(x.match('/3-genLF')){
+				} 
+				else if(x.match('/3-genLF')){
 					cube.shuffleMethod = 'LlUuFf';
-				} else if(x.match('/3-genRL')){
+				} 
+				else if(x.match('/3-genRL')){
 					cube.shuffleMethod = 'RrUuLl';
-				} else {
+				} 
+				else {
 					cube.shuffleMethod = 'RrLlUuDdFfBb';
 				}
 				cube.shuffle(25);
 			} else {
 				cube.twist(scram);
 			}
-			cube.addEventListener('onShuffleComplete', function(){
-				cube.twistDuration = settings.speed;
-			});
 		});
 		return this;
 	};
 	//change alg
-	$.fn.setalg = function(x){
+	$.fn.galgorithm = function(x){
 		this.filter('g-cube').each(function(){
 			algo = ntscramble(x);
 			algor = ntsolve(x);
@@ -340,8 +133,8 @@ var scram, algo, algor;
 		return this;
 	};
 	//change state/highlight
-	$.fn.sethighlight = function(x){
-		this.filter('g-cube').each(function(i, e){
+	$.fn.ghighlight = function(x){
+		this.filter('g-cube').each(function(){
 			cube.hideStickers();
 			if(x.match('edges')){
 				cube.edges.showStickers();
@@ -466,7 +259,7 @@ var scram, algo, algor;
 		return this;
 	};
 	//change text
-	$.fn.settext = function(x){
+	$.fn.gtext = function(x){
 		this.filter('g-cube').each(function(){
 			cube.showTexts();
 			cube.folds[0].setText(x);
@@ -477,7 +270,7 @@ var scram, algo, algor;
 		return this;
 	};
 	//change florian
-	$.fn.setflorian = function(x){
+	$.fn.gflorian = function(x){
 		this.filter('g-cube').each(function(){
 			//florian
 			$(this).children('style').remove();
@@ -487,4 +280,13 @@ var scram, algo, algor;
 }( jQuery ));
 $(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
+	$('g-cube').each(function(){
+	  var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
+	  sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
+	  a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
+	  h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
+	  t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
+	  f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
+	  $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+	});
 });
