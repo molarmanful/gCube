@@ -180,25 +180,26 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).addClass('ocll eoll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).addClass('eoll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).addClass('ocll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).addClass('eoll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -389,25 +390,26 @@ var scram, algo, algor;
 				cube.rotation.x = 100;
 			}
 			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-				$(this).removeClass('ocll eoll').addClass('ocll eoll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('eoll')){
-				$(this).removeClass('ocll eoll').addClass('eoll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('ocll')){
-				$(this).removeClass('ocll eoll').addClass('ocll');
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.equator.showStickers();
 				cube.down.showStickers();
 			}
 			else if(x.match('coll')){
-				$(this).removeClass('ocll eoll').addClass('eoll');
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 				cube.centers.showStickers();
 				cube.up.corners.showStickers();
 				cube.equator.showStickers();
@@ -484,7 +486,5 @@ var scram, algo, algor;
 	};
 }( jQuery ));
 $(function(){
-	$('g-cube.ocll').find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
-	$('g-cube.eoll').find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 });
