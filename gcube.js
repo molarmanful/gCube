@@ -31,13 +31,11 @@ function algparse(s){
 function inverse(s){
   var x = [];
   s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).forEach(function(e) {
-    if(e.length === 2){
-      if(e[1] != '2'){
+    if(e.length >= 2){
+      if(e[1] != '2' || e[2] != '2'){
         x.push(e[0]);
       }
-    }
-    //default
-    else {
+    } else {
       x.push(e[0] + "'");
     }
   });
@@ -126,130 +124,128 @@ cube.core.setOpacity(0);
 	};
 	//change state/highlight
 	$.fn.ghighlight = function(x){
-		if(x.length){
-			this.filter('g-cube').each(function(){
-				cube.hideStickers();
-				if(x.match('edges')){
-					cube.edges.showStickers();
-					cube.centers.hideStickers();
-					cube.corners.hideStickers();
-				}
-				else if(x.match('corners')){
-					cube.corners.showStickers();
-					cube.edges.hideStickers();
-					cube.centers.hideStickers();
-				}
-				else if(x.match('centers')){
-					cube.centers.showStickers();
-					cube.edges.hideStickers();
-					cube.corners.hideStickers();
-				}
-				else if(x.match('flcross')){
-					cube.down.cross.showStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('flxcross')){
-					cube.down.cross.showStickers();
-					cube.centers.showStickers();
-					cube.hasId(5).showStickers();
-					cube.hasId(8).showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
-					cube.down.showStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('cfl')){
-					cube.down.corners.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('belt')){
-					cube.equator.showStickers();
-					cube.centers.showStickers();
-				}
-				else if(x.match('f2l')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
-					$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-					cube.centers.showStickers();
-					cube.equator.showStickers();
-					cube.down.showStickers();
-				}
-				else if(x.match('eoll')){
-					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-					cube.centers.showStickers();
-					cube.equator.showStickers();
-					cube.down.showStickers();
-				}
-				else if(x.match('ocll')){
-					$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-					cube.centers.showStickers();
-					cube.equator.showStickers();
-					cube.down.showStickers();
-				}
-				else if(x.match('coll')){
-					$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-					cube.centers.showStickers();
-					cube.up.corners.showStickers();
-					cube.equator.showStickers();
-					cube.down.showStickers();
-				}
-				else if(x.match('cll')){
-					cube.showStickers();
-					cube.up.edges.hideStickers();
-				}
-				else if(x.match('2x2x2')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.back.hideStickers();
-					cube.left.hideStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('2x2x3')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.back.hideStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('eoline')){
-					cube.showStickers();
-					cube.up.hideStickers();
-					cube.left.hideStickers();
-					cube.right.hideStickers();
-					cube.centers.showStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('fb')){
-					cube.right.showStickers();
-					cube.up.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('f2b')){
-					cube.right.showStickers();
-					cube.left.showStickers();
-					cube.up.hideStickers();
-					cube.rotation.x = 100;
-				}
-				else if(x.match('cmll')){
-					cube.right.showStickers();
-					cube.left.showStickers();
-					cube.up.hideStickers();
-					cube.up.corners.showStickers();
-				}
-				else {
-					cube.showStickers();
-				}
-			});
-		}
+		this.filter('g-cube').each(function(){
+			cube.hideStickers();
+			if(x.match('edges')){
+				cube.edges.showStickers();
+				cube.centers.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('corners')){
+				cube.corners.showStickers();
+				cube.edges.hideStickers();
+				cube.centers.hideStickers();
+			}
+			else if(x.match('centers')){
+				cube.centers.showStickers();
+				cube.edges.hideStickers();
+				cube.corners.hideStickers();
+			}
+			else if(x.match('flcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('flxcross')){
+				cube.down.cross.showStickers();
+				cube.centers.showStickers();
+				cube.hasId(5).showStickers();
+				cube.hasId(8).showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross'))  && !(settings.highlight.match('cfl'))){
+				cube.down.showStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('cfl')){
+				cube.down.corners.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('belt')){
+				cube.equator.showStickers();
+				cube.centers.showStickers();
+			}
+			else if(x.match('f2l')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))){
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+				cube.centers.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('eoll')){
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+				cube.centers.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('ocll')){
+				$(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+				cube.centers.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('coll')){
+				$(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+				cube.centers.showStickers();
+				cube.up.corners.showStickers();
+				cube.equator.showStickers();
+				cube.down.showStickers();
+			}
+			else if(x.match('cll')){
+				cube.showStickers();
+				cube.up.edges.hideStickers();
+			}
+			else if(x.match('2x2x2')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.left.hideStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('2x2x3')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.back.hideStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('eoline')){
+				cube.showStickers();
+				cube.up.hideStickers();
+				cube.left.hideStickers();
+				cube.right.hideStickers();
+				cube.centers.showStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('fb')){
+				cube.right.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('f2b')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.rotation.x = 100;
+			}
+			else if(x.match('cmll')){
+				cube.right.showStickers();
+				cube.left.showStickers();
+				cube.up.hideStickers();
+				cube.up.corners.showStickers();
+			}
+			else {
+				cube.showStickers();
+			}
+		});
 		return this;
 	};
 	//change text
@@ -280,12 +276,12 @@ cube.core.setOpacity(0);
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	$('g-cube').each(function(){
-		var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
-		sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
-		a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
-		h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
-		t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
-		f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
+		var s = $(this).find('g-speed').text(), 
+		sc = $(this).find('g-scramble').text(), 
+		a = $(this).find('g-algorithm').text(), 
+		h = $(this).find('g-highlight').text(), 
+		t = $(this).find('g-text').text(), 
+		f = $(this).find('g-speed').text();
 		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
 	});
 });
