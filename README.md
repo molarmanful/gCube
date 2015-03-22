@@ -21,7 +21,7 @@ Jquery
 All functions will only work on `g-cube` tags.
 
 ```javascript
-//speed, numeric
+//speed, string
 $('g-cube').gspeed(10);
 //scramble, string
 $('g-cube').gscramble("D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B");
@@ -35,7 +35,7 @@ $('g-cube').gflorian("0.2em");
 
 | Attribute | Description |
 |-----------|-------------|
-| _speed_ | Number. Milliseconds needed to perform a turn in algorithm. Defaults to `100`. |
+| _speed_ | String. Milliseconds needed to perform a turn in algorithm. Defaults to `100`. |
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
 | _highlight_ | String. Case-sensitive. Defaults to highlighting the whole cube. NOTE: OLL, EOLL, OCLL, and COLL stages might not work. See Issue #1. |
