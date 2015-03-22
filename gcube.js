@@ -28,18 +28,29 @@ function algparse(s){
   });
   return x;
 }
-function inverse(s){
+function algparseinv(s){
   var x = [];
-  s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).forEach(function(e) {
-    if(e.length >= 2){
-      if(e[1] != '2' || e[2] != '2'){
-        x.push(e[0]);
+  s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).reverse().forEach(function(e) {
+    if(e.length === 2){
+      //180deg
+      if(e[1] === '2'){
+        x.push(new ERNO.Twist(e[0].toLowerCase(), 180));
       }
-    } else {
-      x.push(e[0] + "'");
+      //inverse
+      else {
+        x.push(e[0].toUpperCase());
+      }
+    }
+    //inverse 180deg
+    else if(e.length === 3){
+      x.push(new ERNO.Twist(e[0].toUpperCase(), 180));
+    }
+    //default
+    else {
+      x.push(e[0].toLowerCase());
     }
   });
-  return x.join();
+  return x;
 }
 
 //plugin start
@@ -107,7 +118,7 @@ cube.core.setOpacity(0);
 		if(x.length){
 			this.filter('g-cube').each(function(){
 				algo = algparse(x);
-				algor = algparse(inverse(x));
+				algor = algparseinv(x);
 				cube.mouseControlsEnabled = false;
 				$(this).children('button, input, span').remove();
 				$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="500">');
