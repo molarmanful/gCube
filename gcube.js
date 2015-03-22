@@ -64,7 +64,7 @@ var scram, algo, algor;
 			
 			//cube itself
 			window.cube = new ERNO.Cube();
-      cube.rotation.y = - 0.8;
+      cube.rotation.y = -0.8;
       cube.keyboardControlsEnabled = false;
       cube.core.setOpacity(0);
       $(this).find('.cubecont').append(cube.domElement);
