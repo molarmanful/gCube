@@ -483,8 +483,7 @@ var scram, algo, algor;
 		return this;
 	};
 }( jQuery ));
-$(window).on('load', function(){
-	//stylesheet
+$(function(){
 	$('g-cube.ocll').find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.faceUp .sticker').show();
 	$('g-cube.eoll').find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.faceUp .sticker').show();
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
