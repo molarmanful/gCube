@@ -55,7 +55,7 @@ There are 8 predefined classes that you can use for the base: transparent, stick
 
 Then add this to your jQuery code (change `g-cube` if necessary):
 ```javascript
-$('g-cube .cube').addClass(/*name of class here*/);
+$('g-cube').addClass(/*name of class here*/);
 ```
 
 Custom stickerless cubes can use this CSS:
