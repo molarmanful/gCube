@@ -28,6 +28,21 @@ function algparse(s){
   });
   return x;
 }
+function inverse(s){
+  var x = [];
+  s.trim().replace(/{|}|\[|\]\(|\)/g, '').split(/\s+/).forEach(function(e) {
+    if(e.length === 2){
+      if(e[1] != '2'){
+        x.push(e[0]);
+      }
+    }
+    //default
+    else {
+      x.push(e[0] + "'");
+    }
+  });
+  return x.join();
+}
 
 //plugin start
 var scram, algo, algor;
@@ -89,7 +104,7 @@ cube.core.setOpacity(0);
 	$.fn.galgorithm = function(x){
 		this.filter('g-cube').each(function(){
 			algo = algparse(x);
-			algor = algparse(x.split(/\+s/).reverse().join());
+			algor = algparse(inverse(x));
 			cube.mouseControlsEnabled = false;
 			$(this).children('button, input, span').remove();
 			$(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="500">');
