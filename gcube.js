@@ -69,6 +69,7 @@ var scram, algo, algor;
       cube.core.setOpacity(0);
       $(this).find('.cubecont').append(cube.domElement);
 		});
+		return this;
 	}
 	//change speed
 	$.fn.gspeed = function(x){
@@ -281,12 +282,12 @@ var scram, algo, algor;
 $(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	$('g-cube').each(function(){
-	  var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
-	  sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
-	  a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
-	  h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
-	  t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
-	  f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
-	  $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+    var s = ($(this).find('g-speed').text() == '') ? $(this).find('g-speed').text() : 10, 
+    sc = ($(this).find('g-scramble').text() == '') ? $(this).find('g-scramble').text() : '', 
+    a = ($(this).find('g-algorithm').text() == '') ? $(this).find('g-algorithm').text() : '', 
+    h = ($(this).find('g-highlight').text() == '') ? $(this).find('g-highlight').text() : '', 
+    t = ($(this).find('g-text').text() == '') ? $(this).find('g-text').text() : '', 
+    f = ($(this).find('g-florian').text() == '') ? $(this).find('g-speed').text() : '0.1em';
+    $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
 	});
 });
