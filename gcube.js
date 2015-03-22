@@ -255,7 +255,6 @@ cube.core.setOpacity(0);
 			cube.folds[0].setText(x);
 			cube.folds[1].setText('');
 			cube.folds[2].setText('');
-			cube.rotation.x = 50.2;
 		});
 		return this;
 	};
