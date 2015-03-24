@@ -298,7 +298,7 @@ $(document).ready(function(){
 		a = $(this).find('g-algorithm').text(), 
 		h = $(this).find('g-highlight').text(), 
 		t = $(this).find('g-text').text(), 
-		f = $(this).find('g-speed').text();
+		f = $(this).find('g-florian').text();
 		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
 	});
 });
