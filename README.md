@@ -35,7 +35,7 @@ $('g-cube').gflorian("0.2em");
 
 | Attribute | Description |
 |-----------|-------------|
-| _speed_ | String. Milliseconds needed to perform a turn in algorithm. Defaults to `100`. |
+| _speed_ | String. Milliseconds needed to perform a turn in algorithm. Defaults to `10`. |
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
 | _highlight_ | String. Case-sensitive. Defaults to highlighting the whole cube. NOTE: OLL, EOLL, OCLL, and COLL stages might not work. See Issue #1. |
