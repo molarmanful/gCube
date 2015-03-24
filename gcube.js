@@ -71,13 +71,13 @@ cube.core.setOpacity(0);
 	}
 	//change speed
 	$.fn.gspeed = function(x){
-		if(x.length){
-			this.filter('g-cube').each(function(){
+		this.filter('g-cube').each(function(){
+			if(x.length){
 				cube.twistDuration = x;
-			});
-		} else {
-			cube.twistDuration = 10;
-		}
+			} else {
+				cube.twistDuration = 10;
+			}
+		});
 		return this;
 	};
 	//change scramble
