@@ -88,11 +88,3 @@ Custom stickerless cubes can use this CSS:
 	background-color: /*desired color for the face*/;
 }
 ```
-
-CSS Defaults
-==================
-`Height` and `width` attributes are both `100%`.
-
-`position` is set to `absolute`.
-
-`display` is set to `block`.
