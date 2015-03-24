@@ -269,15 +269,13 @@ cube.core.setOpacity(0);
 	};
 	//change text
 	$.fn.gtext = function(x){
-		if(x.length){
-			this.filter('g-cube').each(function(){
-				cube.showTexts();
-				cube.folds[0].setText(x);
-				cube.folds[1].setText('');
-				cube.folds[2].setText('');
-				cube.rotation.x = 50.2;
-			});
-		}
+		this.filter('g-cube').each(function(){
+			cube.showTexts();
+			cube.folds[0].setText(x);
+			cube.folds[1].setText('');
+			cube.folds[2].setText('');
+			cube.rotation.x = 50.2;
+		});
 		return this;
 	};
 	//change florian
