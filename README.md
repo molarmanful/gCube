@@ -15,27 +15,36 @@ How to Use
 3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
 4. Sit back and cube!
 
-Jquery
+HTML and jQuery
 ==================
+HTML attributes are set using custom tags inside `g-cube` tags.
+```html
+<g-cube>
+	<g-speed>10</g-speed>
+	<g-scramble>D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B</g-scramble>
+	<g-algorithm>R U R' U'</g-algorithm>
+	<g-highlight>flxcross</g-highlight>
+	<g-florian>0.2em</g-florian>
+</g-cube>
+```
 
-All functions will only work on `g-cube` tags.
-
+All jQuery functions will only work on `g-cube` tags.
 ```javascript
-//speed, string
+//speed
 $('g-cube').gspeed(10);
-//scramble, string
+//scramble
 $('g-cube').gscramble("D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B");
-//algorithm, string
+//algorithm
 $('g-cube').galgorithm("R U R' U'");
-//highlight, string
+//highlight
 $('g-cube').ghighlight("flxcross");
-//florian, string
+//florian
 $('g-cube').gflorian("0.2em");
 ```
 
-| Attribute | Description |
+| HTML/jQuery Attribute | Description |
 |-----------|-------------|
-| _speed_ | String. Milliseconds needed to perform a turn in algorithm. Defaults to `10`. |
+| _speed_ | String/Number. Milliseconds needed to perform a turn in algorithm. Defaults to `10`. |
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
 | _highlight_ | String. Case-sensitive. Defaults to highlighting the whole cube. NOTE: OLL, EOLL, OCLL, and COLL stages might not work. See Issue #1. |
