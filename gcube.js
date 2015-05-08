@@ -296,12 +296,14 @@ cube.core.setOpacity(0);
 }( jQuery ));
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
-	if(e == true){
-	  ths.find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
-	}
-	if(c == true){
-	  ths.find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
-	}
+	$('g-cube, .sticker').load(function(){
+		if(e == true){
+  	  ths.find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+  	}
+  	if(c == true){
+  	  ths.find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+  	}
+	});
 	$('g-cube').each(function(){
 		var s = $(this).find('g-speed').text(), 
 		sc = $(this).find('g-scramble').text(), 
