@@ -308,7 +308,7 @@ $(document).ready(function(){
   	  $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
   	  console.log('Edges');
   	}
-  	if((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match(eoll))){
+  	if((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match('eoll'))){
   	  $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
   	  console.log('Corners');
   	}
