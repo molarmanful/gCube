@@ -281,7 +281,7 @@ $(document).ready(function() {
       t = $(this).find('g-text').text(),
       f = $(this).find('g-florian').text();
     $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-  }).delegate('.cube', 'load', function() {
+  }).on('load', '.sticker', function() {
     if (ed == true) {
       $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
       console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
