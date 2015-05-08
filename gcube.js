@@ -137,7 +137,7 @@ cube.core.setOpacity(0);
     return this;
   };
   //change state/highlight
-  $.fn.ghighlight = function(x, y) {
+  $.fn.ghighlight = function(x) {
     if (x.length) {
       this.filter('g-cube').each(function() {
         cube.hideStickers();
@@ -243,7 +243,6 @@ cube.core.setOpacity(0);
         }
       });
     }
-    y();
     return this;
   };
   //change text
