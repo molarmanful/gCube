@@ -296,7 +296,7 @@ cube.core.setOpacity(0);
 }( jQuery ));
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
-	$('g-cube, .sticker').load(function(){
+	$('g-cube').load(function(){
 	  if(e == true){
   	  ths.find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
   	  console.log('Edges');
