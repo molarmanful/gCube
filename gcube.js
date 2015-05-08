@@ -308,12 +308,10 @@ $(document).ready(function(){
       if(h.match('oll') || h.match('eoll') || h.match('coll')){
         $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
         console.log('Edges');
-        console.log($(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
     	}
     	if((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match('eoll'))){
         $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
         console.log('Corners');
-        console.log($(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display'));
     	}
 		}).gtext(t).gflorian(f);
 	});
