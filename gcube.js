@@ -55,8 +55,8 @@ function algparseinv(s) {
 }
 
 //plugin start
-var scram, algo, algor, c = false,
-  e = false,
+var scram, algo, algor, co = false,
+  ed = false,
   ths;
 window.cube = new ERNO.Cube();
 cube.rotation.y = -0.8;
@@ -180,23 +180,23 @@ cube.core.setOpacity(0);
           cube.centers.showStickers();
           cube.rotation.x = 100;
         } else if (x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))) {
-          e = true;
-          c = true;
+          ed = true;
+          co = true;
           cube.centers.showStickers();
           cube.equator.showStickers();
           cube.down.showStickers();
         } else if (x.match('eoll')) {
-          e = true;
+          ed = true;
           cube.centers.showStickers();
           cube.equator.showStickers();
           cube.down.showStickers();
         } else if (x.match('ocll')) {
-          c = true;
+          co = true;
           cube.centers.showStickers();
           cube.equator.showStickers();
           cube.down.showStickers();
         } else if (x.match('coll')) {
-          e = true;
+          ed = true;
           cube.centers.showStickers();
           cube.up.corners.showStickers();
           cube.equator.showStickers();
@@ -274,9 +274,6 @@ cube.core.setOpacity(0);
 }(jQuery));
 $(document).ready(function() {
   $('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
-  $('g-cube').each(function() {
-    $(this).gcube();
-  });
 });
 $(window).load(function() {
   $('g-cube').each(function() {
@@ -286,14 +283,14 @@ $(window).load(function() {
       h = $(this).find('g-highlight').text(),
       t = $(this).find('g-text').text(),
       f = $(this).find('g-florian').text();
-    $(this).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h, function() {
-      if (h.match('oll') || h.match('eoll') || h.match('coll')) {
+    $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h, function() {
+      if (ed == true) {
         $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-        console.log('Edges');
+        console.log('Edges', e, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
       }
-      if ((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match('eoll'))) {
+      if (co == true) {
         $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-        console.log('Corners');
+        console.log('Corners', c, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
       }
     }).gtext(t).gflorian(f);
   });
