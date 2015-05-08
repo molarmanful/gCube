@@ -64,12 +64,15 @@ cube.keyboardControlsEnabled = false;
 cube.core.setOpacity(0);
 (function($) {
   //make new cube
-  $.fn.gcube = function() {
+  $.fn.gcube = function(callback) {
       this.filter('g-cube').each(function() {
         //cube container
         $(this).append('<div class="cubecont"></div>');
         $(this).find('.cubecont').append(cube.domElement);
       });
+      if(typeof callback == 'function'){
+        callback();
+      }
       return this;
     }
     //change speed
@@ -280,16 +283,15 @@ $(document).ready(function() {
       h = $(this).find('g-highlight').text(),
       t = $(this).find('g-text').text(),
       f = $(this).find('g-florian').text();
-    $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+    $(this).gcube(function(){
+      if (ed == true) {
+        $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+        console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
+      if (co == true) {
+        $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+        console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
+    }).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
   });
-})
-$(window).load(function() {
-  if (ed == true) {
-    $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-    console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-  }
-  if (co == true) {
-    $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-    console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-  }
 });
