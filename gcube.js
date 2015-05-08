@@ -54,7 +54,7 @@ function algparseinv(s){
 }
 
 //plugin start
-var scram, algo, algor, c = false, e = false;
+var scram, algo, algor, c = false, e = false, ths;
 window.cube = new ERNO.Cube();
 cube.rotation.y = -0.8;
 cube.keyboardControlsEnabled = false;
@@ -144,6 +144,7 @@ cube.core.setOpacity(0);
 		if(x.length){
 			this.filter('g-cube').each(function(){
 				cube.hideStickers();
+				ths = $(this);
 				if(x.match('edges')){
 					cube.edges.showStickers();
 					cube.centers.hideStickers();
@@ -296,10 +297,10 @@ cube.core.setOpacity(0);
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	if(e == true){
-	  $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+	  ths.find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
 	}
 	if(c == true){
-	  $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+	  ths.find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
 	}
 	$('g-cube').each(function(){
 		var s = $(this).find('g-speed').text(), 
