@@ -275,7 +275,7 @@ cube.core.setOpacity(0);
 $(document).ready(function() {
   $('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
   $('g-cube').gcube();
-  $('g-cube').delegate('.sticker', 'load', function() {
+  $('g-cube').delegate('.cube', 'load', function() {
     $('g-cube').each(function() {
       var s = $(this).find('g-speed').text(),
         sc = $(this).find('g-scramble').text(),
