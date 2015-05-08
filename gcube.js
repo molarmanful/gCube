@@ -140,7 +140,7 @@ cube.core.setOpacity(0);
 		return this;
 	};
 	//change state/highlight
-	$.fn.ghighlight = function(x){
+	$.fn.ghighlight = function(x, y){
 		if(x.length){
 			this.filter('g-cube').each(function(){
 				cube.hideStickers();
@@ -266,6 +266,7 @@ cube.core.setOpacity(0);
 				}
 			});
 		}
+		y();
 		return this;
 	};
 	//change text
@@ -303,14 +304,15 @@ $(document).ready(function(){
 		h = $(this).find('g-highlight').text(), 
 		t = $(this).find('g-text').text(), 
 		f = $(this).find('g-florian').text();
-		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-		if(h.match('oll') || h.match('eoll') || h.match('coll')){
-  	  $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-  	  console.log('Edges', $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-  	}
-  	if((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match('eoll'))){
-  	  $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-  	  console.log('Corners', $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display'));
-  	}
+		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h, function(){
+      if(h.match('oll') || h.match('eoll') || h.match('coll')){
+        $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+        console.log('Edges', $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+    	}
+    	if((h.match('oll') || h.match('ocll')) && !(h.match('coll') || h.match('eoll'))){
+        $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+        console.log('Corners', $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display'));
+    	}
+		}).gtext(t).gflorian(f);
 	});
 });
