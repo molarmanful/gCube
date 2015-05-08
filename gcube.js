@@ -297,11 +297,13 @@ cube.core.setOpacity(0);
 $(document).ready(function(){
 	$('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
 	$('g-cube, .sticker').load(function(){
-		if(e == true){
+	  if(e == true){
   	  ths.find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
+  	  console.log('Edges');
   	}
   	if(c == true){
   	  ths.find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').show();
+  	  console.log('Corners');
   	}
 	});
 	$('g-cube').each(function(){
