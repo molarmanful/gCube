@@ -304,7 +304,7 @@ $(document).ready(function(){
 		t = $(this).find('g-text').text(), 
 		f = $(this).find('g-florian').text();
 		$(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-		if((h.match('oll') || h.match('eoll')) || h.match('coll'))){
+		if(h.match('oll') || h.match('eoll') || h.match('coll')){
   	  $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').show();
   	  console.log('Edges');
   	}
