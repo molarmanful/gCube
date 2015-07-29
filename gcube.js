@@ -139,108 +139,166 @@ cube.core.setOpacity(0);
     }
     return this;
   };
+  
+  /* Create a map of highlighting methods. In the context of these highlighting functions,
+    this' is the ERNO.Cube instance. These are kept private so that
+    $(this).g-highlight(x) is used instead of a call to this.showStickers() and one of these functions. */
+  var highlighters = {
+    /** Only show the edge thislets. */
+    "edges": function() {
+      this.edges.showStickers();
+      this.centers.hideStickers();
+      this.corners.hideStickers();
+    },
+    /** Only show the corner thislets. */
+    "corners": function() {
+      this.corners.showStickers();
+      this.edges.hideStickers();
+      this.centers.hideStickers();
+    },
+    /** Only show the center thislets. */
+    "centers": function() {
+      this.centers.showStickers();
+      this.edges.hideStickers();
+      this.corners.hideStickers();
+    },
+    /** Only show the down face's edges and the this's centers. */
+    "flcross": function() {
+      this.down.cross.showStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the down face's edges, the this's centers, and the corner-edge pair in the
+        Front-Right-Down position. */
+    "flxcross": function() {
+      this.down.cross.showStickers();
+      this.centers.showStickers();
+      this.hasId(5).showStickers();
+      this.hasId(8).showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the thislets on the down face and the this's centers. */
+    "fl": function() {
+      this.down.showStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the corners of the first layer, and put the down face in view of the camera. */
+    "cfl": function() {
+      this.down.corners.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the thislets in the "middle" slice and the this's centers. */
+    "belt": function() {
+      this.equator.showStickers();
+      this.centers.showStickers();
+    },
+    /** Only show the first two layers of the this (the down face and the middle slice)
+        and the center of the up face. Also put the down face in view of the camera. */
+    "f2l": function() {
+      this.showStickers();
+      this.up.hideStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Shows all the stickers except for the ring of stickers on the up slice that don't face up. */
+    "oll": function() {
+      ed = true;
+      co = true;
+      this.centers.showStickers();
+      this.equator.showStickers();
+      this.down.showStickers();
+    },
+    /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
+        edges on the up face, and also the up face's center sticker. */
+    "eoll": function() {
+      ed = true;
+      this.centers.showStickers();
+      this.equator.showStickers();
+      this.down.showStickers();
+    },
+    /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
+        corners on the up face, ans also the up face's center sticker. */
+    "ocll": function() {
+      co = true;
+      this.centers.showStickers();
+      this.equator.showStickers();
+      this.down.showStickers();
+    },
+    /** Show all the stickers except for stickers on edge thislets on the up slice which don't face up. */
+    "coll": function() {
+      ed = true;
+      this.centers.showStickers();
+      this.up.corners.showStickers();
+      this.equator.showStickers();
+      this.down.showStickers();
+    },
+    /** Show the stickers on all thislets, and hide stickers on the edge thislets of the up slice. */
+    "cll": function() {
+      this.showStickers();
+      this.up.edges.hideStickers();
+    },
+    /** Only show the centers and a 2x2x2 block in the down-front-right position,
+        and put the down face in view of the camera. */
+    "2x2x2": function() {
+      this.showStickers();
+      this.up.hideStickers();
+      this.back.hideStickers();
+      this.left.hideStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the centers and a 2x2x3 block along the down-front edge.
+        Put the down face in view of the camera. */
+    "2x2x3": function() {
+      this.showStickers();
+      this.up.hideStickers();
+      this.back.hideStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the centers and the thislets on the middle slice which are not also on the up slice. */
+    "eoline": function() {
+      this.showStickers();
+      this.up.hideStickers();
+      this.left.hideStickers();
+      this.right.hideStickers();
+      this.centers.showStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the thislets on the right slice which are not also on the up slice.
+        Put the down face in view of the camera. */
+    "fb": function() {
+      this.right.showStickers();
+      this.up.hideStickers();
+      this.rotation.x = 100;
+    },
+    /** Only show the thislets on the right and left slice which are not also on the up slice.
+        Put the down face in view of the camera. */
+    "f2b": function() {
+      this.right.showStickers();
+      this.left.showStickers();
+      this.up.hideStickers();
+      this.rotation.x = 100;
+    },
+    /** Show all thislets except for thislets on the middle slice and the edges on the up slice. */
+    "cmll": function() {
+      this.right.showStickers();
+      this.left.showStickers();
+      this.up.hideStickers();
+      this.up.corners.showStickers();
+    }
+  };
+  
   //change state/highlight
   $.fn.ghighlight = function(x) {
     if (x.length) {
       this.filter('g-cube').each(function() {
         cube.hideStickers();
         ths = $(this);
-        if (x.match('edges')) {
-          cube.edges.showStickers();
-          cube.centers.hideStickers();
-          cube.corners.hideStickers();
-        } else if (x.match('corners')) {
-          cube.corners.showStickers();
-          cube.edges.hideStickers();
-          cube.centers.hideStickers();
-        } else if (x.match('centers')) {
-          cube.centers.showStickers();
-          cube.edges.hideStickers();
-          cube.corners.hideStickers();
-        } else if (x.match('flcross')) {
-          cube.down.cross.showStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('flxcross')) {
-          cube.down.cross.showStickers();
-          cube.centers.showStickers();
-          cube.hasId(5).showStickers();
-          cube.hasId(8).showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('fl') && !(settings.highlight.match('flxcross')) && !(settings.highlight.match('flcross')) && !(settings.highlight.match('cfl'))) {
-          cube.down.showStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('cfl')) {
-          cube.down.corners.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('belt')) {
-          cube.equator.showStickers();
-          cube.centers.showStickers();
-        } else if (x.match('f2l')) {
-          cube.showStickers();
-          cube.up.hideStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('oll') && !(x.match('eoll')) && !(x.match('coll'))) {
-          ed = true;
-          co = true;
-          cube.centers.showStickers();
-          cube.equator.showStickers();
-          cube.down.showStickers();
-        } else if (x.match('eoll')) {
-          ed = true;
-          cube.centers.showStickers();
-          cube.equator.showStickers();
-          cube.down.showStickers();
-        } else if (x.match('ocll')) {
-          co = true;
-          cube.centers.showStickers();
-          cube.equator.showStickers();
-          cube.down.showStickers();
-        } else if (x.match('coll')) {
-          ed = true;
-          cube.centers.showStickers();
-          cube.up.corners.showStickers();
-          cube.equator.showStickers();
-          cube.down.showStickers();
-        } else if (x.match('cll')) {
-          cube.showStickers();
-          cube.up.edges.hideStickers();
-        } else if (x.match('2x2x2')) {
-          cube.showStickers();
-          cube.up.hideStickers();
-          cube.back.hideStickers();
-          cube.left.hideStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('2x2x3')) {
-          cube.showStickers();
-          cube.up.hideStickers();
-          cube.back.hideStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('eoline')) {
-          cube.showStickers();
-          cube.up.hideStickers();
-          cube.left.hideStickers();
-          cube.right.hideStickers();
-          cube.centers.showStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('fb')) {
-          cube.right.showStickers();
-          cube.up.hideStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('f2b')) {
-          cube.right.showStickers();
-          cube.left.showStickers();
-          cube.up.hideStickers();
-          cube.rotation.x = 100;
-        } else if (x.match('cmll')) {
-          cube.right.showStickers();
-          cube.left.showStickers();
-          cube.up.hideStickers();
-          cube.up.corners.showStickers();
+        x = x.toLowerCase();
+        if (highlighters.hasOwnProperty(x)) {
+          highlighters[x].apply(cube);
         } else {
           cube.showStickers();
         }
@@ -282,14 +340,16 @@ cube.core.setOpacity(0);
         h = $(this).find('g-highlight').text(),
         t = $(this).find('g-text').text(),
         f = $(this).find('g-florian').text();
+      var capturedGCubeElement = this;
       $(this).gcube(function(){
-        if (ed == true) {
-          $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-          console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      // TODO: get the edge hiding code to be called after the highlight function somehow, perhaps extend something.
+        if (ed) {
+          $(capturedGCubeElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+          console.log('Edges', ed, $(capturedGCubeElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
         }
-        if (co == true) {
-          $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-          console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+        if (co) {
+          $(capturedGCubeElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+          console.log('Corners', co, $(capturedGCubeElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
         }
       }).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
     });
