@@ -274,9 +274,11 @@ cube.core.setOpacity(0);
     return this;
   };
   
-  /** Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load. */
+  // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
   var stylesheet = $('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
+  
   stylesheet.load(function() {
+    // Construct all of the g-cubes.
     $('g-cube').each(function() {
       var s = $(this).find('g-speed').text(),
         sc = $(this).find('g-scramble').text(),
@@ -286,15 +288,25 @@ cube.core.setOpacity(0);
         f = $(this).find('g-florian').text();
         
       $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-      
-      if (ed == true) {
-        $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-        console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-      }
-      if (co == true) {
-        $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-        console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-      }
+    });
+    
+    /* The DOM of the cube.domElement element isn't fully constructed until the render method (cuber/src/scripts/renderer.js:115) is called.
+      This function is queued with a call to requestAnimationFrame immediately following the function's definition, and this happens during
+      the call to  new ERNO.Cube(). The render function isn't guaranteed to have been called at any point in this code, so we need a way to
+      wait for it to be called before continuing. The solution used here is to call requestAnimationFrame with a callback that executes the
+      rest of our code. Multiple requestAnimationFrame callbacks are called in the order they are requested, so because we are requesting
+      the callback after the render callback, we can be sure that this code will be executed after the render code. */
+    requestAnimationFrame(function() {
+      $('g-cube').each(function() {
+        if (ed == true) {
+          $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+          console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+        }
+        if (co == true) {
+          $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+          console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+        }
+      });
     });
   });
   $("head").prepend(stylesheet);
