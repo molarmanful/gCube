@@ -273,23 +273,23 @@ cube.core.setOpacity(0);
     });
     return this;
   };
+  $('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
+  $('g-cube').each(function() {
+    var s = $(this).find('g-speed').text(),
+      sc = $(this).find('g-scramble').text(),
+      a = $(this).find('g-algorithm').text(),
+      h = $(this).find('g-highlight').text(),
+      t = $(this).find('g-text').text(),
+      f = $(this).find('g-florian').text();
+    $(this).gcube(function(){
+      if (ed == true) {
+        $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+        console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
+      if (co == true) {
+        $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+        console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
+    }).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+  });
 }(jQuery));
-$('head').prepend('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
-$('g-cube').each(function() {
-  var s = $(this).find('g-speed').text(),
-    sc = $(this).find('g-scramble').text(),
-    a = $(this).find('g-algorithm').text(),
-    h = $(this).find('g-highlight').text(),
-    t = $(this).find('g-text').text(),
-    f = $(this).find('g-florian').text();
-  $(this).gcube(function(){
-    if (ed == true) {
-      $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-      console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-    }
-    if (co == true) {
-      $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-      console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-    }
-  }).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-});
