@@ -284,16 +284,17 @@ cube.core.setOpacity(0);
         h = $(this).find('g-highlight').text(),
         t = $(this).find('g-text').text(),
         f = $(this).find('g-florian').text();
-      $(this).gcube(function(){
-        if (ed == true) {
-          $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-          console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-        }
-        if (co == true) {
-          $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-          console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-        }
-      }).gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+        
+      $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+      
+      if (ed == true) {
+        $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
+        console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
+      if (co == true) {
+        $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
+        console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
+      }
     });
   });
   $("head").prepend(stylesheet);
