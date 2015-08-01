@@ -47,7 +47,7 @@ $('g-cube').gflorian("0.2em");
 | _speed_ | String/Number. Milliseconds needed to perform a turn in algorithm. Defaults to `10`. |
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
-| _highlight_ | String. Case-sensitive. Defaults to highlighting the whole cube. NOTE: OLL, EOLL, OCLL, and COLL stages might not work. See Issue #1. |
+| _highlight_ | String. Case-sensitive. |
 | _text_ | String. You can put a message that is 18 characters or less. This will render on the front 2 faces of the cube. Defaults to an empty string. |
 | _florian_ | String. The amount of curve to add to the intersection of each cubelet. Must be a CSS-acceptable measurement. |
 | _callback_ | Function to be called after options are initialized. |
@@ -88,3 +88,7 @@ Custom stickerless cubes can use this CSS:
 	background-color: /*desired color for the face*/;
 }
 ```
+
+Credits
+=======
+Thanks to Michael Casebolt for his contributions and bug fixes. Superb job!
