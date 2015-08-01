@@ -141,34 +141,34 @@ cube.core.setOpacity(0);
   };
   
   /* Create a map of highlighting methods. In the context of these highlighting functions,
-    this' is the ERNO.Cube instance. These are kept private so that
-    $(this).g-highlight(x) is used instead of a call to this.showStickers() and one of these functions. */
+    'this' is the ERNO.Cube instance. These are kept private so that
+    $(cube).g-highlight(x) is used instead of a call to cube.hideStickers() and one of these functions. */
   var highlighters = {
-    /** Only show the edge thislets. */
+    /** Only show the edge cubelets. */
     "edges": function() {
       this.edges.showStickers();
       this.centers.hideStickers();
       this.corners.hideStickers();
     },
-    /** Only show the corner thislets. */
+    /** Only show the corner cubelets. */
     "corners": function() {
       this.corners.showStickers();
       this.edges.hideStickers();
       this.centers.hideStickers();
     },
-    /** Only show the center thislets. */
+    /** Only show the center cubelets. */
     "centers": function() {
       this.centers.showStickers();
       this.edges.hideStickers();
       this.corners.hideStickers();
     },
-    /** Only show the down face's edges and the this's centers. */
+    /** Only show the down face's edges and the cube's centers. */
     "flcross": function() {
       this.down.cross.showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
-    /** Only show the down face's edges, the this's centers, and the corner-edge pair in the
+    /** Only show the down face's edges, the cube's centers, and the corner-edge pair in the
         Front-Right-Down position. */
     "flxcross": function() {
       this.down.cross.showStickers();
@@ -177,7 +177,7 @@ cube.core.setOpacity(0);
       this.hasId(8).showStickers();
       this.rotation.x = 100;
     },
-    /** Only show the thislets on the down face and the this's centers. */
+    /** Only show the cubelets on the down face and the cube's centers. */
     "fl": function() {
       this.down.showStickers();
       this.centers.showStickers();
@@ -188,12 +188,12 @@ cube.core.setOpacity(0);
       this.down.corners.showStickers();
       this.rotation.x = 100;
     },
-    /** Only show the thislets in the "middle" slice and the this's centers. */
+    /** Only show the cubelets in the "middle" slice and the cube's centers. */
     "belt": function() {
       this.equator.showStickers();
       this.centers.showStickers();
     },
-    /** Only show the first two layers of the this (the down face and the middle slice)
+    /** Only show the first two layers of the cube (the down face and the middle slice)
         and the center of the up face. Also put the down face in view of the camera. */
     "f2l": function() {
       this.showStickers();
@@ -225,7 +225,7 @@ cube.core.setOpacity(0);
       this.equator.showStickers();
       this.down.showStickers();
     },
-    /** Show all the stickers except for stickers on edge thislets on the up slice which don't face up. */
+    /** Show all the stickers except for stickers on edge cubelets on the up slice which don't face up. */
     "coll": function() {
       this.showEdgeStickersOnUpFace();
       this.centers.showStickers();
@@ -233,7 +233,7 @@ cube.core.setOpacity(0);
       this.equator.showStickers();
       this.down.showStickers();
     },
-    /** Show the stickers on all thislets, and hide stickers on the edge thislets of the up slice. */
+    /** Show the stickers on all cubelets, and hide stickers on the edge cubelets of the up slice. */
     "cll": function() {
       this.showStickers();
       this.up.edges.hideStickers();
@@ -257,7 +257,7 @@ cube.core.setOpacity(0);
       this.centers.showStickers();
       this.rotation.x = 100;
     },
-    /** Only show the centers and the thislets on the middle slice which are not also on the up slice. */
+    /** Only show the centers and the cubelets on the middle slice which are not also on the up slice. */
     "eoline": function() {
       this.showStickers();
       this.up.hideStickers();
@@ -266,14 +266,14 @@ cube.core.setOpacity(0);
       this.centers.showStickers();
       this.rotation.x = 100;
     },
-    /** Only show the thislets on the right slice which are not also on the up slice.
+    /** Only show the cubelets on the right slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "fb": function() {
       this.right.showStickers();
       this.up.hideStickers();
       this.rotation.x = 100;
     },
-    /** Only show the thislets on the right and left slice which are not also on the up slice.
+    /** Only show the cubelets on the right and left slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "f2b": function() {
       this.right.showStickers();
@@ -281,7 +281,7 @@ cube.core.setOpacity(0);
       this.up.hideStickers();
       this.rotation.x = 100;
     },
-    /** Show all thislets except for thislets on the middle slice and the edges on the up slice. */
+    /** Show all cubelets except for cubelets on the middle slice and the edges on the up slice. */
     "cmll": function() {
       this.right.showStickers();
       this.left.showStickers();
