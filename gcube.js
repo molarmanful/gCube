@@ -64,17 +64,17 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
   
   //make new cube
   $.fn.gcube = function(callback) {
-      this.filter('g-cube').each(function() {
-        //cube container
-        $(this).append('<div class="cubecont"></div>');
-        $(this).find('.cubecont').append(cube.domElement);
-      });
-      if(typeof callback == 'function'){
-        callback();
-      }
-      return this;
+    this.filter('g-cube').each(function() {
+      //cube container
+      $(this).append('<div class="cubecont"></div>');
+      $(this).find('.cubecont').append(cube.domElement);
+    });
+    if(typeof callback == 'function'){
+      callback();
     }
-    //change speed
+    return this;
+  }
+  //change speed
   $.fn.gspeed = function(x) {
     this.filter('g-cube').each(function() {
       if (x.length) {
