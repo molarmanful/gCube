@@ -360,21 +360,30 @@ cube.core.setOpacity(0);
     }
   });
   
-  // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
-  var stylesheet = $('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
+  // Expose a function to do the standard setup on a single g-cube.
+  setupGcube = function(gcube) {
+    var $gcube = $(gcube);
+    var s = $gcube.find('g-speed').text(),
+        sc = $gcube.find('g-scramble').text(),
+        a = $gcube.find('g-algorithm').text(),
+        h = $gcube.find('g-highlight').text(),
+        t = $gcube.find('g-text').text(),
+        f = $gcube.find('g-florian').text();     
+    $gcube.gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+  };
   
+  // Expose a function to do the standard setup on all g-cubes.
+  setupAllGcubes = function() {
+    $('g-cube').each(function() {
+      setupGcube(this);
+    });
+  };
+  
+  // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
+  var stylesheet = $('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');  
   stylesheet.load(function() {
     // Construct all of the g-cubes.
-    $('g-cube').each(function() {
-      var s = $(this).find('g-speed').text(),
-        sc = $(this).find('g-scramble').text(),
-        a = $(this).find('g-algorithm').text(),
-        h = $(this).find('g-highlight').text(),
-        t = $(this).find('g-text').text(),
-        f = $(this).find('g-florian').text();
-        
-      $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-    });
+    setupAllGcubes();
   });
   $("head").prepend(stylesheet);
 }(jQuery));
