@@ -203,8 +203,8 @@ cube.core.setOpacity(0);
     },
     /** Shows all the stickers except for the ring of stickers on the up slice that don't face up. */
     "oll": function() {
-      ed = true;
-      co = true;
+      this.showEdgeStickersOnUpFace();
+      this.showCornerStickersOnUpFace();
       this.centers.showStickers();
       this.equator.showStickers();
       this.down.showStickers();
@@ -212,7 +212,7 @@ cube.core.setOpacity(0);
     /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
         edges on the up face, and also the up face's center sticker. */
     "eoll": function() {
-      ed = true;
+      this.showEdgeStickersOnUpFace();
       this.centers.showStickers();
       this.equator.showStickers();
       this.down.showStickers();
@@ -220,14 +220,14 @@ cube.core.setOpacity(0);
     /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
         corners on the up face, ans also the up face's center sticker. */
     "ocll": function() {
-      co = true;
+      this.showCornerStickersOnUpFace();
       this.centers.showStickers();
       this.equator.showStickers();
       this.down.showStickers();
     },
     /** Show all the stickers except for stickers on edge thislets on the up slice which don't face up. */
     "coll": function() {
-      ed = true;
+      this.showEdgeStickersOnUpFace();
       this.centers.showStickers();
       this.up.corners.showStickers();
       this.equator.showStickers();
@@ -332,6 +332,34 @@ cube.core.setOpacity(0);
     return this;
   };
   
+  // Add the last layer highlighting functions to the Cube class.
+  ERNO.extend(ERNO.Cube.prototype, {
+    /* The DOM of the cube.domElement element isn't fully constructed until the render method (cuber/src/scripts/renderer.js:115) is called.
+      This function is queued with a call to requestAnimationFrame immediately following the function's definition, and this happens during
+      the call to  new ERNO.Cube(). The render function isn't guaranteed to have been called at any point in this code, so we need a way to
+      wait for it to be called before continuing. The solution used here is to call requestAnimationFrame with a callback that executes the
+      rest of our code. Multiple requestAnimationFrame callbacks are called in the order they are requested, so because we are requesting
+      the callback after the render callback, we can be sure that this code will be executed after the render code. */
+      
+    showEdgeStickersOnUpFace: function() {
+      var cube = this;
+      requestAnimationFrame(function() {
+        var edgeCubeletsOnUpFace = $(cube.domElement).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9');
+        var edgeStickersOnUpFace = edgeCubeletsOnUpFace.find('.sticker.orange');
+        edgeStickersOnUpFace.css('display', 'block');
+      });
+    },
+    
+    showCornerStickersOnUpFace: function() {
+      var cube = this;
+      requestAnimationFrame(function() {
+        var cornerCubeletsOnUpFace = $(cube.domElement).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18');
+        var cornerStickersOnUpFace = cornerCubeletsOnUpFace.find('.sticker.orange');
+        cornerStickersOnUpFace.css('display', 'block');
+      });
+    }
+  });
+  
   // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
   var stylesheet = $('<link rel="stylesheet" type="text/css" href="https://molarmanful.github.io/MoyuWeilong/cubenologo.css">');
   
@@ -346,25 +374,6 @@ cube.core.setOpacity(0);
         f = $(this).find('g-florian').text();
         
       $(this).gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
-    });
-    
-    /* The DOM of the cube.domElement element isn't fully constructed until the render method (cuber/src/scripts/renderer.js:115) is called.
-      This function is queued with a call to requestAnimationFrame immediately following the function's definition, and this happens during
-      the call to  new ERNO.Cube(). The render function isn't guaranteed to have been called at any point in this code, so we need a way to
-      wait for it to be called before continuing. The solution used here is to call requestAnimationFrame with a callback that executes the
-      rest of our code. Multiple requestAnimationFrame callbacks are called in the order they are requested, so because we are requesting
-      the callback after the render callback, we can be sure that this code will be executed after the render code. */
-    requestAnimationFrame(function() {
-      $('g-cube').each(function() {
-        if (ed == true) {
-          $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display', 'block');
-          console.log('Edges', ed, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-        }
-        if (co == true) {
-          $(this).find('.cubeletId-0, .cubeletId-2, .cubeletId-20, .cubeletId-18').find('.sticker.orange').css('display', 'block');
-          console.log('Corners', co, $(this).find('.cubeletId-1, .cubeletId-11, .cubeletId-19, .cubeletId-9').find('.sticker.orange').css('display'));
-        }
-      });
     });
   });
   $("head").prepend(stylesheet);
