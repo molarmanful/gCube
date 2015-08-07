@@ -319,69 +319,73 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
     return this;
   };
   //change florian
-  $.fn.gflorian = function(e) {
+  $.fn.gflorian = function(e,f) {
     this.filter('g-cube').each(function() {
       var x = '0.1em';
+      var y = '0.1em';
       $(this).children('style').remove();
       if (e.length) {
         x = e;
       }
+      if (f.length) {
+        y = f;
+      }
       //this is gonna be really messy...
       $(this).prepend('<style>'+
-      '.cube .cubeletId-0 .faceFront .sticker {  border-bottom-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-0 .faceUp .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-0 .faceLeft .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-1 .faceFront .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
-      '.cube .cubeletId-1 .faceUp .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
-      '.cube .cubeletId-2 .faceFront .sticker {  border-bottom-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-2 .faceUp .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-2 .faceRight .sticker {  border-bottom-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-3 .faceFront .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
-      '.cube .cubeletId-3 .faceLeft .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
+      '.cube .cubeletId-0 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
+      '.cube .cubeletId-0 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-0 .faceLeft .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-1 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-1 .faceUp .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-2 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-2 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-2 .faceRight .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
+      '.cube .cubeletId-3 .faceFront .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
+      '.cube .cubeletId-3 .faceLeft .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-4 .faceFront .sticker {  border-radius: ' + x + ';}'+
-      '.cube .cubeletId-5 .faceFront .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
-      '.cube .cubeletId-5 .faceRight .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
-      '.cube .cubeletId-6 .faceFront .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-6 .faceDown .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-6 .faceLeft .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-7 .faceFront .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
-      '.cube .cubeletId-7 .faceDown .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
-      '.cube .cubeletId-8 .faceFront .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-8 .faceDown .sticker {  border-bottom-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-8 .faceRight .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-9 .faceUp .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
-      '.cube .cubeletId-9 .faceLeft .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
+      '.cube .cubeletId-5 .faceFront .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-5 .faceRight .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceFront .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceDown .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceLeft .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-7 .faceFront .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-7 .faceDown .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
+      '.cube .cubeletId-8 .faceFront .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-8 .faceDown .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
+      '.cube .cubeletId-8 .faceRight .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-9 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
+      '.cube .cubeletId-9 .faceLeft .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-10 .faceUp .sticker {  border-radius: ' + x + ';}'+
-      '.cube .cubeletId-11 .faceUp .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
+      '.cube .cubeletId-11 .faceUp .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-12 .faceLeft .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-14 .faceRight .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-15 .faceDown .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
-      '.cube .cubeletId-15 .faceLeft .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
+      '.cube .cubeletId-15 .faceLeft .sticker {  border-radius: ' + y + ' ' + x + ' ' + x + ' ' + y + ';}'+
       '.cube .cubeletId-16 .faceDown .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-17 .faceRight .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
-      '.cube .cubeletId-18 .faceBack .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-18 .faceUp .sticker {  border-bottom-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-18 .faceLeft .sticker {  border-bottom-left-radius: ' + x + ';}'+
+      '.cube .cubeletId-18 .faceBack .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-18 .faceUp .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
+      '.cube .cubeletId-18 .faceLeft .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
-      '.cube .cubeletId-19 .faceBack .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
-      '.cube .cubeletId-20 .faceUp .sticker {  border-bottom-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-20 .faceBack .sticker {  border-bottom-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-20 .faceRight .sticker {  border-bottom-left-radius: ' + x + ';}'+
+      '.cube .cubeletId-19 .faceBack .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-20 .faceUp .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-20 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-20 .faceRight .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-21 .faceBack .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
       '.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-22 .faceBack .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
-      '.cube .cubeletId-23 .faceRight .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
-      '.cube .cubeletId-24 .faceBack .sticker {  border-top-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-24 .faceDown .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-24 .faceLeft .sticker {  border-bottom-right-radius: ' + x + ';}'+
-      '.cube .cubeletId-25 .faceBack .sticker {  border-radius: 0 ' + x + ' ' + x + ' 0;}'+
-      '.cube .cubeletId-25 .faceDown .sticker {  border-radius: ' + x + ' 0 0 ' + x + ';}'+
-      '.cube .cubeletId-26 .faceRight .sticker {  border-top-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-26 .faceDown .sticker {  border-bottom-left-radius: ' + x + ';}'+
-      '.cube .cubeletId-26 .faceBack .sticker {  border-bottom-right-radius: ' + x + ';}</style>');
+      '.cube .cubeletId-23 .faceRight .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-24 .faceBack .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-24 .faceDown .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-24 .faceLeft .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
+      '.cube .cubeletId-25 .faceBack .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
+      '.cube .cubeletId-25 .faceDown .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-26 .faceRight .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-26 .faceDown .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
+      '.cube .cubeletId-26 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}</style>');
     });
     return this;
   };
