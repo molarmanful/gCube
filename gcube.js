@@ -5,7 +5,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
 
 (function($) {
   //plugin start
-  var scram, algo, algor, ths;
+  var scramble, algorithm, algorithmInverse, ths;
   window.cube = new ERNO.Cube();
   cube.rotation.y = -0.8;
   cube.keyboardControlsEnabled = false;
@@ -89,7 +89,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
   $.fn.gscramble = function(x) {
     if (x.length) {
       this.filter('g-cube').each(function() {
-        scram = algparse(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
+        scramble = algparse(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
         if (x.match('/random')) {
           if (x.match('/2-genR')) {
             cube.shuffleMethod = 'RrUu';
@@ -108,7 +108,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
           }
           cube.shuffle(25);
         } else {
-          cube.twist(scram);
+          cube.twist(scramble);
         }
       });
     }
@@ -118,8 +118,8 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
   $.fn.galgorithm = function(x) {
     if (x.length) {
       this.filter('g-cube').each(function() {
-        algo = algparse(x);
-        algor = algparseinv(x);
+        algorithm = algparse(x);
+        algorithmInverse = algparseinv(x);
         cube.mouseControlsEnabled = false;
         $(this).children('button, input, span').remove();
         $(this).prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="500">');
@@ -127,10 +127,10 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
           if ($(this).text() == 'Play Algorithm') {
             cube.twistDuration = $('.speedslider').val();
             $(this).text('Reverse Algorithm');
-            cube.twist(algo);
+            cube.twist(algorithm);
           } else {
             cube.twistDuration = 10;
-            cube.twist(algor);
+            cube.twist(algorithmInverse);
             $(this).text('Play Algorithm');
           }
         });
