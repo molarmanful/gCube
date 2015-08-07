@@ -357,26 +357,26 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
       '.cube .cubeletId-9 .faceLeft .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-10 .faceUp .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-11 .faceUp .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
-      '.cube .cubeletId-11 .faceRight .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-11 .faceRight .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-12 .faceLeft .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-14 .faceRight .sticker {  border-radius: ' + x + ';}'+
-      '.cube .cubeletId-15 .faceDown .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
+      '.cube .cubeletId-15 .faceDown .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-15 .faceLeft .sticker {  border-radius: ' + y + ' ' + x + ' ' + x + ' ' + y + ';}'+
       '.cube .cubeletId-16 .faceDown .sticker {  border-radius: ' + x + ';}'+
-      '.cube .cubeletId-17 .faceDown .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
-      '.cube .cubeletId-17 .faceRight .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
+      '.cube .cubeletId-17 .faceDown .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-17 .faceRight .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-18 .faceBack .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-18 .faceUp .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
       '.cube .cubeletId-18 .faceLeft .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
-      '.cube .cubeletId-19 .faceUp .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-19 .faceUp .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-19 .faceBack .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-20 .faceUp .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-20 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-20 .faceRight .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
-      '.cube .cubeletId-21 .faceBack .sticker {  border-radius: ' + x + ' ' + x + ' 0 0;}'+
-      '.cube .cubeletId-21 .faceLeft .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-21 .faceBack .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-21 .faceLeft .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-22 .faceBack .sticker {  border-radius: ' + x + ';}'+
-      '.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
+      '.cube .cubeletId-23 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-23 .faceRight .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-24 .faceBack .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-24 .faceDown .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
@@ -427,7 +427,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
         h = $gcube.find('g-highlight').text(),
         t = $gcube.find('g-text').text(),
         f = $gcube.find('g-florian').text();     
-    $gcube.gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+    $gcube.gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f.trim().split(',').filter(Boolean)[0],f.trim().split(',').filter(Boolean)[1]);
   };
   
   // Expose a function to do the standard setup on all g-cubes.
