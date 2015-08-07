@@ -24,7 +24,7 @@ HTML attributes are set using custom tags inside `g-cube` tags.
 	<g-scramble>D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B</g-scramble>
 	<g-algorithm>R U R' U'</g-algorithm>
 	<g-highlight>flxcross</g-highlight>
-	<g-florian>0.2em</g-florian>
+	<g-florian>0.2em,0.1em</g-florian>
 </g-cube>
 ```
 
@@ -39,7 +39,7 @@ $('g-cube').galgorithm("R U R' U'");
 //highlight
 $('g-cube').ghighlight("flxcross");
 //florian
-$('g-cube').gflorian("0.2em");
+$('g-cube').gflorian("0.2em","0.1em");
 ```
 
 | HTML/jQuery Attribute | Description |
@@ -49,7 +49,7 @@ $('g-cube').gflorian("0.2em");
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
 | _highlight_ | String. Case-sensitive. |
 | _text_ | String. You can put a message that is 18 characters or less. This will render on the front 2 faces of the cube. Defaults to an empty string. |
-| _florian_ | String. The amount of curve to add to the intersection of each cubelet. Must be a CSS-acceptable measurement. |
+| _florian_ | String, string. First argument determines amount of curvature to add to the stickers at cubelet intersections. Second argument determines amount of curvature to add to the stickers at the edges of the cubelets. Must be CSS-acceptable measurements. |
 | _callback_ | Function to be called after options are initialized. |
 
 Base Color Options
