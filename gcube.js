@@ -426,8 +426,13 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
         a = $gcube.find('g-algorithm').text(),
         h = $gcube.find('g-highlight').text(),
         t = $gcube.find('g-text').text(),
-        f = $gcube.find('g-florian').text();     
-    $gcube.gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f.replace(/\s/g).split(',')[0],f.replace(/\s/g).split(',')[1]);
+        f = $gcube.find('g-florian').text();
+    if(f.match(',')){
+      f = f.replace(/\s/g).split(',');
+    } else {
+      f = ['',''];
+    }
+    $gcube.gcube().gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f[0],f[1]);
   };
   
   // Expose a function to do the standard setup on all g-cubes.
