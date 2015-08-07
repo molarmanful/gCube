@@ -333,26 +333,26 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
       //this is gonna be really messy...
       $(this).prepend('<style>'+
       '.cube .cubeletId-0 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
-      '.cube .cubeletId-0 .faceUp .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-0 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-0 .faceLeft .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-1 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-1 .faceUp .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-2 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + y + ' ' + x + ';}'+
-      '.cube .cubeletId-2 .faceUp .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-2 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-2 .faceRight .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
       '.cube .cubeletId-3 .faceFront .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
       '.cube .cubeletId-3 .faceLeft .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-4 .faceFront .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-5 .faceFront .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-5 .faceRight .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
-      '.cube .cubeletId-6 .faceFront .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
-      '.cube .cubeletId-6 .faceDown .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
-      '.cube .cubeletId-6 .faceLeft .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceFront .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceDown .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-6 .faceLeft .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-7 .faceFront .sticker {  border-radius: ' + x + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-7 .faceDown .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
       '.cube .cubeletId-8 .faceFront .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-8 .faceDown .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
-      '.cube .cubeletId-8 .faceRight .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-8 .faceRight .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-9 .faceUp .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
       '.cube .cubeletId-9 .faceLeft .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
       '.cube .cubeletId-10 .faceUp .sticker {  border-radius: ' + x + ';}'+
@@ -378,7 +378,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
       '.cube .cubeletId-22 .faceBack .sticker {  border-radius: ' + x + ';}'+
       '.cube .cubeletId-23 .faceBack .sticker {  border-radius: 0 0 ' + x + ' ' + x + ';}'+
       '.cube .cubeletId-23 .faceRight .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + x + ';}'+
-      '.cube .cubeletId-24 .faceBack .sticker {  border-radius: ' + y + ' ' + x ' ' + y + ' ' + y + ';}'+
+      '.cube .cubeletId-24 .faceBack .sticker {  border-radius: ' + y + ' ' + x + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-24 .faceDown .sticker {  border-radius: ' + x + ' ' + y + ' ' + y + ' ' + y + ';}'+
       '.cube .cubeletId-24 .faceLeft .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
       '.cube .cubeletId-25 .faceBack .sticker {  border-radius: ' + y + ' ' + x + ' ' + x +' ' + y + ';}'+
