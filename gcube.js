@@ -5,7 +5,7 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
 
 (function($) {
   //plugin start
-  var scramble, algorithm, algorithmInverse, ths;
+  var scramble, algorithm, algorithmInverse;
   window.cube = new ERNO.Cube();
   cube.rotation.y = -0.8;
   cube.keyboardControlsEnabled = false;
@@ -294,7 +294,6 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
     if (x.length) {
       this.filter('g-cube').each(function() {
         cube.hideStickers();
-        ths = $(this);
         x = x.toLowerCase();
         if (highlighters.hasOwnProperty(x)) {
           highlighters[x].apply(cube);
