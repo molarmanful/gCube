@@ -55,7 +55,7 @@ $('g-cube').gflorian("0.2em","0.1em");
 CSS
 ==================
 
-### Base Classes
+### Base
 There are 8 predefined classes that you can use for the base: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
 
 ```css
@@ -89,6 +89,33 @@ Custom stickerless cubes can use this CSS:
 /*name of class here*/ .faceBack {
 	background-color: /*desired color for the face*/;
 }
+```
+
+### Stickers
+Stickers can be customized in the almost the same way as a stickerless cube:
+```css
+/*name of class here*/ .faceUp .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceDown .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceLeft .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceRight .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceFront .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceBack .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+```
+Then the jQuery (change `g-cube` if necessary):
+```javascript
+$('g-cube').addClass(/*name of class here*/);
 ```
 
 ### Inputs
