@@ -52,8 +52,10 @@ $('g-cube').gflorian("0.2em","0.1em");
 | _florian_ | String, string. First argument determines amount of curvature to add to the stickers at cubelet intersections. Second argument determines amount of curvature to add to the stickers at the edges of the cubelets. Must be CSS-acceptable measurements. |
 | _callback_ | Function to be called after options are initialized. |
 
-Base Color Options
+CSS
 ==================
+
+### Base Classes
 There are 8 predefined classes that you can use for the base: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
 
 ```css
@@ -89,6 +91,9 @@ Custom stickerless cubes can use this CSS:
 }
 ```
 
+### Inputs
+The "Play Algorithm" button has the class `playalg`. The speed slider has the class `speedslider`.
+
 Credits
-=======
+==================
 Thanks to Michael Casebolt for his contributions and bug fixes. Superb job!
