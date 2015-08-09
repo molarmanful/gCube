@@ -30,6 +30,8 @@ HTML attributes are set using custom tags inside `g-cube` tags.
 
 All jQuery functions will only work on `g-cube` tags.
 ```javascript
+//initialize
+$('g-cube').gcube();
 //speed
 $('g-cube').gspeed(10);
 //scramble
@@ -44,6 +46,7 @@ $('g-cube').gflorian("0.2em","0.1em");
 
 | HTML/jQuery Attribute | Description |
 |-----------|-------------|
+| _gcube (jQuery only)_ | Takes no arguments. Initializes gCube and creates cube instance. |
 | _speed_ | String/Number. Milliseconds needed to perform a turn in algorithm. Defaults to `10`. |
 | _scramble_ | String. Use WCA Notation. Using `/random` is also allowed, but another of these commands is required: `/2-genR`, `/2-genL`, `/2-genM`, `/3-genRF`, `/3-genLF`, and `/3-genRL`. Defaults to an empty string. |
 | _algorithm_ | String. Use WCA notation. Defaults to an empty string. |
