@@ -10,8 +10,8 @@ gCube is built using Google Chrome Cube Lab Code, and is inspired by alg.cubing.
 How to Use
 ==================
 
-1. Include jQuery (```<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>```) if you have not already done so.
-2. Put ```<script src="https://molarmanful.github.io/gCube/gcube.js"></script>``` or ```<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>``` in the head tag, AFTER your jQuery script tag.
+1. Include jQuery (`<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>`) if you have not already done so.
+2. Put `<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>` in the head tag, AFTER your jQuery script tag.
 3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
 4. Sit back and cube!
 
@@ -52,8 +52,10 @@ $('g-cube').gflorian("0.2em","0.1em");
 | _florian_ | String, string. First argument determines amount of curvature to add to the stickers at cubelet intersections. Second argument determines amount of curvature to add to the stickers at the edges of the cubelets. Must be CSS-acceptable measurements. |
 | _callback_ | Function to be called after options are initialized. |
 
-Base Color Options
+CSS
 ==================
+
+### Base
 There are 8 predefined classes that you can use for the base: transparent, stickerless, white, yellow, green, blue, orange, red, and neon. In addition, you can make your own class by adding this to your CSS code:
 
 ```css
@@ -89,6 +91,36 @@ Custom stickerless cubes can use this CSS:
 }
 ```
 
+### Stickers
+Stickers can be customized in the almost the same way as a stickerless cube:
+```css
+/*name of class here*/ .faceUp .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceDown .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceLeft .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceRight .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceFront .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+/*name of class here*/ .faceBack .sticker {
+	background-color: /*desired color for the sticker*/;
+}
+```
+Then the jQuery (change `g-cube` if necessary):
+```javascript
+$('g-cube').addClass(/*name of class here*/);
+```
+
+### Inputs
+The "Play Algorithm" button has the class `playalg`. The speed slider has the class `speedslider`.
+
 Credits
-=======
+==================
 Thanks to Michael Casebolt for his contributions and bug fixes. Superb job!
