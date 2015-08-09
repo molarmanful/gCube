@@ -118,6 +118,19 @@ Then the jQuery (change `g-cube` if necessary):
 $('g-cube').addClass(/*name of class here*/);
 ```
 
+### Logo
+Logos will be displayed on the center of the down face.
+```css
+/*name of class here*/ .cubeletId-16 .sticker {
+	background-image: url(/*url to logo image*/);
+	/*add some other CSS to make it look nice*/
+}
+```
+Then the jQuery (change `g-cube` if necessary):
+```javascript
+$('g-cube').addClass(/*name of class here*/);
+```
+
 ### Inputs
 The "Play Algorithm" button has the class `playalg`. The speed slider has the class `speedslider`.
 
