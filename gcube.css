@@ -9,9 +9,6 @@ g-cube, .cubecont {
 	float: left;
 	display: block;
 }
-g-cube{
-	position: absolute;
-}
 .cubecont {
 	clear: both;
 	position: inherit;
