@@ -309,16 +309,17 @@ gCube = {
         this.container.children('button, input, span').remove();
         this.container.prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="500">');
         
-        var cube = this.cube; // Keep a reference to the cube through closure
+        var gcube = this; // Keep a reference to the current gCube.
         this.container.children('.playalg').click(function() {
-          if ($(this).text() == 'Play Algorithm') {
-            cube.twistDuration = $('.speedslider').val();
-            $(this).text('Reverse Algorithm');
-            cube.twist(algorithm);
+          var button = $(this);
+          if (button.text() == 'Play Algorithm') {
+            gcube.cube.twistDuration = parseInt(gcube.container.children('.speedslider').val());
+            button.text('Reverse Algorithm');
+            gcube.cube.twist(algorithm);
           } else {
-            cube.twistDuration = 10;
-            cube.twist(algorithmInverse);
-            $(this).text('Play Algorithm');
+            gcube.cube.twistDuration = 10;
+            gcube.cube.twist(algorithmInverse);
+            button.text('Play Algorithm');
           }
         });
       }
