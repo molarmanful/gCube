@@ -11264,6 +11264,9 @@ ERNO.Cube = function( parameters ){
 	//	The amount of time we've been running
 	this.time = 0;
 
+   // The last time this cube ran. A value of undefined means that
+   // the cube will not assume it has ran before.
+   this.lastLoopTime = undefined;
 
 	// 	We'll keep an record of the number of moves we've made
 	// 	Useful for keeping scores.
@@ -11982,9 +11985,6 @@ ERNO.extend( ERNO.Cube.prototype, {
 
 	loop: (function(){
 
-
-		var time = 0;
-
 		return function(){
 
 
@@ -11994,8 +11994,9 @@ ERNO.extend( ERNO.Cube.prototype, {
 			//	Kick off the next animation frame
 
 			var localTime = ( typeof window !== 'undefined' && window.performance !== undefined && window.performance.now !== undefined ? window.performance.now() : Date.now() );
-			var frameDelta = localTime - ( time || localTime );
-			time = localTime;
+			var frameDelta = localTime - ( this.lastLoopTime || localTime );
+			this.lastLoopTime = localTime;
+         
 
 
 			if( !this.paused ){
