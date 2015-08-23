@@ -164,17 +164,12 @@ ERNO.extend = function ( obj, source ) {
 };
 
 /**
- * @author sole / http://soledadpenades.com
- * @author mrdoob / http://mrdoob.com
- * @author Robert Eisele / http://www.xarg.org
- * @author Philippe / http://philippe.elsass.me
- * @author Robert Penner / http://www.robertpenner.com/easing_terms_of_use.html
- * @author Paul Lewis / http://www.aerotwist.com/
- * @author lechecacharro
- * @author Josh Faul / http://jocafa.com/
- * @author egraether / http://egraether.com/
- * @author endel / http://endel.me
- * @author Ben Delarre / http://delarre.net
+ * Tween.js - Licensed under the MIT license
+ * https://github.com/sole/tween.js
+ * ----------------------------------------------
+ *
+ * See https://github.com/sole/tween.js/graphs/contributors for the full list of contributors.
+ * Thank you all, you're awesome!
  */
 
 /**
@@ -206,87 +201,118 @@ ERNO.extend = function ( obj, source ) {
  * THE SOFTWARE.
  */
 
-// Date.now shim for (ahem) Internet Explo(d|r)er
-if ( Date.now === undefined ) {
+// performance.now polyfill
+( function ( root ) {
 
-	Date.now = function () {
+	if ( 'performance' in root === false ) {
+		root.performance = {};
+	}
 
-		return new Date().valueOf();
+	// IE 8
+	Date.now = ( Date.now || function () {
+		return new Date().getTime();
+	} );
 
-	};
+	if ( 'now' in root.performance === false ) {
+		var offset = root.performance.timing && root.performance.timing.navigationStart ? performance.timing.navigationStart
+		                                                                                : Date.now();
 
-}
+		root.performance.now = function () {
+			return Date.now() - offset;
+		};
+	}
 
-var TWEEN = TWEEN || ( function () {
+} )( this );
 
-	var _tweens = [];
+var TWEEN;
 
-	return {
+// Hide inside a local scope in order to avoid polluting the namespace
+(function () {
 
-		REVISION: '12',
+   var _TWEEN_TweenGroup = function () {
 
-		getAll: function () {
+      var _tweens = [];
 
-			return _tweens;
+      this.getAll = function () {
 
-		},
+         return _tweens;
 
-		removeAll: function () {
+      };
 
-			_tweens = [];
+      this.removeAll = function () {
 
-		},
+         _tweens = [];
 
-		add: function ( tween ) {
+      };
 
-			_tweens.push( tween );
+      this.add = function ( tween ) {
 
-		},
+         _tweens.push( tween );
 
-		remove: function ( tween ) {
+      };
 
-			var i = _tweens.indexOf( tween );
+      this.remove = function ( tween ) {
 
-			if ( i !== -1 ) {
+         var i = _tweens.indexOf( tween );
 
-				_tweens.splice( i, 1 );
+         if ( i !== -1 ) {
 
-			}
+            _tweens.splice( i, 1 );
 
-		},
+         }
 
-		update: function ( time ) {
+      };
 
-			if ( _tweens.length === 0 ) return false;
+      this.update = function ( time ) {
 
-			var i = 0;
+         if ( _tweens.length === 0 ) return false;
 
-			time = time !== undefined ? time : ( typeof window !== 'undefined' && window.performance !== undefined && window.performance.now !== undefined ? window.performance.now() : Date.now() );
+         var i = 0;
 
-			while ( i < _tweens.length ) {
+         time = time !== undefined ? time : window.performance.now();
 
-				if ( _tweens[ i ].update( time ) ) {
+         while ( i < _tweens.length ) {
 
-					i++;
+            if ( _tweens[ i ].update( time ) ) {
 
-				} else {
+               i++;
 
-					_tweens.splice( i, 1 );
+            } else {
 
-				}
+               _tweens.splice( i, 1 );
 
-			}
+            }
 
-			return true;
+         }
 
-		}
-	};
+         return true;
 
-} )();
+      };
+      
+      this.createTween = function ( object ) {
+         
+         return new TWEEN.Tween( object, this );
+      
+      };
 
-TWEEN.Tween = function ( object ) {
+   };
+   
+   // For backwards compatibility, the TWEEN object is the global instance of TweenGroup.
+   // It is advisable to create your own instances of TweenGroup, in order to avoid using mutable global objects.
+   TWEEN = new _TWEEN_TweenGroup();
+   
+   // Don't expose the TweenGroup class directly, but rather expose it on the TWEEN object
+   TWEEN.TweenGroup = _TWEEN_TweenGroup;
+   
+})();
+
+TWEEN.REVISION = '14';
+
+TWEEN.Tween = function ( object, group ) {
 
 	var _object = object;
+   var _group = group === undefined ? TWEEN : group; // If no TweenGroup is specified, use the global one
+   
 	var _valuesStart = {};
 	var _valuesEnd = {};
 	var _valuesStartRepeat = {};
@@ -304,6 +330,9 @@ TWEEN.Tween = function ( object ) {
 	var _onStartCallbackFired = false;
 	var _onUpdateCallback = null;
 	var _onCompleteCallback = null;
+	var _onStopCallback = null;
+   
+   // TODO: Check that the callbacks are functions before calling them.
 
 	// Set all starting values present on the target object
 	for ( var field in object ) {
@@ -328,13 +357,13 @@ TWEEN.Tween = function ( object ) {
 
 	this.start = function ( time ) {
 
-		TWEEN.add( this );
+		_group.add( this );
 
 		_isPlaying = true;
 
 		_onStartCallbackFired = false;
 
-		_startTime = time !== undefined ? time : ( typeof window !== 'undefined' && window.performance !== undefined && window.performance.now !== undefined ? window.performance.now() : Date.now() );
+		_startTime = time !== undefined ? time : window.performance.now();
 		_startTime += _delayTime;
 
 		for ( var property in _valuesEnd ) {
@@ -373,8 +402,15 @@ TWEEN.Tween = function ( object ) {
 			return this;
 		}
 
-		TWEEN.remove( this );
+		_group.remove( this );
 		_isPlaying = false;
+
+		if ( _onStopCallback !== null ) {
+
+			_onStopCallback.call( _object );
+
+		}
+
 		this.stopChainedTweens();
 		return this;
 
@@ -454,6 +490,13 @@ TWEEN.Tween = function ( object ) {
 
 	};
 
+	this.onStop = function ( callback ) {
+
+		_onStopCallback = callback;
+		return this;
+
+	};
+
 	this.update = function ( time ) {
 
 		var property;
@@ -492,13 +535,13 @@ TWEEN.Tween = function ( object ) {
 
 			} else {
 
-                // Parses relative end values with start as base (e.g.: +10, -3)
+				// Parses relative end values with start as base (e.g.: +10, -3)
 				if ( typeof(end) === "string" ) {
 					end = start + parseFloat(end, 10);
 				}
 
 				// protect against non numeric properties.
-                if ( typeof(end) === "number" ) {
+				if ( typeof(end) === "number" ) {
 					_object[ property ] = start + ( end - start ) * value;
 				}
 
@@ -513,7 +556,7 @@ TWEEN.Tween = function ( object ) {
 		}
 
 		if ( elapsed == 1 ) {
-
+      
 			if ( _repeat > 0 ) {
 
 				if( isFinite( _repeat ) ) {
@@ -531,10 +574,14 @@ TWEEN.Tween = function ( object ) {
 						var tmp = _valuesStartRepeat[ property ];
 						_valuesStartRepeat[ property ] = _valuesEnd[ property ];
 						_valuesEnd[ property ] = tmp;
-						_reversed = !_reversed;
 					}
+
 					_valuesStart[ property ] = _valuesStartRepeat[ property ];
 
+				}
+
+				if (_yoyo) {
+					_reversed = !_reversed;
 				}
 
 				_startTime = time + _delayTime;
@@ -566,7 +613,6 @@ TWEEN.Tween = function ( object ) {
 	};
 
 };
-
 
 TWEEN.Easing = {
 
