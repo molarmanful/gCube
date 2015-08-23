@@ -11305,6 +11305,9 @@ ERNO.Cube = function( parameters ){
 	this.size = parameters.textureSize * 3;
 	this.cubeletSize = this.size / 3;
 
+   
+   // Make a TweenGroup to keep track of all of the cube's tweens.
+   this.tweenGroup = new TWEEN.TweenGroup();
 
 
 	//	To display our cube, we'll need some 3D specific attributes, like a camera
@@ -11853,7 +11856,7 @@ ERNO.extend( ERNO.Cube.prototype, {
 
 		//	Boom! Rotate a slice
 
-		new TWEEN.Tween( slice )
+		new TWEEN.Tween( slice, this.tweenGroup )
 		.to({
 
 			rotation: radians
@@ -12007,7 +12010,7 @@ ERNO.extend( ERNO.Cube.prototype, {
 				this.time += frameDelta;
 
 
-				TWEEN.update( this.time );
+				this.tweenGroup.update( this.time );
 
 
 
