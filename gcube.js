@@ -242,10 +242,8 @@ var GCube;
         h = this.element.find('g-highlight').text(),
         t = this.element.find('g-text').text(),
         f = this.element.find('g-florian').text();
-      // should try to keep consistent about passing in the tag content strings to these functions,
-      // and the logic for the florian tag shouldn't go here anyway.
       
-      this.gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f[0],f[1]);
+      this.gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
       return this;
     },
     
