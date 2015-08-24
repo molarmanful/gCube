@@ -258,7 +258,7 @@ var GCube;
       if (typeof speed === 'number') {
         this.cube.twistDuration = speed;
       } else if (typeof speed === 'string' && speed.length > 0) {
-        this.cube.twistDuration = parseFloat(x);
+        this.cube.twistDuration = parseFloat(speed);
       } else {
         this.cube.twistDuration = 10;
       }
