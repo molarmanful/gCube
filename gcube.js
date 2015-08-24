@@ -236,22 +236,28 @@ var GCube;
     // Do the standard setup of a gCube using the parameters found inside the html tags.
     // TODO: This could take an optional JSON object giving all the parameters
     setup: function() {
-      var s = this.element.find('g-speed').text(),
-        sc = this.element.find('g-scramble').text(),
-        a = this.element.find('g-algorithm').text(),
-        h = this.element.find('g-highlight').text(),
-        t = this.element.find('g-text').text(),
-        f = this.element.find('g-florian').text();
+      var speed = this.element.find('g-speed').text(),
+        scramble = this.element.find('g-scramble').text(),
+        algorithm = this.element.find('g-algorithm').text(),
+        highlight = this.element.find('g-highlight').text(),
+        text = this.element.find('g-text').text(),
+        florian = this.element.find('g-florian').text();
       
-      this.gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f);
+      this.gspeed(speed)
+          .gscramble(scramble)
+          .galgorithm(algorithm)
+          .ghighlight(highlight)
+          .gtext(text)
+          .gflorian(florian);
+          
       return this;
     },
     
     // Change the speed of the gCube's turning animations.
-    gspeed: function(x) {
-      if (typeof x === 'number') {
-        this.cube.twistDuration = x;
-      } else if (typeof x === 'string' && x.length > 0) {
+    gspeed: function(speed) {
+      if (typeof speed === 'number') {
+        this.cube.twistDuration = speed;
+      } else if (typeof speed === 'string' && speed.length > 0) {
         this.cube.twistDuration = parseFloat(x);
       } else {
         this.cube.twistDuration = 10;
@@ -261,38 +267,44 @@ var GCube;
     
     // Set the scramble of the gCube. This determines the initial state of the cube.
     // TODO: use sub-tags or attributes instead of the irc-like slash command syntax.
-    gscramble: function(x) {
-      if (typeof x === 'string' && x.length > 0) {
-        var scramble = algparse(x.replace(/\/random/i, '').replace(/\/2-genR/i, '').replace(/\/2-genL/i, '').replace(/\/2-genM/i, '').replace(/\/3-genRF/i, '').replace(/\/3-genLF/i, '').replace(/\/3-genRL/i, ''));
-        if (x.match('/random')) {
-          if (x.match('/2-genR')) {
+    gscramble: function(scramble) {
+      if (typeof scramble === 'string' && scramble.length > 0) {
+        var algorithm = algparse(scramble.replace(/\/random/i, '')
+                                         .replace(/\/2-genR/i, '')
+                                         .replace(/\/2-genL/i, '')
+                                         .replace(/\/2-genM/i, '')
+                                         .replace(/\/3-genRF/i, '')
+                                         .replace(/\/3-genLF/i, '')
+                                         .replace(/\/3-genRL/i, ''));
+        if (scramble.match('/random')) {
+          if (scramble.match('/2-genR')) {
             this.cube.shuffleMethod = 'RrUu';
-          } else if (x.match('/2-genM')) {
+          } else if (scramble.match('/2-genM')) {
             this.cube.shuffleMethod = 'MmUu';
-          } else if (x.match('/2-genL')) {
+          } else if (scramble.match('/2-genL')) {
             this.cube.shuffleMethod = 'RrUu';
-          } else if (x.match('/3-genRF')) {
+          } else if (scramble.match('/3-genRF')) {
             this.cube.shuffleMethod = 'RrUuFf';
-          } else if (x.match('/3-genLF')) {
+          } else if (scramble.match('/3-genLF')) {
             this.cube.shuffleMethod = 'LlUuFf';
-          } else if (x.match('/3-genRL')) {
+          } else if (scramble.match('/3-genRL')) {
             this.cube.shuffleMethod = 'RrUuLl';
           } else {
             this.cube.shuffleMethod = 'RrLlUuDdFfBb';
           }
           this.cube.shuffle(25);
         } else {
-          this.cube.twist(scramble);
+          this.cube.twist(algorithm);
         }
       }
       return this;
     },
     
     // Set the algorithm. When an algorithm is set, the gCube becomes a playable demo of a single algorithm.
-    galgorithm: function(x) {
-      if (typeof x === 'string' && x.length > 0) {
-        var algorithm = algparse(x);
-        var algorithmInverse = algparseinv(x);
+    galgorithm: function(algorithmString) {
+      if (typeof algorithmString === 'string' && algorithmString.length > 0) {
+        var algorithm = algparse(algorithmString);
+        var algorithmInverse = algparseinv(algorithmString);
         this.cube.mouseControlsEnabled = false;
         
         this.container.children('.algorithmControls').remove();
@@ -343,12 +355,12 @@ var GCube;
     // a highlight mode the cube's stickers can be selectively hidden. This is useful for
     // demonstrating algorithms used to solve certain steps in a solution method.
     // The highlight is applied before the scramble while the cube is still in the solved state.
-    ghighlight: function(x) {
-      if (typeof x === 'string' && x.length > 0) {
+    ghighlight: function(highlight) {
+      if (typeof highlight === 'string' && highlight.length > 0) {
         this.cube.hideStickers();
-        x = x.toLowerCase();
-        if (highlighters.hasOwnProperty(x)) {
-          highlighters[x].apply(this.cube);
+        highlight = highlight.toLowerCase();
+        if (highlighters.hasOwnProperty(highlight)) {
+          highlighters[highlight].apply(this.cube);
         } else {
           this.cube.showStickers();
         }
@@ -358,10 +370,10 @@ var GCube;
     
     // change text
     // TODO: I don't think this is working properly. Need to test further.
-    gtext: function(x) {
-      if (typeof x === 'string' && x.length > 0) {
+    gtext: function(text) {
+      if (typeof text === 'string' && text.length > 0) {
         this.cube.showTexts();
-        this.cube.folds[0].setText(x);
+        this.cube.folds[0].setText(text);
         this.cube.folds[1].setText('');
         this.cube.folds[2].setText('');
         this.cube.rotation.x = 50.2;
@@ -374,13 +386,13 @@ var GCube;
     // the puzzle to be more flexible and "cut" better, making it better for speedsolving.
     // This function makes the gCube look like a Florian mod by adding some rounding to the
     // corners of the stickers.
-    gflorian: function(x) {
+    gflorian: function(florian) {
       var amounts;
       var x = '0';
       var y = '0';
       
-      if (typeof x === 'string' && x.match(',')) {
-         amounts = x.replace(/\s/g).split(',');
+      if (typeof florian === 'string' && florian.match(',')) {
+         amounts = florian.replace(/\s/g).split(',');
          x = amounts[0];
          y = amounts[1];
       }
