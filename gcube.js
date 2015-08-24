@@ -369,7 +369,7 @@ var GCube;
     },
     
     // change text
-    // TODO: I don't think this is working properly. Need to test further.
+    // TODO: The text can be highlighted, but that should probably be fixed.
     gtext: function(text) {
       if (typeof text === 'string' && text.length > 0) {
         this.cube.showTexts();
@@ -456,7 +456,7 @@ var GCube;
       '.cube .cubeletId-26 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}</style>');
       
       return this;
-    },
+    }
   };
   
   // Add the last layer highlighting functions to the Cube class.
