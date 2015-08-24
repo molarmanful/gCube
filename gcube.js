@@ -1,9 +1,4 @@
-/*
-// TODO: Define a global object for gCube. Everything that gCube needs to expose goes in here.
-gCube = {
-  cubes: []
-};
-*/
+var GCube;
 
 //plugin start
 (function($) {
@@ -211,7 +206,7 @@ gCube = {
   };
   
   // This is the GCube class's constructor
-  function GCube(element) {
+  GCube = function(element) {
     // TODO: make sure there is only one g-cube element in the argument
     
     // Wrap the element with jQuery, in case it hasn't been wrapped already.
@@ -461,7 +456,7 @@ gCube = {
   });
   
   // Expose a function to do the standard setup on all g-cubes.
-  setupAllGcubes = function() {
+  GCube.setupAllGcubes = function() {
     $('g-cube').each(function() {
       new GCube(this).setup();
     });
@@ -471,7 +466,7 @@ gCube = {
   var stylesheet = $('<link rel="stylesheet" type="text/css" href="gcube.css">');  
   stylesheet.load(function() {
     // Construct all of the g-cubes.
-    setupAllGcubes();
+    GCube.setupAllGcubes();
   });
   $("head").prepend(stylesheet);
 }(jQuery));
