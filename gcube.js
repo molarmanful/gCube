@@ -376,16 +376,16 @@ var GCube;
     // corners of the stickers.
     gflorian: function(x) {
       var amounts;
-      if (x.match(',')) {
+      var x = '0';
+      var y = '0';
+      
+      if (typeof x === 'string' && x.match(',')) {
          amounts = x.replace(/\s/g).split(',');
+         x = amounts[0];
+         y = amounts[1];
       }
       this.container.children('style').remove();
-      if (typeof amounts[0] === 'string') {
-        x = amounts[0];
-      }
-      if (typeof amounts[1] === 'string') {
-        y = amounts[1];
-      }
+      
       //this is gonna be really messy...
       this.container.prepend('<style>'+
       '.cube .cubeletId-0 .faceFront .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}'+
