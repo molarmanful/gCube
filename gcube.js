@@ -244,12 +244,7 @@ var GCube;
         f = this.element.find('g-florian').text();
       // should try to keep consistent about passing in the tag content strings to these functions,
       // and the logic for the florian tag shouldn't go here anyway.
-      if (f.match(',')) {
-        f = f.replace(/\s/g).split(',');
-      } else {
-        f = ['',''];
-      }
-      // TODO: need to make these functions of this class's prototype, rather than jquery extensions
+      
       this.gspeed(s).gscramble(sc).galgorithm(a).ghighlight(h).gtext(t).gflorian(f[0],f[1]);
       return this;
     },
@@ -374,20 +369,22 @@ var GCube;
       return this;
     },
     
-    // Set the "florian" intensity on the edges of each face (e) and the centers of each face (f).
+    // Set the "florian" intensity on the edges of each face and the centers of each face.
     // A Florian mod is a type of Rubik's cube mod where the inside edges are rounded to enable
     // the puzzle to be more flexible and "cut" better, making it better for speedsolving.
     // This function makes the gCube look like a Florian mod by adding some rounding to the
     // corners of the stickers.
-    gflorian: function(e, f) {
-      var x = '0.1em';
-      var y = '0.1em';
-      this.container.children('style').remove();
-      if (typeof e === 'string') {
-        x = e;
+    gflorian: function(x) {
+      var amounts;
+      if (x.match(',')) {
+         amounts = x.replace(/\s/g).split(',');
       }
-      if (typeof f === 'string') {
-        y = f;
+      this.container.children('style').remove();
+      if (typeof amounts[0] === 'string') {
+        x = amounts[0];
+      }
+      if (typeof amounts[1] === 'string') {
+        y = amounts[1];
       }
       //this is gonna be really messy...
       this.container.prepend('<style>'+
