@@ -299,20 +299,45 @@ var GCube;
         var algorithm = algparse(x);
         var algorithmInverse = algparseinv(x);
         this.cube.mouseControlsEnabled = false;
-        this.container.children('button, input, span').remove();
-        this.container.prepend('<button class="playalg" style="top: 0; z-index: 100">Play Algorithm</button><br><span>Speed:</span><input class="speedslider" type="range" min="10" max="1500" value="500">');
+        
+        this.container.children('.algorithmControls').remove();
+        
+        var algorithmControls = $('<div class="algorithmControls">');
+        
+        var algorithmControlButton = $('<button class="playalg">');
+        algorithmControlButton.text('Play Algorithm');
+        
+        algorithmControls.append(algorithmControlButton);
+        
+        algorithmControls.append($('<br/>'));
+        
+        var algorithmSpeedLabel = $('<span>');
+        algorithmSpeedLabel.text('Speed:');
+        
+        algorithmControls.append(algorithmSpeedLabel);
+        
+        var algorithmSpeedSlider = $('<input class="speedslider" type="range">');
+        algorithmSpeedSlider.attr('min', '10');
+        algorithmSpeedSlider.attr('max', '1500');
+        algorithmSpeedSlider.attr('value', '500');
+        
+        algorithmControls.append(algorithmSpeedSlider);
+        
+        this.container.prepend(algorithmControls);
         
         var gcube = this; // Keep a reference to the current gCube.
-        this.container.children('.playalg').click(function() {
-          var button = $(this);
-          if (button.text() == 'Play Algorithm') {
-            gcube.cube.twistDuration = parseInt(gcube.container.children('.speedslider').val());
-            button.text('Reverse Algorithm');
+        var algorithmPlayed = false;
+        algorithmControlButton.click(function() {
+          if (!algorithmPlayed) {
+            algorithmPlayed = true;
+            gcube.cube.twistDuration = parseInt(algorithmSpeedSlider.val());
+            algorithmControlButton.text('Reverse Algorithm');
             gcube.cube.twist(algorithm);
           } else {
+            algorithmPlayed = false;
             gcube.cube.twistDuration = 10;
             gcube.cube.twist(algorithmInverse);
-            button.text('Play Algorithm');
+            algorithmControlButton.text('Play Algorithm');
           }
         });
       }
