@@ -2,8 +2,6 @@ var GCube;
 
 //plugin start
 (function($) {
-  var algorithm, algorithmInverse;
-
   //alg parsers
   function algparse(s) {
     var x = [];
