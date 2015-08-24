@@ -249,8 +249,10 @@ var GCube;
     
     // Change the speed of the gCube's turning animations.
     gspeed: function(x) {
-      if (x.length) {
+      if (typeof x === 'number') {
         this.cube.twistDuration = x;
+      } else if (typeof x === 'string') {
+        this.cube.twistDuration = parseFloat(x);
       } else {
         this.cube.twistDuration = 10;
       }
