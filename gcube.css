@@ -13,7 +13,7 @@ g-cube, .cubecont {
 	clear: both;
 	position: inherit;
 }
-g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian {
+g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian, g-angle {
 	display: none;
 }
 
