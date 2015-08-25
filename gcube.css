@@ -13,7 +13,7 @@ g-cube, .cubecont {
 	clear: both;
 	position: inherit;
 }
-g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian, g-angle {
+g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian {
 	display: none;
 }
 
@@ -90,11 +90,6 @@ g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian
   	-o-box-sizing: border-box;
   	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 
 }
 
