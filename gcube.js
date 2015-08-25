@@ -212,6 +212,7 @@ var GCube;
     
     // Create a cube and set some basic properties
     this.cube = new ERNO.Cube();
+    this.cube.rotation.y = -0.8;
     this.cube.keyboardControlsEnabled = false;
     this.cube.core.setOpacity(0);
     
@@ -241,15 +242,13 @@ var GCube;
         highlight = this.element.find('g-highlight').text(),
         text = this.element.find('g-text').text(),
         florian = this.element.find('g-florian').text();
-        angle = this.element.find('g-angle').text();
       
       this.gspeed(speed)
           .gscramble(scramble)
           .galgorithm(algorithm)
           .ghighlight(highlight)
           .gtext(text)
-          .gflorian(florian)
-          .gangle(angle);
+          .gflorian(florian);
           
       return this;
     },
@@ -370,6 +369,7 @@ var GCube;
     },
     
     // change text
+    // TODO: The text can be highlighted, but that should probably be fixed.
     gtext: function(text) {
       if (typeof text === 'string' && text.length > 0) {
         this.cube.showTexts();
@@ -456,26 +456,6 @@ var GCube;
       '.cube .cubeletId-26 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}</style>');
       
       return this;
-    },
-    
-    //Set the angle of the cube. Arguments are x, y, z.
-    gangle: function(angle){
-      x = 0;
-      y = 0;
-      z = 0;
-      
-      if (typeof angle === 'string' && angle.match(',')) {
-         amounts = angle.replace(/\s/g).split(',');
-         x = parseInt(amounts[0]);
-         y = parseInt([amounts[1]]);
-         z = parseInt([amounts[2]]);
-      }
-      
-      this.rotation = {
-        x: 0|x,
-        y: (0|y) + 0.8,
-        z: 0|z
-      }
     }
   };
   
@@ -515,7 +495,7 @@ var GCube;
   };
   
   // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
-  var stylesheet = $('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/gCube/gcube.css">');  
+  var stylesheet = $('<link rel="stylesheet" type="text/css" href="gcube.css">');  
   stylesheet.load(function() {
     // Construct all of the g-cubes.
     GCube.setupAllGcubes();
