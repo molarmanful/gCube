@@ -25,7 +25,6 @@ HTML attributes are set using custom tags inside `g-cube` tags.
 	<g-algorithm>R U R' U'</g-algorithm>
 	<g-highlight>flxcross</g-highlight>
 	<g-florian>0.2em,0.1em</g-florian>
-	<g-angle>0.1,0.6,0.5</g-angle>
 </g-cube>
 ```
 
@@ -43,8 +42,6 @@ $('g-cube').galgorithm("R U R' U'");
 $('g-cube').ghighlight("flxcross");
 //florian
 $('g-cube').gflorian("0.2em,0.1em");
-//angle
-$('g-cube').gangle("0.1,0.6,0.5");
 ```
 
 | HTML/jQuery Attribute | Description |
@@ -56,7 +53,6 @@ $('g-cube').gangle("0.1,0.6,0.5");
 | _highlight_ | String. Case-sensitive. |
 | _text_ | String. You can put a message that is 18 characters or less. This will render on the front 2 faces of the cube. Defaults to an empty string. |
 | _florian_ | String, string. First argument determines amount of curvature to add to the stickers at cubelet intersections. Second argument determines amount of curvature to add to the stickers at the edges of the cubelets. Must be CSS-acceptable measurements. |
-| _angle_ | Number, number, number. Arguments determine rotation (decimal form) of x, y, and z rotations. |
 | _callback_ | Function to be called after options are initialized. |
 
 CSS
