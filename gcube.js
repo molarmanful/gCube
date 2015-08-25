@@ -241,7 +241,7 @@ var GCube;
         highlight = this.element.find('g-highlight').text(),
         text = this.element.find('g-text').text(),
         florian = this.element.find('g-florian').text();
-        angle = this.element.find('g-angle').text().split(',');
+        angle = this.element.find('g-angle').text();
       
       this.gspeed(speed)
           .gscramble(scramble)
@@ -249,7 +249,7 @@ var GCube;
           .ghighlight(highlight)
           .gtext(text)
           .gflorian(florian)
-          .gangle([angle[0]],[angle[1]],[angle[2]]);
+          .gangle(angle);
           
       return this;
     },
@@ -459,7 +459,18 @@ var GCube;
     },
     
     //Set the angle of the cube. Arguments are x, y, z.
-    gangle: function(x, y, z){
+    gangle: function(angle){
+      x = 0;
+      y = 0;
+      z = 0;
+      
+      if (typeof angle === 'string' && angle.match(',')) {
+         amounts = angle.replace(/\s/g).split(',');
+         x = parseInt(amounts[0]);
+         y = parseInt([amounts[1]]);
+         z = parseInt([amounts[2]]);
+      }
+      
       this.rotation = {
         x: 0|x,
         y: (0|y) + 0.8,
