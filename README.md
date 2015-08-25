@@ -25,6 +25,7 @@ HTML attributes are set using custom tags inside `g-cube` tags.
 	<g-algorithm>R U R' U'</g-algorithm>
 	<g-highlight>flxcross</g-highlight>
 	<g-florian>0.2em,0.1em</g-florian>
+	<g-angle>0.1,0.6,0.5</g-angle>
 </g-cube>
 ```
 
@@ -41,9 +42,9 @@ $('g-cube').galgorithm("R U R' U'");
 //highlight
 $('g-cube').ghighlight("flxcross");
 //florian
-$('g-cube').gflorian("0.2em","0.1em");
+$('g-cube').gflorian("0.2em,0.1em");
 //angle
-$('g-cube').gangle(0.1,0.6,0.5);
+$('g-cube').gangle("0.1,0.6,0.5");
 ```
 
 | HTML/jQuery Attribute | Description |
