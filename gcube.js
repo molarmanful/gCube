@@ -212,7 +212,6 @@ var GCube;
     
     // Create a cube and set some basic properties
     this.cube = new ERNO.Cube();
-    this.cube.rotation.y = -0.8;
     this.cube.keyboardControlsEnabled = false;
     this.cube.core.setOpacity(0);
     
@@ -242,13 +241,15 @@ var GCube;
         highlight = this.element.find('g-highlight').text(),
         text = this.element.find('g-text').text(),
         florian = this.element.find('g-florian').text();
+        angle = this.element.find('g-angle').text().split(',');
       
       this.gspeed(speed)
           .gscramble(scramble)
           .galgorithm(algorithm)
           .ghighlight(highlight)
           .gtext(text)
-          .gflorian(florian);
+          .gflorian(florian)
+          .gangle([angle[0]],[angle[1]],[angle[2]]);
           
       return this;
     },
@@ -369,7 +370,6 @@ var GCube;
     },
     
     // change text
-    // TODO: The text can be highlighted, but that should probably be fixed.
     gtext: function(text) {
       if (typeof text === 'string' && text.length > 0) {
         this.cube.showTexts();
@@ -456,6 +456,15 @@ var GCube;
       '.cube .cubeletId-26 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}</style>');
       
       return this;
+    },
+    
+    //Set the angle of the cube. Arguments are x, y, z.
+    gangle: function(x, y, z){
+      this.rotation = {
+        x: 0|x,
+        y: (0|y) + 0.8,
+        z: 0|z
+      }
     }
   };
   
