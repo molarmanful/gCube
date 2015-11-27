@@ -2,6 +2,7 @@ var GCube;
 
 //plugin start
 (function($) {
+
   //alg parsers
   function algparse(s) {
     var x = [];
@@ -301,7 +302,10 @@ var GCube;
     },
     
     // Set the algorithm. When an algorithm is set, the gCube becomes a playable demo of a single algorithm.
-    galgorithm: function(algorithmString) {
+    // If the algorithm is the only argument, the button and slider show up by default.
+    // If the button is hidden, the cube will play the algorithm when touched or clicked, and
+    // reset when touched or clicked again.
+    galgorithm: function(algorithmString, hideButton, hideSlider) {
       if (typeof algorithmString === 'string' && algorithmString.length > 0) {
         var algorithm = algparse(algorithmString);
         var algorithmInverse = algparseinv(algorithmString);
@@ -311,10 +315,13 @@ var GCube;
         
         var algorithmControls = $('<div class="algorithmControls">');
         
-        var algorithmControlButton = $('<button class="playalg">');
-        algorithmControlButton.text('Play Algorithm');
-        
-        algorithmControls.append(algorithmControlButton);
+        var algorithmControlButton;
+
+        if (!hideButton) {
+          algorithmControlButton = $('<button class="playalg">');
+          algorithmControlButton.text('Play Algorithm');
+          algorithmControls.append(algorithmControlButton);
+        }
         
         algorithmControls.append($('<br/>'));
         
@@ -323,28 +330,54 @@ var GCube;
         
         algorithmControls.append(algorithmSpeedLabel);
         
-        var algorithmSpeedSlider = $('<input class="speedslider" type="range">');
-        algorithmSpeedSlider.attr('min', '10');
-        algorithmSpeedSlider.attr('max', '1500');
-        algorithmSpeedSlider.attr('value', '500');
+        var algorithmSpeedSlider;
+        if (!hideSlider) {
+          algorithmSpeedSlider = $('<input class="speedslider" type="range">');
+          
+          algorithmSpeedSlider.attr('min', '10');
+          algorithmSpeedSlider.attr('max', '1500');
+          algorithmSpeedSlider.attr('value', '500');
+          
+          algorithmControls.append(algorithmSpeedSlider);
+          
+          this.container.prepend(algorithmControls);
+        }
         
-        algorithmControls.append(algorithmSpeedSlider);
-        
-        this.container.prepend(algorithmControls);
+        var clickTarget;
+        if (hideButton) {
+          clickTarget = this.element;
+        } else {
+          clickTarget = algorithmControlButton;
+        }
         
         var gcube = this; // Keep a reference to the current gCube.
         var algorithmPlayed = false;
-        algorithmControlButton.click(function() {
+        clickTarget.click(function() {
           if (!algorithmPlayed) {
             algorithmPlayed = true;
-            gcube.cube.twistDuration = parseInt(algorithmSpeedSlider.val());
-            algorithmControlButton.text('Reverse Algorithm');
+            
+            if (hideSlider) {
+              gcube.cube.twistDuration = 500;
+            }
+            else {
+              gcube.cube.twistDuration = parseInt(algorithmSpeedSlider.val());
+            }
+            
+            if (!hideButton) {
+              algorithmControlButton.text('Reverse Algorithm');
+            }
+            
             gcube.cube.twist(algorithm);
           } else {
             algorithmPlayed = false;
-            gcube.cube.twistDuration = 10;
+            
+            gcube.cube.twistDuration = 200;
+            
+            if (!hideButton) {
+               algorithmControlButton.text('Play Algorithm');
+            }
+            
             gcube.cube.twist(algorithmInverse);
-            algorithmControlButton.text('Play Algorithm');
           }
         });
       }
