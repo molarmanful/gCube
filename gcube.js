@@ -243,13 +243,15 @@ var GCube;
         highlight = this.element.find('g-highlight').text(),
         text = this.element.find('g-text').text(),
         florian = this.element.find('g-florian').text();
+	executor = this.element.find('g-executor').text();
       
       this.gspeed(speed)
           .gscramble(scramble)
           .galgorithm(algorithm)
           .ghighlight(highlight)
           .gtext(text)
-          .gflorian(florian);
+          .gflorian(florian)
+	  .gexecutor(executor);
           
       return this;
     },
@@ -489,6 +491,24 @@ var GCube;
       '.cube .cubeletId-26 .faceBack .sticker {  border-radius: ' + y + ' ' + y + ' ' + x + ' ' + y + ';}</style>');
       
       return this;
+    },
+
+    gexecutor: function(defaultAlgorithm) {
+      var textbox = $('<input type="text"/>');
+      textbox.attr('value', defaultAlgorithm);
+      textbox.addClass('gtextbox');
+
+      var executeButton = $('<input type="button"/>');
+      executeButton.attr('value', 'Execute Algorithm');
+      executeButton.addClass('gexecutebutton');
+      
+      var gcube = this;
+      executeButton.click(function() {
+        var algorithm = algparse(textbox.val());
+        gcube.cube.twist(algorithm);
+      });
+
+      this.container.append(textbox, executeButton);
     }
   };
   
