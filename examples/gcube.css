@@ -1,0 +1,274 @@
+    /************/
+   /*          */
+  /*   Cube   */
+ /*          */
+/************/
+g-cube, .cubecont {
+	height: 100%;
+	width: 100%;
+	float: left;
+	display: block;
+}
+.cubecont {
+	clear: both;
+	position: inherit;
+}
+g-shufflespeed, g-speed, g-scramble, g-algorithm, g-highlight, g-text, g-florian {
+	display: none;
+}
+
+.cube {
+	opacity: 1;
+	width:  100%;
+	height: 100%;
+}
+
+
+/*
+	This next bit is just for labeling a Cube's face.
+*/
+.faceLabel {
+	display: none;
+	position: absolute;
+	font-size: 60px;
+	text-align: center;
+}
+
+
+
+
+
+    /****************/
+   /*              */
+  /*   Cubelets   */
+ /*              */
+/****************/
+
+
+.cube .cubelet {
+
+	width:  1em;
+	height: 1em;
+	position: absolute;
+	box-sizing: border-box;
+}
+
+
+
+
+
+
+    /*********************/
+   /*                   */
+  /*   Cubelet Faces   */
+ /*                   */
+/*********************/
+
+
+/*
+	Direction-facing planes of limited size
+	that act as containers for content.
+*/
+.cube /*.cubelet >*/ .face {
+
+	position: absolute;
+	width:  1em;
+	height: 1em;
+	background-color: black;
+	text-align: center;
+
+
+	-webkit-backface-visibility: hidden;
+  	-moz-backface-visibility:    hidden;
+  	-o-backface-visibility:      hidden;
+  	backface-visibility:         hidden;
+
+
+  	padding: 0.05em;
+  	-moz-box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+  	-o-box-sizing: border-box;
+  	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+
+}
+
+
+
+/*
+	Extroverted faces have content such as a colored sticker, text, etc.
+	They are constantly visible. Meanwhile introverted faces are not
+	visible when the cube is an untwisted state. Some introverted walls
+	are momentarily visible as the cube twists.
+*/
+.cube /*.cubelet >*/ .face.faceIntroverted { background-color: black; }
+
+
+
+/*
+	Our Cubelet faces are naturally black to match the physical Rubik's Cube.
+	Adding or removing the "transparent" class here keeps the position and
+	rotation integrity of the face while supporting Group.showPlastics() and
+	Group.hidePlastics().
+*/
+
+.cube /*.cubelet >*/ .face.faceTransparent { background-color: transparent; }
+
+
+/*
+	Awwww.... Look at da purty colors...
+*/
+.stickerless, .white, .yellow, .blue, .green, .orange, .yellow, .neon {
+	opacity: 1;
+	-webkit-backface-visibility: hidden;
+  	-moz-backface-visibility:    hidden;
+  	-o-backface-visibility:      hidden;
+  	backface-visibility:         hidden;
+}
+.stickerless .face.faceFront { background-color: Blue; }
+.stickerless .face.faceUp    { background-color: Yellow; }
+.stickerless .face.faceRight { background-color: Red; }
+.stickerless .face.faceDown  { background-color: White; }
+.stickerless .face.faceLeft  { background-color: Orange; }
+.stickerless .face.faceBack  { background-color: Green; }
+.stickerless /*.cubelet >*/ .face.faceIntroverted { border: 10px solid black; }
+.white .face { background-color: #f9f9f9; }
+.white /*.cubelet >*/ .face.faceIntroverted { background-color: #f9f9f9; }
+.yellow .face { background-color: Gold; }
+.yellow /*.cubelet >*/ .face.faceIntroverted { background-color: gold; }
+.blue .face { background-color: #000398; }
+.blue /*.cubelet >*/ .face.faceIntroverted { background-color: #000398; }
+.green .face { background-color: DarkGreen; }
+.green /*.cubelet >*/ .face.faceIntroverted { background-color: DarkGreen; }
+.red .face { background-color: Maroon; }
+.red /*.cubelet >*/ .face.faceIntroverted { background-color: Maroon; }
+.orange .face { background-color: #EE7600; }
+.orange /*.cubelet >*/ .face.faceIntroverted { background-color: #ee7600; }
+.neon .face { background-color: chartreuse; }
+.neon /*.cubelet >*/ .face.faceIntroverted { background-color: chartreuse; }
+.transparent .face {
+	background-color: rgba(10, 10, 10, 0.1);
+	-webkit-backface-visibility: visible;
+  	-moz-backface-visibility:    visible;
+  	-o-backface-visibility:      visible;
+  	backface-visibility:         visible;
+}
+.transparent /*.cubelet >*/ .face.faceIntroverted { background-color: rgba(10, 10, 10, 0.1); }
+
+
+
+    /****************************/
+   /*                          */
+  /*   Cubelet Face Content   */
+ /*                          */
+/****************************/
+
+
+/*
+	WIREFRAMES
+	Oddly, we cannot use borders to make our wireframes
+	because this will cause a visible oscillation as CSS
+	struggles to decide what gets drawn on top.
+	Instead we use specially crafted box-shadows.
+*/
+.cube /*.cubelet > */.face > .wireframe {
+
+	/*box-sizing: border-box;*/
+	display: none;
+	position: absolute;
+	width:  140px;
+	height: 140px;
+	background-color: rgba( 255, 255, 255, 0.05 );
+}
+
+
+/*
+	STICKERS
+	About what you'd expect. The default color here
+	is full on bright purple (which does not exist
+	on an actual Rubik's Cube) so that one can see
+	quickly if something's gone wrong with stickers.
+*/
+.cube .sticker {
+
+	/*position: absolute;*/
+
+	width:  98%;
+	height: 98%;
+	background-color: #F0F;
+	text-align: center;
+
+}
+
+.cube .sticker.red 	{ background: white; 	}
+.cube .sticker.white 	{ background: blue;	}
+.cube .sticker.blue 	{ background: red; 	}
+.cube .sticker.green 	{ background: orange; }
+.cube .sticker.orange 	{ background: yellow; 	}
+.cube .sticker.yellow 	{ background: green; 	}
+/*
+	CUBELET IDs
+	Each Cubelet has a unique ID number from 0 to 26.
+	We display these mostly for debugging purposes
+	as the end user probably doesn't care and/or would
+	find this superfluous info confusing.
+*/
+.cube /*.cubelet >*/ .face > .id {
+
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	width:  90%;
+	height: 90%;
+	font-size:   1em;
+	line-height: 0.9em;
+	text-align: center;
+	color: #000;
+
+}
+.cube /*.cubelet >*/ .face > .id > .underline {
+
+	border-bottom: 1px solid #000;
+}
+/*
+	We want ID numbers displayed on introverted faces to be white,
+	but why use #FEFEFE instead of #FFF?
+	So we can export as PDF, open up in Adobe Illustrator, select "Same Fill Color"
+	and it will exclude our #FFF text nodes!
+*/
+.cube /*.cubelet > */.face.faceIntroverted > .id {
+
+	color: #FEFEFE;
+}
+.cube /*.cubelet >*/ .face.faceIntroverted > .id > .underline {
+
+	border-bottom: 1px solid #FEFEFE;
+}
+
+
+
+/*
+	TEXT
+	Formerly referred to as "Hero Text", this is the one-character
+	display for a Cubelet face.
+*/
+.cube /*.cubelet >*/ .face > .text {
+
+
+	display: none;
+	position: absolute;
+	z-index: 2000;
+	width:  100%;
+	height: 100%;
+	text-align: center;
+	color: #FFF;
+	font-size:   1em;
+	line-height: 1em;
+	top: 0;
+	left: 0;
+
+	/*-webkit-backface-visibility: hidden;
+  	-moz-backface-visibility:    hidden;
+  	-o-backface-visibility:      hidden;
+  	backface-visibility:         hidden;*/
+}

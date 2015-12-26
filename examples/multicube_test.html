@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" lang="en-us"/>
+        <title>gCube demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../google-cube-code.js"></script>
+        <script src="../gcube.js"></script>
+        <style>
+            .halfWidth {
+                width: 50%;
+                float: left;
+            }
+
+            .centerContent {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="centerContent">gCube Demo</h1>
+        <span class="halfWidth centerContent">
+            <h2 class="centerContent">Sune: R U R' U R U2 R'</h2>
+            <g-cube>
+                <g-scramble>R U2 R' U' R U' R'</g-scramble>
+                <g-algorithm>R U R' U R U2 R'</g-algorithm>
+                <g-highlight>OLL</g-highlight> 
+            </g-cube>
+        </span>
+        <span class="halfWidth centerContent">
+            <h2 class="centerContent">Niklaus: R U' L' U R' U' L</h2>
+            <g-cube>
+                <g-scramble>L' U R U' L U R'</g-scramble>
+                <g-algorithm>R U' L' U R' U' L</g-algorithm>
+                <g-highlight>OLL</g-highlight> 
+            </g-cube>
+        </span>
+    </body>
+</html>
