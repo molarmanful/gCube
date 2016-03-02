@@ -494,6 +494,14 @@ var GCube;
     },
 
     gexecutor: function(defaultAlgorithm) {
+      // If the g-executor tag is missing, this function will be passed the empty string.
+      // In that case, we don't want to show the textbox or button.
+      // However, if you want to leave the algorithm blank, you have to put a single space
+      // inside the g-executor tag, as a temporary workaround.
+      // Ideally, this function wouldn't even be called if there were no g-executor tag.
+      if (defaultAlgorithm === '') {
+      	return;
+      }
       var textbox = $('<input type="text"/>');
       textbox.attr('value', defaultAlgorithm);
       textbox.addClass('gtextbox');
