@@ -547,11 +547,7 @@ var GCube;
     });
   };
   
-  // Wait for the stylesheet to load before rendering, so that the cube won't render improperly during the load.
-  var stylesheet = $('<link rel="stylesheet" type="text/css" href="http://molarmanful.github.io/gCube/gcube.css">');  
-  stylesheet.load(function() {
-    // Construct all of the g-cubes.
+  $(window).load(function() {
     GCube.setupAllGcubes();
   });
-  $("head").prepend(stylesheet);
 }(jQuery));
