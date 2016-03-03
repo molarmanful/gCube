@@ -11,9 +11,10 @@ How to Use
 ==================
 
 1. Include jQuery (`<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>`) if you have not already done so.
-2. Put `<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>` in the head tag, AFTER your jQuery script tag.
-3. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
-4. Sit back and cube!
+2. Put `<link rel="stylesheet" href="https://molarmanful.github.io/gCube/gcube.css"/>` in the head tag.
+3. Put `<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>` in the head tag, AFTER your jQuery script tag.
+4. Put ```<g-cube></g-cube>``` in the body tag, where you want the cube. See jQuery attributes below to customize the cube.
+5. Sit back and cube!
 
 HTML and jQuery
 ==================
