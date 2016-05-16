@@ -137,6 +137,6 @@ $('g-cube').addClass(/*name of class here*/);
 ### Inputs
 The "Play Algorithm" button has the class `playalg`. The speed slider has the class `speedslider`.
 
-Credits
+Credits/Contributors
 ==================
 Thanks to Michael Casebolt for his contributions and bug fixes. Superb job!
