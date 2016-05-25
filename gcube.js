@@ -397,8 +397,8 @@ var GCube;
     // corners of the stickers.
     gflorian: function(florian) {
       var amounts;
-      var x = '0';
-      var y = '0';
+      var x = '.1em';
+      var y = '.1em';
       
       if (typeof florian === 'string' && florian.match(',')) {
          amounts = florian.replace(/\s/g).split(',');
