@@ -120,33 +120,37 @@ var GCube;
     "oll": function() {
       this.showEdgeStickersOnUpFace();
       this.showCornerStickersOnUpFace();
+      this.equator.edges.showStickers();
+      this.down.corners.showStickers();
+      this.down.cross.showStickers();
       this.centers.showStickers();
-      this.equator.showStickers();
-      this.down.showStickers();
     },
     /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
         edges on the up face, and also the up face's center sticker. */
     "eoll": function() {
       this.showEdgeStickersOnUpFace();
+      this.equator.edges.showStickers();
+      this.down.corners.showStickers();
+      this.down.cross.showStickers();
       this.centers.showStickers();
-      this.equator.showStickers();
-      this.down.showStickers();
     },
     /** Show all the stickers on the down and equator slices, as well as the stickers facing up on
         corners on the up face, ans also the up face's center sticker. */
     "ocll": function() {
       this.showCornerStickersOnUpFace();
+      this.equator.edges.showStickers();
+      this.down.corners.showStickers();
+      this.down.cross.showStickers();
       this.centers.showStickers();
-      this.equator.showStickers();
-      this.down.showStickers();
     },
     /** Show all the stickers except for stickers on edge cubelets on the up slice which don't face up. */
     "coll": function() {
       this.showEdgeStickersOnUpFace();
-      this.centers.showStickers();
       this.up.corners.showStickers();
-      this.equator.showStickers();
-      this.down.showStickers();
+      this.equator.edges.showStickers();
+      this.down.corners.showStickers();
+      this.down.cross.showStickers();
+      this.centers.showStickers();
     },
     /** Show the stickers on all cubelets, and hide stickers on the edge cubelets of the up slice. */
     "cll": function() {
