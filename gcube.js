@@ -92,8 +92,7 @@ var GCube;
     },
     /** Only show the cubelets on the down face and the cube's centers. */
     "fl": function() {
-      this.down.cross.showStickers();
-      this.down.corners.showStickers();
+      this.down.showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
@@ -104,15 +103,14 @@ var GCube;
     },
     /** Only show the cubelets in the "middle" slice and the cube's centers. */
     "belt": function() {
-      this.equator.edges.showStickers();
+      this.equator.showStickers();
       this.centers.showStickers();
     },
     /** Only show the first two layers of the cube (the down face and the middle slice)
         and the center of the up face. Also put the down face in view of the camera. */
     "f2l": function() {
-      this.equator.edges.showStickers();
-      this.down.corners.showStickers();
-      this.down.cross.showStickers();
+      this.showStickers();
+      this.up.hideStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
@@ -156,59 +154,52 @@ var GCube;
     /** Only show the centers and a 2x2x2 block in the down-front-right position,
         and put the down face in view of the camera. */
     "2x2x2": function() {
-      this.hasId(5).showStickers();
-      this.hasId(8).showStickers();
-      this.hasId(7).showStickers();
-      this.hasId(17).showStickers();
+      this.showStickers();
+      this.up.hideStickers();
+      this.back.hideStickers();
+      this.left.hideStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
     /** Only show the centers and a 2x2x3 block along the down-front edge.
         Put the down face in view of the camera. */
     "2x2x3": function() {
-      this.hasId(5).showStickers();
-      this.hasId(8).showStickers();
-      this.hasId(7).showStickers();
-      this.hasId(17).showStickers();
-      this.hasId(3).showStickers();
-      this.hasId(6).showStickers();
-      this.hasId(15).showStickers();
+      this.showStickers();
+      this.up.hideStickers();
+      this.back.hideStickers();
+      this.centers.showStickers();
       this.rotation.x = 100;
     },
     /** Only show the centers and the cubelets on the middle slice which are not also on the up slice. */
     "eoline": function() {
-      this.hasId(7).showStickers();
-      this.hasId(25).showStickers();
+      this.showStickers();
+      this.up.hideStickers();
+      this.left.hideStickers();
+      this.right.hideStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
     /** Only show the cubelets on the right slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "fb": function() {
-      this.right.edges.showStickers();
-      this.right.corners.showStickers();
-      this.up.edges.hideStickers();
-      this.up.corners.hideStickers();
+      this.right.showStickers();
+      this.up.hideStickers();
       this.rotation.x = 100;
     },
     /** Only show the cubelets on the right and left slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "f2b": function() {
-      this.right.edges.showStickers();
-      this.right.corners.showStickers();
-      this.left.edges.showStickers();
-      this.left.corners.showStickers();
-      this.up.edges.hideStickers();
-      this.up.corners.hideStickers();
+      this.right.showStickers();
+      this.left.showStickers();
+      this.up.hideStickers();
       this.rotation.x = 100;
     },
     /** Show all cubelets except for cubelets on the middle slice and the edges on the up slice. */
     "cmll": function() {
-      this.right.edges.showStickers();
-      this.right.corners.showStickers();
-      this.left.edges.showStickers();
-      this.left.corners.showStickers();
-      this.up.edges.hideStickers();
+      this.right.showStickers();
+      this.left.showStickers();
+      this.up.hideStickers();
+      this.up.corners.showStickers();
     }
   };
   
@@ -224,7 +215,6 @@ var GCube;
     this.cube.rotation.y = -0.8;
     this.cube.keyboardControlsEnabled = false;
     this.cube.core.setOpacity(0);
-    window.cube=this.cube;
     
     // Create the cube container and put it inside the g-cube tag, and create a bounding
     // box div to hold the domElement, because the cube dynamically grows to the size
@@ -398,8 +388,8 @@ var GCube;
     // corners of the stickers.
     gflorian: function(florian) {
       var amounts;
-      var x = '.1em';
-      var y = '.1em';
+      var x = '0';
+      var y = '0';
       
       if (typeof florian === 'string' && florian.match(',')) {
          amounts = florian.replace(/\s/g).split(',');
