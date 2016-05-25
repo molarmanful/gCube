@@ -92,7 +92,8 @@ var GCube;
     },
     /** Only show the cubelets on the down face and the cube's centers. */
     "fl": function() {
-      this.down.showStickers();
+      this.down.cross.showStickers();
+      this.down.corners.showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
@@ -103,14 +104,15 @@ var GCube;
     },
     /** Only show the cubelets in the "middle" slice and the cube's centers. */
     "belt": function() {
-      this.equator.showStickers();
+      this.equator.edges.showStickers();
       this.centers.showStickers();
     },
     /** Only show the first two layers of the cube (the down face and the middle slice)
         and the center of the up face. Also put the down face in view of the camera. */
     "f2l": function() {
-      this.showStickers();
-      this.up.hideStickers();
+      this.equator.edges.showStickers();
+      this.down.corners.showStickers();
+      this.down.cross.showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
@@ -154,52 +156,59 @@ var GCube;
     /** Only show the centers and a 2x2x2 block in the down-front-right position,
         and put the down face in view of the camera. */
     "2x2x2": function() {
-      this.showStickers();
-      this.up.hideStickers();
-      this.back.hideStickers();
-      this.left.hideStickers();
+      this.hasId(5).showStickers();
+      this.hasId(8).showStickers();
+      this.hasId(7).showStickers();
+      this.hasId(17).showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
     /** Only show the centers and a 2x2x3 block along the down-front edge.
         Put the down face in view of the camera. */
     "2x2x3": function() {
-      this.showStickers();
-      this.up.hideStickers();
-      this.back.hideStickers();
-      this.centers.showStickers();
+      this.hasId(5).showStickers();
+      this.hasId(8).showStickers();
+      this.hasId(7).showStickers();
+      this.hasId(17).showStickers();
+      this.hasId(3).showStickers();
+      this.hasId(6).showStickers();
+      this.hasId(15).showStickers();
       this.rotation.x = 100;
     },
     /** Only show the centers and the cubelets on the middle slice which are not also on the up slice. */
     "eoline": function() {
-      this.showStickers();
-      this.up.hideStickers();
-      this.left.hideStickers();
-      this.right.hideStickers();
+      this.hasId(7).showStickers();
+      this.hasId(25).showStickers();
       this.centers.showStickers();
       this.rotation.x = 100;
     },
     /** Only show the cubelets on the right slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "fb": function() {
-      this.right.showStickers();
-      this.up.hideStickers();
+      this.right.edges.showStickers();
+      this.right.corners.showStickers();
+      this.up.edges.hideStickers();
+      this.up.corners.hideStickers();
       this.rotation.x = 100;
     },
     /** Only show the cubelets on the right and left slice which are not also on the up slice.
         Put the down face in view of the camera. */
     "f2b": function() {
-      this.right.showStickers();
-      this.left.showStickers();
-      this.up.hideStickers();
+      this.right.edges.showStickers();
+      this.right.corners.showStickers();
+      this.left.edges.showStickers();
+      this.left.corners.showStickers();
+      this.up.edges.hideStickers();
+      this.up.corners.hideStickers();
       this.rotation.x = 100;
     },
     /** Show all cubelets except for cubelets on the middle slice and the edges on the up slice. */
     "cmll": function() {
-      this.right.showStickers();
-      this.left.showStickers();
-      this.up.hideStickers();
-      this.up.corners.showStickers();
+      this.right.edges.showStickers();
+      this.right.corners.showStickers();
+      this.left.edges.showStickers();
+      this.left.corners.showStickers();
+      this.up.edges.hideStickers();
     }
   };
   
