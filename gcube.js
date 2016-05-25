@@ -224,6 +224,7 @@ var GCube;
     this.cube.rotation.y = -0.8;
     this.cube.keyboardControlsEnabled = false;
     this.cube.core.setOpacity(0);
+    window.cube=this.cube;
     
     // Create the cube container and put it inside the g-cube tag, and create a bounding
     // box div to hold the domElement, because the cube dynamically grows to the size
